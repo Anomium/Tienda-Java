@@ -33,10 +33,10 @@ public class Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_VentaMenu = new javax.swing.JButton();
+        btn_VendedoresMenu = new javax.swing.JButton();
+        btn_PagosMenu = new javax.swing.JButton();
+        btn_InformacionMenu = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -94,41 +94,41 @@ public class Menu extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 20));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/venta.png"))); // NOI18N
-        jButton1.setText("Venta");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_VentaMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/venta.png"))); // NOI18N
+        btn_VentaMenu.setText("Venta");
+        btn_VentaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btn_VentaMenuMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        getContentPane().add(btn_VentaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
-        jButton2.setText("Vendedores");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_VendedoresMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
+        btn_VendedoresMenu.setText("Vendedores");
+        btn_VendedoresMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btn_VendedoresMenuMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
+        getContentPane().add(btn_VendedoresMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pagos.png"))); // NOI18N
-        jButton3.setText("Pagos");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_PagosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pagos.png"))); // NOI18N
+        btn_PagosMenu.setText("Pagos");
+        btn_PagosMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                btn_PagosMenuMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 110, 100, -1));
+        getContentPane().add(btn_PagosMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 110, 100, -1));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
-        jButton4.setText("Informacion");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_InformacionMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        btn_InformacionMenu.setText("Informacion");
+        btn_InformacionMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                btn_InformacionMenuMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 120, -1));
+        getContentPane().add(btn_InformacionMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 120, -1));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logot.png"))); // NOI18N
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 28, -1, -1));
@@ -145,37 +145,37 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btn_VentaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VentaMenuMouseClicked
            
         Venta venta = new Venta();
         venta.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btn_VentaMenuMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btn_VendedoresMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VendedoresMenuMouseClicked
             
         Vendedor vendedor = new Vendedor();
         vendedor.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btn_VendedoresMenuMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void btn_PagosMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PagosMenuMouseClicked
             
         Pagos pagos = new Pagos();
         pagos.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_btn_PagosMenuMouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void btn_InformacionMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionMenuMouseClicked
            
         Informacion informacion = new Informacion();
         informacion.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_btn_InformacionMenuMouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
            
@@ -230,10 +230,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btn_InformacionMenu;
+    private javax.swing.JButton btn_PagosMenu;
+    private javax.swing.JButton btn_VendedoresMenu;
+    private javax.swing.JButton btn_VentaMenu;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;

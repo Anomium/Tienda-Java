@@ -31,18 +31,18 @@ public class Pagos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
+        lb_totalPagos = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_CalcularPagos = new javax.swing.JButton();
+        btn_VentaPagos = new javax.swing.JButton();
+        btn_VendedoresPagos = new javax.swing.JButton();
+        btn_MenuPagos = new javax.swing.JButton();
+        btn_InformacionPagos = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         jLabel3.setText("jLabel3");
 
@@ -51,7 +51,7 @@ public class Pagos extends javax.swing.JFrame {
 
         jLabel2.setText("Pagos");
 
-        jLabel4.setText("Id vendedor:");
+        jLabel4.setText("Nombre:");
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 0));
 
@@ -85,7 +85,7 @@ public class Pagos extends javax.swing.JFrame {
             .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jLabel11.setText("pago");
+        lb_totalPagos.setText("pago");
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logot.png"))); // NOI18N
 
@@ -94,42 +94,42 @@ public class Pagos extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("koda");
 
-        jButton5.setText("Calcular");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btn_CalcularPagos.setText("Calcular");
+        btn_CalcularPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btn_CalcularPagosActionPerformed(evt);
             }
         });
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/venta.png"))); // NOI18N
-        jButton9.setText("Venta");
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_VentaPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/venta.png"))); // NOI18N
+        btn_VentaPagos.setText("Venta");
+        btn_VentaPagos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
+                btn_VentaPagosMouseClicked(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
-        jButton2.setText("Vendedores");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_VendedoresPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
+        btn_VendedoresPagos.setText("Vendedores");
+        btn_VendedoresPagos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btn_VendedoresPagosMouseClicked(evt);
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/menu.png"))); // NOI18N
-        jButton6.setText("Menu");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_MenuPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/menu.png"))); // NOI18N
+        btn_MenuPagos.setText("Menu");
+        btn_MenuPagos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                btn_MenuPagosMouseClicked(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
-        jButton4.setText("Informacion");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_InformacionPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        btn_InformacionPagos.setText("Informacion");
+        btn_InformacionPagos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                btn_InformacionPagosMouseClicked(evt);
             }
         });
 
@@ -153,27 +153,27 @@ public class Pagos extends javax.swing.JFrame {
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lb_totalPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton5)
+                                                .addComponent(btn_CalcularPagos)
                                                 .addGap(54, 54, 54))
-                                            .addComponent(jTextField1))))))
+                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(15, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_InformacionPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_MenuPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_VentaPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
-                                .addComponent(jButton2)))))
+                                .addComponent(btn_VendedoresPagos)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -189,59 +189,59 @@ public class Pagos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
+                .addComponent(btn_CalcularPagos)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_totalPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton9)
-                    .addComponent(jButton2))
+                    .addComponent(btn_MenuPagos)
+                    .addComponent(btn_VentaPagos)
+                    .addComponent(btn_VendedoresPagos))
                 .addGap(28, 28, 28)
-                .addComponent(jButton4)
+                .addComponent(btn_InformacionPagos)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btn_CalcularPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CalcularPagosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btn_CalcularPagosActionPerformed
 
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+    private void btn_VentaPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VentaPagosMouseClicked
     
         Venta venta = new Venta();
         venta.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton9MouseClicked
+    }//GEN-LAST:event_btn_VentaPagosMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btn_VendedoresPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VendedoresPagosMouseClicked
             
         Vendedor vendedor = new Vendedor();
         vendedor.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btn_VendedoresPagosMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void btn_MenuPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MenuPagosMouseClicked
             
         Menu menu = new Menu();
         menu.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_btn_MenuPagosMouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void btn_InformacionPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionPagosMouseClicked
             
         Informacion informacion = new Informacion();
         informacion.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_btn_InformacionPagosMouseClicked
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
             
@@ -252,20 +252,20 @@ public class Pagos extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btn_CalcularPagos;
+    private javax.swing.JButton btn_InformacionPagos;
+    private javax.swing.JButton btn_MenuPagos;
+    private javax.swing.JButton btn_VendedoresPagos;
+    private javax.swing.JButton btn_VentaPagos;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lb_totalPagos;
     // End of variables declaration//GEN-END:variables
 }
