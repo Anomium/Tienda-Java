@@ -1,5 +1,7 @@
 package View;
 
+import javax.swing.ImageIcon;
+
 
 public class Pagos extends javax.swing.JFrame {
 
@@ -8,6 +10,7 @@ public class Pagos extends javax.swing.JFrame {
     public Pagos() {
         initComponents();
         setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
     }
 
 

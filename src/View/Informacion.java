@@ -1,5 +1,7 @@
 package View;
 
+import javax.swing.ImageIcon;
+
 public class Informacion extends javax.swing.JFrame {
 
     private int x, y;
@@ -7,6 +9,7 @@ public class Informacion extends javax.swing.JFrame {
     public Informacion() {
         initComponents();
         setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
