@@ -1,13 +1,13 @@
 package Controller;
 
 import java.util.ArrayList;
-import Model.Vendedor;
+import Model.Vendedorm;
 
 public class VendedorController {
     
-    public static ArrayList<Vendedor> vendedor = new ArrayList<Vendedor>();
+    public static ArrayList<Vendedorm> vendedor = new ArrayList<Vendedorm>();
     
-    public void create(Vendedor trabajador){
+    public void create(Vendedorm trabajador){
         vendedor.add(trabajador);
     }
     
@@ -15,14 +15,29 @@ public class VendedorController {
         ArrayList<String[]> Get = new ArrayList<>();
         for (int i = 0; i < vendedor.size(); i++) {
             if (vendedor.get(i).getNombre().contains(filter)) {
-                Get.add(new String[]{vendedor.get(i).getID(), vendedor.get(i).getNombre(),
-                    vendedor.get(i).getNumDocumento(), vendedor.get(i).getTelefono()});
+                Get.add(new String[]{vendedor.get(i).getID(),
+                    vendedor.get(i).getNombre(),
+                    vendedor.get(i).getNumDocumento(),
+                    vendedor.get(i).getTelefono()});
             }
         }
         return Get;
     }
     
-    public void Update(int index, Vendedor trabajador){
+    public ArrayList<String[]> ReadAll(){
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < vendedor.size(); i++) {
+            
+                Get.add(new String[]{vendedor.get(i).getID(),
+                    vendedor.get(i).getNombre(),
+                    vendedor.get(i).getNumDocumento(),
+                    vendedor.get(i).getTelefono()});
+            }
+        
+        return Get;
+    }
+    
+    public void Update(int index, Vendedorm trabajador){
         vendedor.set(index, trabajador);
     }
     
@@ -30,7 +45,7 @@ public class VendedorController {
         vendedor.remove(index);
     }
     
-    public static ArrayList<Vendedor> getVendedor() {
+    public static ArrayList<Vendedorm> getVendedor() {
         return vendedor;
     }
     

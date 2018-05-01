@@ -1,11 +1,11 @@
 package Model;
-public class Vendedor {
+public class Vendedorm {
     private String nombre;
     private String NumDocumento;
     private String ID;
     private String Telefono;
 
-    public Vendedor(String nombre, String NumDocumento, String ID, String Telefono) {
+    public Vendedorm(String nombre, String NumDocumento, String ID, String Telefono) {
         this.nombre = nombre;
         this.NumDocumento = NumDocumento;
         this.ID = ID;

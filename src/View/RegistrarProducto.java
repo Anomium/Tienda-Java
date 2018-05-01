@@ -539,14 +539,14 @@ public class RegistrarProducto extends javax.swing.JFrame {
                             .addComponent(jTabbedPane3))
                         .addGap(18, 18, 18)))
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
                     .addComponent(btn_VentaMenu)
                     .addComponent(btn_InformacionMenu)
                     .addComponent(btn_VendedoresMenu)
                     .addComponent(btn_PagosMenu))
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
 
         jTabbedPane2.addTab("Modificar", jPanel2);
@@ -735,7 +735,11 @@ public class RegistrarProducto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
         }
 
-
+        txt_NombreProducto.setText("");
+        txt_PrecioProducto.setText("");
+        txt_IDProducto.setText("");
+        txt_CantidaProducto.setText("");
+        
     }//GEN-LAST:event_btn_RegistarProductoActionPerformed
 
     //Evento para confirmar si desea editar un producto de la vista Modificar producto
@@ -750,6 +754,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
         }
 
+        
 
     }//GEN-LAST:event_btn_ModificarProductoActionPerformed
 
@@ -795,6 +800,10 @@ public class RegistrarProducto extends javax.swing.JFrame {
             ListarTodo();
         }
 
+        txt_NombreModificar.setText("");
+        txt_PrecioModificar.setText("");
+        txt_IDModificar.setText("");
+        txt_CantidadModificar.setText("");
 
     }//GEN-LAST:event_btn_GuadarModificarActionPerformed
 
@@ -807,9 +816,9 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
     private void btn_BuscarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarModificarActionPerformed
         BuscarTodo(txt_BuscarModificar.getText().toUpperCase(), tbl_RegistrarProducto1, proco.Read(txt_BuscarModificar.getText().toUpperCase()), btn_CancelarBusqueda);
-        
+
     }//GEN-LAST:event_btn_BuscarModificarActionPerformed
-    
+
     //Evento cancelar busqueda que lista todas la tablas de la vista Registrar
     private void btn_CancelarBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarBusquedaActionPerformed
         ListarTodo();
