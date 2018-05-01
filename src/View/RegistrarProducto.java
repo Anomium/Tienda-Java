@@ -3,7 +3,8 @@ package View;
 
 public class RegistrarProducto extends javax.swing.JFrame {
 
-
+    private int x, y;
+    
     public RegistrarProducto() {
         initComponents();
     }
@@ -328,6 +329,16 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jTabbedPane1.addTab("Producto", jTabbedPane2);
 
         jPanel3.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel3MouseDragged(evt);
+            }
+        });
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel3MousePressed(evt);
+            }
+        });
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen1.png"))); // NOI18N
         jButton8.setBorderPainted(false);
@@ -381,14 +392,25 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Evento para cerrar el programa
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton8ActionPerformed
-
+    
+    //Evento para maximizar la Ventana en la que se encuentra
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_jPanel3MousePressed
+
+    private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
+        this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
+    }//GEN-LAST:event_jPanel3MouseDragged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
