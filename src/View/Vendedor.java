@@ -149,7 +149,7 @@ public class Vendedor extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Documento", "Id", "Telefono"
+                "Id", "Nombre", "Documento", "Telefono"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -307,8 +307,6 @@ public class Vendedor extends javax.swing.JFrame {
     private javax.swing.JButton btn_VentaVendedor;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
@@ -317,7 +315,6 @@ public class Vendedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl_TablaVendedor;

@@ -54,17 +54,17 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         tbl_RegistrarProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "#", "ID", "Nombre", "Precio Unidad", "Cantidad"
+                "ID", "Nombre", "Precio Unidad", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -75,15 +75,13 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbl_RegistrarProducto);
         if (tbl_RegistrarProducto.getColumnModel().getColumnCount() > 0) {
             tbl_RegistrarProducto.getColumnModel().getColumn(0).setResizable(false);
-            tbl_RegistrarProducto.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tbl_RegistrarProducto.getColumnModel().getColumn(0).setPreferredWidth(80);
             tbl_RegistrarProducto.getColumnModel().getColumn(1).setResizable(false);
-            tbl_RegistrarProducto.getColumnModel().getColumn(1).setPreferredWidth(80);
+            tbl_RegistrarProducto.getColumnModel().getColumn(1).setPreferredWidth(200);
             tbl_RegistrarProducto.getColumnModel().getColumn(2).setResizable(false);
             tbl_RegistrarProducto.getColumnModel().getColumn(2).setPreferredWidth(200);
             tbl_RegistrarProducto.getColumnModel().getColumn(3).setResizable(false);
             tbl_RegistrarProducto.getColumnModel().getColumn(3).setPreferredWidth(200);
-            tbl_RegistrarProducto.getColumnModel().getColumn(4).setResizable(false);
-            tbl_RegistrarProducto.getColumnModel().getColumn(4).setPreferredWidth(200);
         }
 
         jLabel1.setText("Nombre:");
@@ -164,17 +162,17 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         tbl_RegistrarProducto1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "#", "ID", "Nombre", "Precio Unidad", "Cantidad"
+                "ID", "Nombre", "Precio Unidad", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -185,15 +183,13 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tbl_RegistrarProducto1);
         if (tbl_RegistrarProducto1.getColumnModel().getColumnCount() > 0) {
             tbl_RegistrarProducto1.getColumnModel().getColumn(0).setResizable(false);
-            tbl_RegistrarProducto1.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tbl_RegistrarProducto1.getColumnModel().getColumn(0).setPreferredWidth(80);
             tbl_RegistrarProducto1.getColumnModel().getColumn(1).setResizable(false);
-            tbl_RegistrarProducto1.getColumnModel().getColumn(1).setPreferredWidth(80);
+            tbl_RegistrarProducto1.getColumnModel().getColumn(1).setPreferredWidth(200);
             tbl_RegistrarProducto1.getColumnModel().getColumn(2).setResizable(false);
             tbl_RegistrarProducto1.getColumnModel().getColumn(2).setPreferredWidth(200);
             tbl_RegistrarProducto1.getColumnModel().getColumn(3).setResizable(false);
             tbl_RegistrarProducto1.getColumnModel().getColumn(3).setPreferredWidth(200);
-            tbl_RegistrarProducto1.getColumnModel().getColumn(4).setResizable(false);
-            tbl_RegistrarProducto1.getColumnModel().getColumn(4).setPreferredWidth(200);
         }
 
         jLabel5.setText("Cantidad:");
@@ -378,7 +374,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jTabbedPane1))
         );
 
