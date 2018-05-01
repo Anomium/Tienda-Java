@@ -33,7 +33,7 @@
           <Group type="102" alignment="1" attributes="0">
               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="548" max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" pref="560" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -152,7 +152,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="264" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="277" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jButton10" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -161,7 +161,7 @@
                               <Component id="btn_VendedoresMenu1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_PagosMenu1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -478,8 +478,14 @@
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JTextField" name="txt_IDModificar">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_CantidadModificar">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
@@ -492,6 +498,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_NombreModificar">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
@@ -504,6 +513,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_PrecioModificar">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
                 </Component>
                 <Container class="javax.swing.JTabbedPane" name="jTabbedPane3">
 
@@ -561,6 +573,9 @@
                             <Property name="text" type="java.lang.String" value="Cancelar"/>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CancelarModificarActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="btn_ModificarProducto">
                           <Properties>

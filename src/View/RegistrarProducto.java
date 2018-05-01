@@ -5,22 +5,23 @@ import javax.swing.ImageIcon;
 import Controller.ProductoController;
 import Model.Producto;
 import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-
 
 public class RegistrarProducto extends javax.swing.JFrame {
 
     private ProductoController proco = new ProductoController();
     private Object index = null;
-    
+
     private int x, y;
-    
+
     public RegistrarProducto() {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -242,7 +243,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_CantidaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
@@ -250,7 +251,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                     .addComponent(btn_InformacionMenu1)
                     .addComponent(btn_VendedoresMenu1)
                     .addComponent(btn_PagosMenu1))
-                .addContainerGap())
+                .addGap(19, 19, 19))
         );
 
         jTabbedPane2.addTab("Registrar", jPanel1);
@@ -289,17 +290,30 @@ public class RegistrarProducto extends javax.swing.JFrame {
             tbl_RegistrarProducto1.getColumnModel().getColumn(3).setPreferredWidth(200);
         }
 
+        txt_IDModificar.setEnabled(false);
+
+        txt_CantidadModificar.setEnabled(false);
+
         jLabel5.setText("Cantidad:");
 
         jLabel6.setText("ID del Producto:");
+
+        txt_NombreModificar.setEnabled(false);
 
         jLabel7.setText("Nombre:");
 
         jLabel8.setText("Precio unidad:");
 
+        txt_PrecioModificar.setEnabled(false);
+
         btn_CancelarModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
         btn_CancelarModificar.setText("Cancelar");
         btn_CancelarModificar.setEnabled(false);
+        btn_CancelarModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CancelarModificarActionPerformed(evt);
+            }
+        });
 
         btn_ModificarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/modificar.png"))); // NOI18N
         btn_ModificarProducto.setText("Modificar");
@@ -577,17 +591,17 @@ public class RegistrarProducto extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     //Evento para cerrar el programa
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton8ActionPerformed
-    
+
     //Evento para maximizar la Ventana en la que se encuentra
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         this.setExtendedState(ICONIFIED);
@@ -627,11 +641,11 @@ public class RegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_InformacionMenuMouseClicked
 
     private void btn_InformacionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenuActionPerformed
-            
+
         Informacion informacion = new Informacion();
         informacion.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btn_InformacionMenuActionPerformed
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
@@ -641,15 +655,15 @@ public class RegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void btn_PagosMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PagosMenuActionPerformed
-        
+
     }//GEN-LAST:event_btn_PagosMenuActionPerformed
 
     private void btn_InformacionMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionMenu1MouseClicked
-        
+
         Informacion informacion = new Informacion();
         informacion.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btn_InformacionMenu1MouseClicked
 
     private void btn_InformacionMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenu1ActionPerformed
@@ -657,11 +671,11 @@ public class RegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_InformacionMenu1ActionPerformed
 
     private void btn_PagosMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PagosMenu1MouseClicked
-        
+
         Pagos pagos = new Pagos();
         pagos.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btn_PagosMenu1MouseClicked
 
     private void btn_PagosMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PagosMenu1ActionPerformed
@@ -675,7 +689,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_VendedoresMenu1MouseClicked
 
     private void btn_VentaMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VentaMenu1MouseClicked
-       Venta venta = new Venta();
+        Venta venta = new Venta();
         venta.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_VentaMenu1MouseClicked
@@ -687,48 +701,69 @@ public class RegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void btn_RegistarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistarProductoActionPerformed
-        
         proco.create(new Producto(txt_IDProducto.getText(),
                 txt_NombreProducto.getText(),
                 Double.parseDouble(txt_PrecioProducto.getText()),
                 Integer.parseInt(txt_CantidaProducto.getText())));
-        
-        Listar((DefaultTableModel) tbl_RegistrarProducto.getModel(), proco.ReadAll());
-        Listar((DefaultTableModel) tbl_RegistrarProducto1.getModel(), proco.ReadAll());
+
+        ListarTodo();
     }//GEN-LAST:event_btn_RegistarProductoActionPerformed
 
+    //Evento para confirmar si desea editar un producto de la vista Modificar producto
     private void btn_ModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ModificarProductoActionPerformed
-    
-        
-        
+        if (ConfirmDialog("¿Desea editar el producto?")) {
+            btn_GuadarModificar.setEnabled(true);
+            btn_ModificarProducto.setEnabled(false);
+            HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, true);
+        }
     }//GEN-LAST:event_btn_ModificarProductoActionPerformed
-
+    
+    //Evento de la tabla de la vista modificar producto
     private void tbl_RegistrarProducto1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_RegistrarProducto1MouseClicked
-        
-        btn_ModificarProducto.setEnabled(true);
-        btn_CancelarModificar.setEnabled(true);
-        btn_EliminarModificar.setEnabled(true);
+        btn_CancelarModificar.doClick();
+        HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, true);
         index = tbl_RegistrarProducto1.getSelectedRow();
+        txt_IDModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 0).toString());
+        txt_NombreModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 1).toString());
+        txt_PrecioModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 2).toString());
+        txt_CantidadModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 3).toString());
         
     }//GEN-LAST:event_tbl_RegistrarProducto1MouseClicked
 
+    //Evento para eliminar un item de la vista Modificar producto
     private void btn_EliminarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarModificarActionPerformed
-            
-        proco.Delete((int) index);
-        
+        if (ConfirmDialog("¿Desea eliminar el producto?")) {
+            proco.Delete((int) index);
+            HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
+            HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
+            btn_GuadarModificar.setEnabled(false);
+            ListarTodo();
+        }
         
     }//GEN-LAST:event_btn_EliminarModificarActionPerformed
 
+    //Evento para guardar las modificaciones de la vista Modificar producto
     private void btn_GuadarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuadarModificarActionPerformed
-           
-        proco.Update((int)index, new Producto(txt_IDModificar.getText(),
-                txt_NombreModificar.getText(),
-                Double.parseDouble(txt_PrecioModificar.getText()),
-                Integer.parseInt(txt_CantidadModificar.getText())));
-        
-        Listar((DefaultTableModel) tbl_RegistrarProducto1.getModel(), proco.ReadAll());
-        
+        if (ConfirmDialog("¿Desea guardar los cambios?")) {
+            proco.Update((int) index, new Producto(txt_IDModificar.getText(),
+                    txt_NombreModificar.getText(),
+                    Double.parseDouble(txt_PrecioModificar.getText()),
+                    Integer.parseInt(txt_CantidadModificar.getText())));
+            HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
+            HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
+            btn_GuadarModificar.setEnabled(false);
+            ListarTodo();
+        }
+
+
     }//GEN-LAST:event_btn_GuadarModificarActionPerformed
+
+    //Evento para Cancelar todo en la vista modificar producto
+    private void btn_CancelarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarModificarActionPerformed
+        HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
+        HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
+        btn_GuadarModificar.setEnabled(false);
+    }//GEN-LAST:event_btn_CancelarModificarActionPerformed
 
     //Este Metodo Sirve Para Listar las Tablas
     private void Listar(DefaultTableModel Tabla, ArrayList<String[]> Lista) {
@@ -740,6 +775,44 @@ public class RegistrarProducto extends javax.swing.JFrame {
         for (String[] Row : Lista) {
             Tabla.addRow(Row);
         }
+    }
+
+    //Metodo para hacer la confirmacion por cuadro de dialogo
+    private boolean ConfirmDialog(String texto) {
+        int num = JOptionPane.showConfirmDialog(null, texto);
+        if (num == JOptionPane.YES_OPTION) {
+            return true;
+        } else if (num == JOptionPane.NO_OPTION) {
+            return false;
+        } else {
+            HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
+            HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
+            btn_GuadarModificar.setEnabled(false);
+            index = null;
+            return false;
+        }
+
+    }
+
+    //Metodo para habilitar Botones de la vista Modificar producto
+    private void HabilitarBotones(JButton Modificar, JButton Eliminar, JButton Cancelar, boolean Cond) {
+        Modificar.setEnabled(Cond);
+        Eliminar.setEnabled(Cond);
+        Cancelar.setEnabled(Cond);
+    }
+
+    //Metodo para habilitar JTextField de la vista Modificar producto
+    private void HabilitarTxtField(JTextField nombre, JTextField precio, JTextField producto, JTextField cantidad, boolean Cond) {
+        nombre.setEnabled(Cond);
+        precio.setEnabled(Cond);
+        producto.setEnabled(Cond);
+        cantidad.setEnabled(Cond);
+    }
+
+    //Metodo para listar todas la tablas de la vista modificar producto
+    private void ListarTodo() {
+        Listar((DefaultTableModel) tbl_RegistrarProducto1.getModel(), proco.ReadAll());
+        Listar((DefaultTableModel) tbl_RegistrarProducto.getModel(), proco.ReadAll());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
