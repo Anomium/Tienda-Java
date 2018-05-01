@@ -28,6 +28,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -126,7 +127,7 @@ public class Menu extends javax.swing.JFrame {
                 btn_InformacionMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_InformacionMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 120, -1));
+        getContentPane().add(btn_InformacionMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 120, -1));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logot.png"))); // NOI18N
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 28, -1, -1));
@@ -138,7 +139,21 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 36, 143, 62));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen6.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 150, 420, 350));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 190, 430, 340));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/producto.png"))); // NOI18N
+        jButton1.setText("Productos ");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 120, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,6 +209,18 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_InformacionMenuActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+       
+        RegistrarProducto registrarproducto = new RegistrarProducto();
+        registrarproducto.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -235,6 +262,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btn_PagosMenu;
     private javax.swing.JButton btn_VendedoresMenu;
     private javax.swing.JButton btn_VentaMenu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;

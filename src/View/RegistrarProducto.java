@@ -32,6 +32,11 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         tbl_ProductosRegistrar3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        btn_InformacionMenu1 = new javax.swing.JButton();
+        btn_PagosMenu1 = new javax.swing.JButton();
+        btn_VendedoresMenu1 = new javax.swing.JButton();
+        btn_VentaMenu1 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_RegistrarProducto1 = new javax.swing.JTable();
@@ -51,11 +56,17 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        btn_VentaMenu = new javax.swing.JButton();
+        btn_VendedoresMenu = new javax.swing.JButton();
+        btn_PagosMenu = new javax.swing.JButton();
+        btn_InformacionMenu = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         tbl_RegistrarProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,6 +108,56 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registarpro.png"))); // NOI18N
         jButton1.setText("Registrar");
 
+        btn_InformacionMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        btn_InformacionMenu1.setText("Informacion");
+        btn_InformacionMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_InformacionMenu1MouseClicked(evt);
+            }
+        });
+        btn_InformacionMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InformacionMenu1ActionPerformed(evt);
+            }
+        });
+
+        btn_PagosMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pagos.png"))); // NOI18N
+        btn_PagosMenu1.setText("Pagos");
+        btn_PagosMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_PagosMenu1MouseClicked(evt);
+            }
+        });
+        btn_PagosMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_PagosMenu1ActionPerformed(evt);
+            }
+        });
+
+        btn_VendedoresMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
+        btn_VendedoresMenu1.setText("Vendedores");
+        btn_VendedoresMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_VendedoresMenu1MouseClicked(evt);
+            }
+        });
+
+        btn_VentaMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/venta.png"))); // NOI18N
+        btn_VentaMenu1.setText("Venta");
+        btn_VentaMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_VentaMenu1MouseClicked(evt);
+            }
+        });
+
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/menu.png"))); // NOI18N
+        jButton10.setText("Menu");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -127,7 +188,18 @@ public class RegistrarProducto extends javax.swing.JFrame {
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addComponent(jButton1)
-                        .addGap(53, 53, 53)))
+                        .addGap(53, 53, 53))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_VentaMenu1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_VendedoresMenu1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_PagosMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_InformacionMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -156,7 +228,14 @@ public class RegistrarProducto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tbl_ProductosRegistrar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton10)
+                    .addComponent(btn_VentaMenu1)
+                    .addComponent(btn_InformacionMenu1)
+                    .addComponent(btn_VendedoresMenu1)
+                    .addComponent(btn_PagosMenu1))
                 .addContainerGap())
         );
 
@@ -261,6 +340,56 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Buscar", jPanel5);
 
+        btn_VentaMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/venta.png"))); // NOI18N
+        btn_VentaMenu.setText("Venta");
+        btn_VentaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_VentaMenuMouseClicked(evt);
+            }
+        });
+
+        btn_VendedoresMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
+        btn_VendedoresMenu.setText("Vendedores");
+        btn_VendedoresMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_VendedoresMenuMouseClicked(evt);
+            }
+        });
+
+        btn_PagosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pagos.png"))); // NOI18N
+        btn_PagosMenu.setText("Pagos");
+        btn_PagosMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_PagosMenuMouseClicked(evt);
+            }
+        });
+        btn_PagosMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_PagosMenuActionPerformed(evt);
+            }
+        });
+
+        btn_InformacionMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        btn_InformacionMenu.setText("Informacion");
+        btn_InformacionMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_InformacionMenuMouseClicked(evt);
+            }
+        });
+        btn_InformacionMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InformacionMenuActionPerformed(evt);
+            }
+        });
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/menu.png"))); // NOI18N
+        jButton9.setText("Menu");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -289,20 +418,31 @@ public class RegistrarProducto extends javax.swing.JFrame {
                                     .addComponent(jLabel5))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)))
+                        .addGap(39, 39, 39))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_VentaMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_VendedoresMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_PagosMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_InformacionMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(67, 67, 67))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -318,12 +458,19 @@ public class RegistrarProducto extends javax.swing.JFrame {
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tbl_ProductosRegistrar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(btn_VentaMenu)
+                    .addComponent(btn_InformacionMenu)
+                    .addComponent(btn_VendedoresMenu)
+                    .addComponent(btn_PagosMenu))
                 .addContainerGap())
         );
 
@@ -382,15 +529,15 @@ public class RegistrarProducto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTabbedPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -415,15 +562,109 @@ public class RegistrarProducto extends javax.swing.JFrame {
         this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_jPanel3MouseDragged
 
+    private void btn_VentaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VentaMenuMouseClicked
+        Venta venta = new Venta();
+        venta.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_VentaMenuMouseClicked
+
+    private void btn_VendedoresMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VendedoresMenuMouseClicked
+        Vendedor vendedor = new Vendedor();
+        vendedor.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_VendedoresMenuMouseClicked
+
+    private void btn_PagosMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PagosMenuMouseClicked
+        Pagos pagos = new Pagos();
+        pagos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_PagosMenuMouseClicked
+
+    private void btn_InformacionMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionMenuMouseClicked
+        Informacion informacion = new Informacion();
+        informacion.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_InformacionMenuMouseClicked
+
+    private void btn_InformacionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenuActionPerformed
+            
+        Informacion informacion = new Informacion();
+        informacion.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btn_InformacionMenuActionPerformed
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        Menu menu = new Menu();
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void btn_PagosMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PagosMenuActionPerformed
+        
+    }//GEN-LAST:event_btn_PagosMenuActionPerformed
+
+    private void btn_InformacionMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionMenu1MouseClicked
+        
+        Informacion informacion = new Informacion();
+        informacion.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btn_InformacionMenu1MouseClicked
+
+    private void btn_InformacionMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_InformacionMenu1ActionPerformed
+
+    private void btn_PagosMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PagosMenu1MouseClicked
+        
+        Pagos pagos = new Pagos();
+        pagos.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btn_PagosMenu1MouseClicked
+
+    private void btn_PagosMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PagosMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_PagosMenu1ActionPerformed
+
+    private void btn_VendedoresMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VendedoresMenu1MouseClicked
+        Vendedor vendedor = new Vendedor();
+        vendedor.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_VendedoresMenu1MouseClicked
+
+    private void btn_VentaMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VentaMenu1MouseClicked
+       Venta venta = new Venta();
+        venta.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_VentaMenu1MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        Menu menu = new Menu();
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton10MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_InformacionMenu;
+    private javax.swing.JButton btn_InformacionMenu1;
+    private javax.swing.JButton btn_PagosMenu;
+    private javax.swing.JButton btn_PagosMenu1;
+    private javax.swing.JButton btn_VendedoresMenu;
+    private javax.swing.JButton btn_VendedoresMenu1;
+    private javax.swing.JButton btn_VentaMenu;
+    private javax.swing.JButton btn_VentaMenu1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
