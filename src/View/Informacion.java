@@ -65,6 +65,11 @@ public class Informacion extends javax.swing.JFrame {
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen5.png"))); // NOI18N
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen1.png"))); // NOI18N
         jButton8.setBorderPainted(false);
@@ -307,6 +312,10 @@ public class Informacion extends javax.swing.JFrame {
         System.exit(0);
         
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

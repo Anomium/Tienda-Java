@@ -72,6 +72,11 @@ public class Vendedor extends javax.swing.JFrame {
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen5.png"))); // NOI18N
         jButton10.setBorderPainted(false);
         jButton10.setContentAreaFilled(false);
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen1.png"))); // NOI18N
         jButton11.setBorderPainted(false);
@@ -297,6 +302,10 @@ public class Vendedor extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btn_MenuVendedorMouseClicked
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_jButton10ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

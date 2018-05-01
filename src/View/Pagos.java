@@ -58,6 +58,11 @@ public class Pagos extends javax.swing.JFrame {
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen5.png"))); // NOI18N
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen1.png"))); // NOI18N
         jButton8.setBorderPainted(false);
@@ -159,9 +164,7 @@ public class Pagos extends javax.swing.JFrame {
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btn_CalcularPagos)
-                                                .addGap(54, 54, 54))
+                                            .addComponent(btn_CalcularPagos)
                                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -248,6 +251,10 @@ public class Pagos extends javax.swing.JFrame {
         System.exit(0);
         
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
 
 
