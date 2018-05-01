@@ -1,6 +1,7 @@
 package View;
 
 import com.sun.awt.AWTUtilities;
+import javax.swing.ImageIcon;
 
 public class Menu extends javax.swing.JFrame {
 
@@ -9,6 +10,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -119,6 +121,11 @@ public class Menu extends javax.swing.JFrame {
                 btn_InformacionMenuMouseClicked(evt);
             }
         });
+        btn_InformacionMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InformacionMenuActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_InformacionMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 120, -1));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logot.png"))); // NOI18N
@@ -182,6 +189,10 @@ public class Menu extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void btn_InformacionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_InformacionMenuActionPerformed
 
     /**
      * @param args the command line arguments
