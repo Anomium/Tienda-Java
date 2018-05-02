@@ -21,6 +21,7 @@ public class Vendedor extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
+        listarTodo();
     }
 
     @SuppressWarnings("unchecked")
@@ -475,11 +476,9 @@ public class Vendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-
         RegistrarProducto registrarproducto = new RegistrarProducto();
         registrarproducto.setVisible(true);
         this.dispose();
-
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -504,15 +503,18 @@ public class Vendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ModificarActionPerformed
 
     private void tbl_TablaVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_TablaVendedorMouseClicked
-
+        btn_Cancelar.doClick();
         HabilitarBotones(btn_Modificar, btn_Eliminar, btn_Cancelar, true);
         index = tbl_TablaVendedor.getSelectedRow();
         HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, false);
 
+        txt_IdVendedor.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 0).toString());
+        txt_NombreVendedor.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 1).toString());
+        txt_NumeroDocumento.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 2).toString());
+        txt_TelefonoVendedor.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 3).toString());
     }//GEN-LAST:event_tbl_TablaVendedorMouseClicked
 
     private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
-
         try {
             if (ConfirmDialog("¿Desea eliminar el producto?")) {
                 venco.Delete((int) index);
@@ -552,7 +554,8 @@ public class Vendedor extends javax.swing.JFrame {
                             txt_NumeroDocumento.getText(),
                             txt_IdVendedor.getText(),
                             txt_TelefonoVendedor.getText()));
-
+                    btn_Eliminar.setEnabled(false);
+                    btn_Cancelar.setEnabled(false);
                     btn_RegistrarVendedor1.setText("Registrar");
                     btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
                     listarTodo();
@@ -568,13 +571,10 @@ public class Vendedor extends javax.swing.JFrame {
         txt_IdVendedor.setText("");
         txt_NumeroDocumento.setText("");
         txt_TelefonoVendedor.setText("");
-
-
     }//GEN-LAST:event_btn_RegistrarVendedor1ActionPerformed
 
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
-
-        BorrarTextField(txt_Buscar, txt_Buscar, txt_NumeroDocumento, txt_Buscar);
+        BorrarTextField(txt_NombreVendedor, txt_NumeroDocumento, txt_IdVendedor, txt_TelefonoVendedor);
         HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
         btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
 
@@ -582,8 +582,6 @@ public class Vendedor extends javax.swing.JFrame {
         btn_Eliminar.setEnabled(false);
         btn_Cancelar.setEnabled(false);
         index = null;
-
-
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed

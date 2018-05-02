@@ -22,6 +22,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
+        ListarTodo();
     }
 
     @SuppressWarnings("unchecked")
