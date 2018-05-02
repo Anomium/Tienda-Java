@@ -95,6 +95,11 @@ public class Menu extends javax.swing.JFrame {
                 btn_VentaMenuMouseClicked(evt);
             }
         });
+        btn_VentaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VentaMenuActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_VentaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         btn_VendedoresMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
@@ -220,6 +225,10 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void btn_VentaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VentaMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_VentaMenuActionPerformed
 
     /**
      * @param args the command line arguments
