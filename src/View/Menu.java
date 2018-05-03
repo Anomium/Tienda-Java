@@ -1,16 +1,50 @@
 package View;
 
 import com.sun.awt.AWTUtilities;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.Timer;
 
 public class Menu extends javax.swing.JFrame {
 
     private int x, y;
-
+ 
     public Menu() {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
+    
+    
+           // fecha 
+        
+       Date sistFecha = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/YYYY");
+        fecha.setText(formato.format(sistFecha));
+        
+        // hora
+        Timer tiempo = new Timer(100, new Menu.horas());
+        tiempo.start();
+        }
+
+       
+
+    
+    
+    class horas implements ActionListener{
+        
+        public void actionPerformed(ActionEvent e){
+            
+            Date sisHora=new Date();
+            
+            SimpleDateFormat format = new SimpleDateFormat("hh:mm a");
+            Calendar hoy = Calendar.getInstance();
+            hora.setText(String.format(format.format(sisHora),hoy));
+            
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -21,6 +55,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         btn_VentaMenu = new javax.swing.JButton();
         btn_VendedoresMenu = new javax.swing.JButton();
         btn_PagosMenu = new javax.swing.JButton();
@@ -29,6 +64,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        hora = new javax.swing.JLabel();
+        fecha = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -66,12 +103,17 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/koda.png"))); // NOI18N
+        jLabel4.setText("Koda..");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(315, Short.MAX_VALUE)
+                .addContainerGap(144, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(118, 118, 118)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -79,11 +121,13 @@ public class Menu extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 20));
@@ -135,13 +179,13 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(btn_InformacionMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 120, -1));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logot.png"))); // NOI18N
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 28, -1, -1));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 0, 0));
         jLabel1.setFont(new java.awt.Font("Papyrus", 3, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("koda");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 36, 143, 62));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 143, 62));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen6.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 190, 430, 340));
@@ -159,6 +203,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 120, -1));
+
+        hora.setFont(new java.awt.Font("Copperplate Gothic Bold", 3, 12)); // NOI18N
+        hora.setForeground(new java.awt.Color(255, 0, 0));
+        hora.setText("hora");
+        getContentPane().add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 90, 20));
+
+        fecha.setFont(new java.awt.Font("Copperplate Gothic Bold", 3, 12)); // NOI18N
+        fecha.setForeground(new java.awt.Color(255, 0, 0));
+        fecha.setText("fecha");
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 54, 120, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -271,6 +325,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btn_PagosMenu;
     private javax.swing.JButton btn_VendedoresMenu;
     private javax.swing.JButton btn_VentaMenu;
+    private javax.swing.JLabel fecha;
+    private javax.swing.JLabel hora;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -278,6 +334,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
