@@ -73,11 +73,19 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre completo");
 
+        txt_NombreVendedor.setText("Alguien");
+
         jLabel5.setText("nº documento:");
+
+        txt_NumeroDocumento.setText("1");
 
         jLabel6.setText("Id del vendedor:");
 
+        txt_IdVendedor.setText("1");
+
         jLabel7.setText("Telefono");
+
+        txt_TelefonoVendedor.setText("1");
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 0));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {

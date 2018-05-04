@@ -14,6 +14,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextPane;
 
 public class Venta extends javax.swing.JFrame {
 
@@ -22,12 +23,12 @@ public class Venta extends javax.swing.JFrame {
     private VentaController venco = new VentaController();
     private VendedorController vendeco = new VendedorController();
     private Object Index = null;
-    
 
     public Venta() {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
+        Subtotal(tp_TotalPagarVenta);
         ListarTodo();
     }
 
@@ -232,11 +233,11 @@ public class Venta extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Precio Unidad", "Cantidad", "Subtotal"
+                "ID", "Nombre", "Precio Unidad", "Cantidad", "Subtotal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -255,6 +256,7 @@ public class Venta extends javax.swing.JFrame {
             tbl_CarritoVenta.getColumnModel().getColumn(1).setResizable(false);
             tbl_CarritoVenta.getColumnModel().getColumn(2).setResizable(false);
             tbl_CarritoVenta.getColumnModel().getColumn(3).setResizable(false);
+            tbl_CarritoVenta.getColumnModel().getColumn(4).setResizable(false);
         }
 
         tp_TotalPagarVenta.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -551,44 +553,63 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_CantidadActionPerformed
 
     private void tbl_ProductosVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ProductosVentaMouseClicked
-       
+
         Index = null;
         SelecTable(tbl_ProductosVenta, btn_AgregarVenta, true);
         txt_Cantidad.setEnabled(true);
         txt_nombre.setText(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString());
- 
+
     }//GEN-LAST:event_tbl_ProductosVentaMouseClicked
 
     private void tbl_CarritoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CarritoVentaMouseClicked
-        
+
         Index = null;
         SelecTable(tbl_CarritoVenta, btn_RetirarVenta, true);
         txt_Cantidad.setEnabled(true);
         txt_nombre.setText(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getSelectedRow(), 1).toString());
-        
+        Index = tbl_CarritoVenta.getSelectedRow();
     }//GEN-LAST:event_tbl_CarritoVentaMouseClicked
 
     private void btn_AgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarVentaActionPerformed
 
-        
-        venco.Create(new VentaM(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(),tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(), 
-                Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()), Integer.parseInt(txt_Cantidad.getText()), 
-                (String)cmbx_VendedorVenta.getSelectedItem(), Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()) * Integer.parseInt(txt_Cantidad.getText())));
-        
-        proco.Update(tbl_ProductosVenta.getSelectedRow(),new Producto(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(),tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
-                Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()),proco.getProducto().get(tbl_ProductosVenta.getSelectedRow()).getCantidad()- Integer.parseInt(txt_Cantidad.getText()))); 
-        
-        
+        venco.Create(new VentaM(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(),
+                tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
+                Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()),
+                Integer.parseInt(txt_Cantidad.getText()), (String) cmbx_VendedorVenta.getSelectedItem(),
+                Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString())
+                * Integer.parseInt(txt_Cantidad.getText())));
+
+        proco.Update(tbl_ProductosVenta.getSelectedRow(), new Producto(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(), tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
+                Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()), proco.getProducto().get(tbl_ProductosVenta.getSelectedRow()).getCantidad() - Integer.parseInt(txt_Cantidad.getText())));
+        Subtotal(tp_TotalPagarVenta);
         ListarTodo();
     }//GEN-LAST:event_btn_AgregarVentaActionPerformed
 
     private void btn_RetirarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RetirarVentaActionPerformed
-
+        venco.Read(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getSelectedRow(), 0).toString(), Integer.parseInt(txt_Cantidad.getText()));
+        ListarTodo();
+        System.out.println((int) Index);
+        venco.Update((int) Index, new VentaM(tbl_CarritoVenta.getValueAt((int) Index,
+                0).toString(), tbl_CarritoVenta.getValueAt((int) Index, 1).toString(),
+                Double.parseDouble(tbl_CarritoVenta.getValueAt((int) Index, 2).toString()),
+                Integer.parseInt(tbl_CarritoVenta.getValueAt((int) Index, 3).toString()) -
+                        Integer.parseInt(txt_Cantidad.getText()), venco.getVenta().get((int) Index).getVendedor(),
+                                Double.parseDouble(tbl_CarritoVenta.getValueAt((int) Index, 4).toString())));
+        Subtotal(tp_TotalPagarVenta);
+        ListarTodo();
         
+        if (venco.getVenta().get((int) Index).getCantidad() == 0) {
+            venco.Delete((int) Index);
+            Subtotal(tp_TotalPagarVenta);
+            ListarTodo();
+        }
+
+
     }//GEN-LAST:event_btn_RetirarVentaActionPerformed
 
     private void btn_CancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarCompraActionPerformed
         proco.BorrarCompra();
+        Subtotal(tp_TotalPagarVenta);
         ListarTodo();
     }//GEN-LAST:event_btn_CancelarCompraActionPerformed
 
@@ -599,11 +620,11 @@ public class Venta extends javax.swing.JFrame {
         ListarCombobox(cmbx_VendedorVenta, vendeco.getVendedor());
 
     }
-    
-    public void ListarCombobox(JComboBox cmbx, ArrayList<Vendedorm> Array){
+
+    public void ListarCombobox(JComboBox cmbx, ArrayList<Vendedorm> Array) {
         cmbx.removeAllItems();
-        
-        for(Vendedorm vendedor: Array){
+
+        for (Vendedorm vendedor : Array) {
             cmbx.addItem(vendedor.getNombre());
         }
     }
@@ -631,8 +652,6 @@ public class Venta extends javax.swing.JFrame {
             Cancelar.setEnabled(true);
         }
     }
- 
-
 
     //Metodo para habilitar Botones de la vista Modificar producto
     private void HabilitarBotones(JButton comprar, boolean Cond) {
@@ -654,10 +673,11 @@ public class Venta extends javax.swing.JFrame {
         }
 
     }
+
     //Metodo para cuando seleccione un elemento de una tabla y asi mismo cuando termina el proceso
     private void SelecTable(JTable Tabla, JButton Boton, boolean Cond) {
         if (Index == null || Cond == false) {
-          
+
             Boton.setEnabled(Cond);
         }
         if (Cond) {
@@ -665,6 +685,14 @@ public class Venta extends javax.swing.JFrame {
         } else {
             Index = null;
         }
+    }
+    
+    private void Subtotal(JTextPane panel){
+        double total = 0;
+        for (int i = 0; i < venco.getVenta().size(); i++) {
+            total = total + venco.getVenta().get(i).getSubtotal();
+        }
+        panel.setText(String.valueOf(total));
     }
 
 

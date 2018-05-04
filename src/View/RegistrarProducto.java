@@ -113,11 +113,19 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
 
+        txt_NombreProducto.setText("Manzana");
+
+        txt_IDProducto.setText("123");
+
         jLabel2.setText("ID del Producto:");
 
         jLabel3.setText("Precio unidad:");
 
+        txt_PrecioProducto.setText("500");
+
         jLabel4.setText("Cantidad:");
+
+        txt_CantidaProducto.setText("55");
 
         btn_RegistarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registarpro.png"))); // NOI18N
         btn_RegistarProducto.setText("Registrar");
