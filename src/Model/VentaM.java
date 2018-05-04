@@ -6,6 +6,8 @@ public class VentaM extends Producto {
     
     public VentaM(String ID, String nombre, double precio, int cantidad, String Vendedor, double subtotal) {
         super(ID, nombre, precio, cantidad);
+        this.Vendedor = Vendedor;
+        this.subtotal = subtotal;
     }
     
 

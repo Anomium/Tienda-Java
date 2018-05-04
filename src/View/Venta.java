@@ -541,14 +541,15 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_tbl_CarritoVentaMouseClicked
 
     private void btn_AgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarVentaActionPerformed
-        ((DefaultTableModel) tbl_CarritoVenta.getModel()).addRow(new String[]{tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(), tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString(), txt_Cantidad.getText(), String.valueOf(Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()) * Integer.parseInt(txt_Cantidad.getText()))});
-                System.out.println();
+
         venco.Create(new VentaM(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(),tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(), 
                 Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()), Integer.parseInt(txt_Cantidad.getText()), 
-                (String)cmbx_VendedorVenta.getSelectedItem(), Double.parseDouble(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getSelectedRow()+1, 3).toString())));
+                (String)cmbx_VendedorVenta.getSelectedItem(), Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()) * Integer.parseInt(txt_Cantidad.getText())));
         
         
-        System.out.println(venco.getVenta().get(0).getSubtotal());
+        System.out.println(venco.getVenta().get(0 ).getSubtotal());
+        System.out.println(Double.parseDouble(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getRowCount()-1, 3).toString()));
+        ListarTodo();
     }//GEN-LAST:event_btn_AgregarVentaActionPerformed
 
     //Metodo para listar todas la tablas de la vista modificar producto
