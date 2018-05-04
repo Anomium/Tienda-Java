@@ -5,7 +5,7 @@ import Model.Vendedorm;
 
 public class VendedorController {
     
-    public static ArrayList<Vendedorm> vendedor = new ArrayList<Vendedorm>();
+    private static ArrayList<Vendedorm> vendedor = new ArrayList<Vendedorm>();
     
     public void create(Vendedorm trabajador){
         vendedor.add(trabajador);

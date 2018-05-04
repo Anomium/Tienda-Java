@@ -6,6 +6,7 @@ import Model.Producto;
 public class ProductoController {
 
     public static ArrayList<Producto> producto = new ArrayList<Producto>();
+    
 
     public void create(Producto n1) {
         producto.add(n1);
