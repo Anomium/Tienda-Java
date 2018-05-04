@@ -26,12 +26,6 @@ public class VentaController {
         return Get;
     }
     
-    
-    public double subtotal(double PrecioUnidad, int cantidad){
-        double resultado;
-        resultado = PrecioUnidad * cantidad;
-        return resultado;
-    }
 
     public static ArrayList<VentaM> getVenta() {
         return venta;

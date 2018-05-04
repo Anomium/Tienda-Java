@@ -710,13 +710,14 @@ public class RegistrarProducto extends javax.swing.JFrame {
     private void btn_GuadarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuadarModificarActionPerformed
         if (ConfirmDialog("¿Desea guardar los cambios?")) {
             proco.Update((int) index, new Producto(txt_IDModificar.getText().toUpperCase(),
-                txt_NombreModificar.getText().toUpperCase(),
-                Double.parseDouble(txt_PrecioModificar.getText()),
-                Integer.parseInt(txt_CantidadModificar.getText())));
-        HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
-        HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
-        btn_GuadarModificar.setEnabled(false);
-        ListarTodo();
+                    txt_NombreModificar.getText().toUpperCase(),
+                    Double.parseDouble(txt_PrecioModificar.getText()),
+                    Integer.parseInt(txt_CantidadModificar.getText())));
+            HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
+            HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
+            btn_GuadarModificar.setEnabled(false);
+            proco.Backup();
+            ListarTodo();
         }
 
         txt_NombreModificar.setText("");
@@ -733,6 +734,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
                 HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
                 btn_GuadarModificar.setEnabled(false);
+                proco.Backup();
                 ListarTodo();
             }
         } catch (Exception e) {
@@ -817,12 +819,12 @@ public class RegistrarProducto extends javax.swing.JFrame {
         try {
             if (ConfirmDialog("¿Desea registrar?")) {
                 proco.create(new Producto(txt_IDProducto.getText().toUpperCase(),
-                    txt_NombreProducto.getText().toUpperCase(),
-                    Double.parseDouble(txt_PrecioProducto.getText()),
-                    Integer.parseInt(txt_CantidaProducto.getText())));
-
-            ListarTodo();
-        }
+                        txt_NombreProducto.getText().toUpperCase(),
+                        Double.parseDouble(txt_PrecioProducto.getText()),
+                        Integer.parseInt(txt_CantidaProducto.getText())));
+                proco.Backup();
+                ListarTodo();
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
         }
