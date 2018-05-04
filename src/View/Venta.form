@@ -602,6 +602,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_nombre">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="cmbx_VendedorVenta">
               <Properties>

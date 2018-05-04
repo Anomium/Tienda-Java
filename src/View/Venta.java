@@ -6,9 +6,11 @@ import javax.swing.table.DefaultTableModel;
 import Controller.ProductoController;
 import Controller.VentaController;
 import Controller.VendedorController;
+import Model.Producto;
 import Model.Vendedorm;
 import Model.VentaM;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -309,6 +311,8 @@ public class Venta extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre");
 
+        txt_nombre.setEnabled(false);
+
         jLabel6.setText("Vendedor");
 
         btn_CancelarCompra.setText("Cancelar Compra");
@@ -547,33 +551,40 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_CantidadActionPerformed
 
     private void tbl_ProductosVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ProductosVentaMouseClicked
+       
         Index = null;
-        
+        SelecTable(tbl_ProductosVenta, btn_AgregarVenta, true);
         txt_Cantidad.setEnabled(true);
         txt_nombre.setText(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString());
+ 
     }//GEN-LAST:event_tbl_ProductosVentaMouseClicked
 
     private void tbl_CarritoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CarritoVentaMouseClicked
-
-        Index = null;
         
-
-
+        Index = null;
+        SelecTable(tbl_CarritoVenta, btn_RetirarVenta, true);
+        txt_Cantidad.setEnabled(true);
+        txt_nombre.setText(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getSelectedRow(), 1).toString());
+        
     }//GEN-LAST:event_tbl_CarritoVentaMouseClicked
 
     private void btn_AgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarVentaActionPerformed
 
+        
         venco.Create(new VentaM(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(),tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(), 
                 Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()), Integer.parseInt(txt_Cantidad.getText()), 
                 (String)cmbx_VendedorVenta.getSelectedItem(), Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()) * Integer.parseInt(txt_Cantidad.getText())));
         
+        proco.Update(tbl_ProductosVenta.getSelectedRow(),new Producto(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(),tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
+                Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()),proco.getProducto().get(tbl_ProductosVenta.getSelectedRow()).getCantidad()- Integer.parseInt(txt_Cantidad.getText()))); 
         
-        System.out.println(venco.getVenta().get(0).getSubtotal());
+        
         ListarTodo();
     }//GEN-LAST:event_btn_AgregarVentaActionPerformed
 
     private void btn_RetirarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RetirarVentaActionPerformed
 
+        
     }//GEN-LAST:event_btn_RetirarVentaActionPerformed
 
     private void btn_CancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarCompraActionPerformed
@@ -642,6 +653,18 @@ public class Venta extends javax.swing.JFrame {
             return false;
         }
 
+    }
+    //Metodo para cuando seleccione un elemento de una tabla y asi mismo cuando termina el proceso
+    private void SelecTable(JTable Tabla, JButton Boton, boolean Cond) {
+        if (Index == null || Cond == false) {
+          
+            Boton.setEnabled(Cond);
+        }
+        if (Cond) {
+            Index = Integer.parseInt(Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString());
+        } else {
+            Index = null;
+        }
     }
 
 
