@@ -594,7 +594,7 @@ public class Venta extends javax.swing.JFrame {
                 Double.parseDouble(tbl_CarritoVenta.getValueAt((int) Index, 2).toString()),
                 Integer.parseInt(tbl_CarritoVenta.getValueAt((int) Index, 3).toString()) -
                         Integer.parseInt(txt_Cantidad.getText()), venco.getVenta().get((int) Index).getVendedor(),
-                                Double.parseDouble(tbl_CarritoVenta.getValueAt((int) Index, 4).toString())));
+                                Double.parseDouble(tbl_CarritoVenta.getValueAt((int) Index, 4).toString()) - (Integer.parseInt(txt_Cantidad.getText()) * Double.parseDouble(tbl_CarritoVenta.getValueAt((int) Index, 4).toString()))));
         Subtotal(tp_TotalPagarVenta);
         ListarTodo();
         
