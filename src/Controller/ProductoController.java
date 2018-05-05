@@ -2,6 +2,8 @@ package Controller;
 
 import java.util.ArrayList;
 import Model.Producto;
+import Model.VentaM;
+import sun.swing.BakedArrayList;
 
 public class ProductoController {
 
@@ -10,6 +12,7 @@ public class ProductoController {
 
     public void create(Producto n1) {
         producto.add(n1);
+        Backup();
     }
 
     public void createBackup(Producto n1) {
@@ -52,8 +55,8 @@ public class ProductoController {
         }
     }
 
-    public void BorrarCompra() {
-
+    public void BorrarCompra(ArrayList<VentaM> vent) {
+        vent.removeAll(vent);
         producto.removeAll(producto);
 
         for (int i = 0; i < BackupA.size(); i++) {

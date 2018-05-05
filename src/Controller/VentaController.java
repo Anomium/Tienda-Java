@@ -50,29 +50,6 @@ public class VentaController {
         return Get;
     }
 
-    public void Backup() {
-
-        BackupA.removeAll(BackupA);
-
-        for (int i = 0; i < venta.size(); i++) {
-            BackupA.add(new VentaM(venta.get(i).getID(), venta.get(i).getNombre(),
-                    (double) venta.get(i).getPrecio(), (int) venta.get(i).getCantidad(),
-                    venta.get(i).getVendedor(), venta.get(i).getSubtotal()));
-        }
-    }
-
-    public void BorrarCompra() {
-
-        venta.removeAll(venta);
-
-        for (int i = 0; i < BackupA.size(); i++) {
-            venta.add(new VentaM(BackupA.get(i).getID(), BackupA.get(i).getNombre(),
-                    (double) BackupA.get(i).getPrecio(), (int) BackupA.get(i).getCantidad(),
-                    BackupA.get(i).getVendedor(), BackupA.get(i).getSubtotal()));
-        }
-
-    }
-
     public static ArrayList<VentaM> getVenta() {
         return venta;
     }

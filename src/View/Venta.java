@@ -608,7 +608,8 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_RetirarVentaActionPerformed
 
     private void btn_CancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarCompraActionPerformed
-        proco.BorrarCompra();
+        
+        proco.BorrarCompra(venco.getVenta());
         Subtotal(tp_TotalPagarVenta);
         ListarTodo();
     }//GEN-LAST:event_btn_CancelarCompraActionPerformed

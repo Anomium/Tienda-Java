@@ -724,7 +724,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
             HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
             HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
             btn_GuadarModificar.setEnabled(false);
-            proco.Backup();
             ListarTodo();
         }
 
@@ -742,7 +741,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
                 HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
                 btn_GuadarModificar.setEnabled(false);
-                proco.Backup();
                 ListarTodo();
             }
         } catch (Exception e) {
@@ -824,13 +822,13 @@ public class RegistrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_InformacionMenu1MouseClicked
 
     private void btn_RegistarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistarProductoActionPerformed
+        proco.Backup();
         try {
             if (ConfirmDialog("¿Desea registrar?")) {
                 proco.create(new Producto(txt_IDProducto.getText().toUpperCase(),
                         txt_NombreProducto.getText().toUpperCase(),
                         Double.parseDouble(txt_PrecioProducto.getText()),
                         Integer.parseInt(txt_CantidaProducto.getText())));
-                proco.Backup();
                 ListarTodo();
             }
         } catch (Exception e) {
