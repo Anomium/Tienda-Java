@@ -9,8 +9,8 @@ import Controller.VendedorController;
 import Model.Producto;
 import Model.Vendedorm;
 import Model.VentaM;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -70,6 +70,9 @@ public class Venta extends javax.swing.JFrame {
         cmbx_VendedorVenta = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         btn_CancelarCompra = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbl_RegistroVenta = new javax.swing.JTable();
 
         jLabel3.setText("jLabel3");
 
@@ -294,9 +297,15 @@ public class Venta extends javax.swing.JFrame {
         btn_ComprarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agrgar.png"))); // NOI18N
         btn_ComprarVenta.setText("Comprar");
         btn_ComprarVenta.setEnabled(false);
+        btn_ComprarVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ComprarVentaActionPerformed(evt);
+            }
+        });
 
         btn_CancelarBusquedaProdVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
         btn_CancelarBusquedaProdVenta.setText("Cancelar Busqueda");
+        btn_CancelarBusquedaProdVenta.setEnabled(false);
         btn_CancelarBusquedaProdVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CancelarBusquedaProdVentaActionPerformed(evt);
@@ -318,6 +327,7 @@ public class Venta extends javax.swing.JFrame {
         jLabel6.setText("Vendedor");
 
         btn_CancelarCompra.setText("Cancelar Compra");
+        btn_CancelarCompra.setEnabled(false);
         btn_CancelarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CancelarCompraActionPerformed(evt);
@@ -463,6 +473,53 @@ public class Venta extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Ventas", jPanel2);
 
+        tbl_RegistroVenta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo del Vendedor", "Codigo del Comprador", "Codigo del Producto", "Precio por Unidad", "Cantidad Vendida"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tbl_RegistroVenta);
+        if (tbl_RegistroVenta.getColumnModel().getColumnCount() > 0) {
+            tbl_RegistroVenta.getColumnModel().getColumn(0).setResizable(false);
+            tbl_RegistroVenta.getColumnModel().getColumn(1).setResizable(false);
+            tbl_RegistroVenta.getColumnModel().getColumn(2).setResizable(false);
+            tbl_RegistroVenta.getColumnModel().getColumn(3).setResizable(false);
+            tbl_RegistroVenta.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(272, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Registro de Ventas", jPanel3);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -474,7 +531,7 @@ public class Venta extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addGap(0, 0, 0)
                 .addComponent(jTabbedPane1))
         );
 
@@ -546,6 +603,8 @@ public class Venta extends javax.swing.JFrame {
 
     private void btn_CancelarBusquedaProdVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarBusquedaProdVentaActionPerformed
         ListarTodo();
+        btn_CancelarBusquedaProdVenta.setEnabled(false);
+        
     }//GEN-LAST:event_btn_CancelarBusquedaProdVentaActionPerformed
 
     private void txt_CantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CantidadActionPerformed
@@ -581,6 +640,10 @@ public class Venta extends javax.swing.JFrame {
 
         proco.Update(tbl_ProductosVenta.getSelectedRow(), new Producto(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(), tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
                 Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()), proco.getProducto().get(tbl_ProductosVenta.getSelectedRow()).getCantidad() - Integer.parseInt(txt_Cantidad.getText())));
+        btn_AgregarVenta.setEnabled(false);
+        btn_ComprarVenta.setEnabled(true);
+        btn_CancelarCompra.setEnabled(true);
+        Index = null;
         Subtotal(tp_TotalPagarVenta);
         ListarTodo();
     }//GEN-LAST:event_btn_AgregarVentaActionPerformed
@@ -603,16 +666,27 @@ public class Venta extends javax.swing.JFrame {
             Subtotal(tp_TotalPagarVenta);
             ListarTodo();
         }
+        if (venco.getVenta().size() == 0) {
+            btn_CancelarCompra.setEnabled(false);
+        }
 
-
+        btn_RetirarVenta.setEnabled(false);
     }//GEN-LAST:event_btn_RetirarVentaActionPerformed
 
     private void btn_CancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarCompraActionPerformed
-        
+        btn_AgregarVenta.setEnabled(false);
+        btn_RetirarVenta.setEnabled(false);
+        btn_ComprarVenta.setEnabled(false);
         proco.BorrarCompra(venco.getVenta());
         Subtotal(tp_TotalPagarVenta);
         ListarTodo();
+        btn_CancelarCompra.setEnabled(false);
+        Index = null;
     }//GEN-LAST:event_btn_CancelarCompraActionPerformed
+
+    private void btn_ComprarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ComprarVentaActionPerformed
+        btn_ComprarVenta.setEnabled(false);
+    }//GEN-LAST:event_btn_ComprarVentaActionPerformed
 
     //Metodo para listar todas la tablas de la vista modificar producto
     private void ListarTodo() {
@@ -695,6 +769,7 @@ public class Venta extends javax.swing.JFrame {
         }
         panel.setText(String.valueOf(total));
     }
+       
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -722,12 +797,15 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tbl_CarritoVenta;
     private javax.swing.JTable tbl_ProductosVenta;
+    private javax.swing.JTable tbl_RegistroVenta;
     private javax.swing.JTextPane tp_TotalPagarVenta;
     private javax.swing.JTextField txt_BuscarProductoVenta;
     private javax.swing.JTextField txt_Cantidad;

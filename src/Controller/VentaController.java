@@ -8,6 +8,7 @@ public class VentaController {
 
     private static ArrayList<VentaM> venta = new ArrayList<VentaM>();
     private static ArrayList<VentaM> BackupA = new ArrayList<VentaM>();
+    private static ArrayList<VentaM> Registro = new ArrayList<VentaM>();
     private ProductoController proco = new ProductoController();
 
     public void Create(VentaM vent) {
