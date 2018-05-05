@@ -15,10 +15,6 @@ public class ProductoController {
         Backup();
     }
 
-    public void createBackup(Producto n1) {
-        producto.add(n1);
-    }
-
     public ArrayList<String[]> Read(String filter) {
         ArrayList<String[]> Get = new ArrayList<>();
         for (int i = 0; i < producto.size(); i++) {

@@ -7,12 +7,18 @@ import java.util.ArrayList;
 public class VentaController {
 
     private static ArrayList<VentaM> venta = new ArrayList<VentaM>();
-    private static ArrayList<VentaM> BackupA = new ArrayList<VentaM>();
     private static ArrayList<VentaM> Registro = new ArrayList<VentaM>();
+    private static ArrayList<VentaM> Backup = new ArrayList<VentaM>();
     private ProductoController proco = new ProductoController();
 
-    public void Create(VentaM vent) {
+    public void CreateB(VentaM vent) {
         venta.add(vent);
+        Registro.add(vent);
+    }
+
+    public void Create(VentaM vent) {
+        Backup.add(vent);
+        
     }
 
     public void Delete(int index) {
@@ -39,6 +45,22 @@ public class VentaController {
         return Get;
     }
 
+    public ArrayList<String[]> ReadVentas() {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < Backup.size(); i++) {
+
+            Get.add(new String[]{
+                Backup.get(i).getCodigoVend(),
+                Backup.get(i).getCodigoComp(),
+                Backup.get(i).getID(),
+                String.valueOf(Backup.get(i).getPrecio()),
+                String.valueOf(Backup.get(i).getCantidad())});
+
+        }
+
+        return Get;
+    }
+
     public ArrayList<String[]> Read(String filter, int cant) {
         ArrayList<String[]> Get = new ArrayList<>();
         for (int i = 0; i < proco.getProducto().size(); i++) {
@@ -51,12 +73,46 @@ public class VentaController {
         return Get;
     }
 
+    public void Registro() {
+
+        Registro.removeAll(Registro);
+        for (int i = 0; i < venta.size(); i++) {
+            Registro.add(new VentaM(venta.get(i).getID(), venta.get(i).getNombre(),
+                    (double) venta.get(i).getPrecio(), (int) venta.get(i).getCantidad(),
+                    venta.get(i).getVendedor(), (double) venta.get(i).getSubtotal(),
+                    venta.get(i).getCodigoVend(), venta.get(i).getCodigoComp()));
+        }
+
+    }
+
+    public void BackupV() {
+
+        for (int i = 0; i < Registro.size(); i++) {
+            Create(new VentaM(Registro.get(i).getID(), Registro.get(i).getNombre(),
+                    (double) Registro.get(i).getPrecio(), (int) Registro.get(i).getCantidad(),
+                    Registro.get(i).getVendedor(), (double) Registro.get(i).getSubtotal(),
+                    Registro.get(i).getCodigoVend(), Registro.get(i).getCodigoComp()));
+        }
+    }
+
+    public void BorrarRegistro() {
+        venta.removeAll(venta);
+    }
+
     public static ArrayList<VentaM> getVenta() {
         return venta;
     }
 
     public static void setVenta(ArrayList<VentaM> venta) {
         VentaController.venta = venta;
+    }
+
+    public static ArrayList<VentaM> getRegistro() {
+        return Registro;
+    }
+
+    public static void setRegistro(ArrayList<VentaM> Registro) {
+        VentaController.Registro = Registro;
     }
 
 }
