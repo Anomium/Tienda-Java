@@ -327,7 +327,6 @@
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jScrollPane4" pref="41" max="32767" attributes="0"/>
                                   <Component id="jLabel9" max="32767" attributes="0"/>
@@ -711,7 +710,7 @@
                 <Component class="javax.swing.JTable" name="tbl_RegistroVenta">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="4">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="false" title="Codigo del Vendedor" type="java.lang.Object"/>
                         <Column editable="false" title="Codigo del Comprador" type="java.lang.Object"/>
                         <Column editable="false" title="Codigo del Producto" type="java.lang.Object"/>
