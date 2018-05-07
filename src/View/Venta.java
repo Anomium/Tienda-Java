@@ -77,6 +77,12 @@ public class Venta extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_RegistroVenta = new javax.swing.JTable();
+        btn_BuscarRegistroVenta = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txt_TotalRegistroVenta = new javax.swing.JTextPane();
+        jLabel8 = new javax.swing.JLabel();
+        txt_BuscarRegistroVenta = new javax.swing.JTextField();
+        btn_CancelarBusquedaRegistroVenta = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -502,11 +508,11 @@ public class Venta extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo del Vendedor", "Codigo del Comprador", "Codigo del Producto", "Precio por Unidad", "Cantidad Vendida"
+                "Nombre Vendedor", "Codigo del Vendedor", "Codigo del Comprador", "Codigo del Producto", "Precio por Unidad", "Cantidad Vendida"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -520,7 +526,35 @@ public class Venta extends javax.swing.JFrame {
             tbl_RegistroVenta.getColumnModel().getColumn(2).setResizable(false);
             tbl_RegistroVenta.getColumnModel().getColumn(3).setResizable(false);
             tbl_RegistroVenta.getColumnModel().getColumn(4).setResizable(false);
+            tbl_RegistroVenta.getColumnModel().getColumn(5).setResizable(false);
         }
+
+        btn_BuscarRegistroVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
+        btn_BuscarRegistroVenta.setText("Buscar");
+        btn_BuscarRegistroVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BuscarRegistroVentaActionPerformed(evt);
+            }
+        });
+
+        txt_TotalRegistroVenta.setEditable(false);
+        txt_TotalRegistroVenta.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_TotalRegistroVenta.setText("0.0");
+        jScrollPane5.setViewportView(txt_TotalRegistroVenta);
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel8.setText("Total venta:");
+
+        txt_BuscarRegistroVenta.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+
+        btn_CancelarBusquedaRegistroVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
+        btn_CancelarBusquedaRegistroVenta.setText("Cancelar Busqueda");
+        btn_CancelarBusquedaRegistroVenta.setEnabled(false);
+        btn_CancelarBusquedaRegistroVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CancelarBusquedaRegistroVentaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -528,15 +562,44 @@ public class Venta extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_CancelarBusquedaRegistroVenta)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txt_BuscarRegistroVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(btn_BuscarRegistroVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(63, 63, 63))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(318, Short.MAX_VALUE)
+                .addGap(73, 73, 73)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_BuscarRegistroVenta)
+                    .addComponent(txt_BuscarRegistroVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_CancelarBusquedaRegistroVenta)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel8))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
         );
 
         jTabbedPane1.addTab("Registro de Ventas", jPanel3);
@@ -722,6 +785,17 @@ public class Venta extends javax.swing.JFrame {
         IndexCmbx = cmbx_VendedorVenta.getSelectedIndex();
     }//GEN-LAST:event_cmbx_VendedorVentaActionPerformed
 
+    private void btn_BuscarRegistroVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarRegistroVentaActionPerformed
+       BuscarTodo(txt_BuscarRegistroVenta.getText().toUpperCase(), tbl_RegistroVenta, venco.ReadRegistroVenta(txt_BuscarRegistroVenta.getText(), txt_TotalRegistroVenta), btn_CancelarBusquedaRegistroVenta);
+       
+    }//GEN-LAST:event_btn_BuscarRegistroVentaActionPerformed
+
+    private void btn_CancelarBusquedaRegistroVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarBusquedaRegistroVentaActionPerformed
+        ListarTodo();
+        txt_TotalRegistroVenta.setText("0.0");
+        btn_CancelarBusquedaRegistroVenta.setEnabled(false);
+    }//GEN-LAST:event_btn_CancelarBusquedaRegistroVentaActionPerformed
+
     //Metodo para listar todas la tablas de la vista modificar producto
     private void ListarTodo() {
         Listar((DefaultTableModel) tbl_ProductosVenta.getModel(), proco.ReadAll());
@@ -807,8 +881,10 @@ public class Venta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AgregarVenta;
+    private javax.swing.JButton btn_BuscarRegistroVenta;
     private javax.swing.JButton btn_BuscarVenta;
     private javax.swing.JButton btn_CancelarBusquedaProdVenta;
+    private javax.swing.JButton btn_CancelarBusquedaRegistroVenta;
     private javax.swing.JButton btn_CancelarCompra;
     private javax.swing.JButton btn_ComprarVenta;
     private javax.swing.JButton btn_InformacionVenta;
@@ -828,6 +904,7 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -836,14 +913,17 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tbl_CarritoVenta;
     private javax.swing.JTable tbl_ProductosVenta;
     private javax.swing.JTable tbl_RegistroVenta;
     private javax.swing.JTextPane tp_TotalPagarVenta;
     private javax.swing.JTextField txt_BuscarProductoVenta;
+    private javax.swing.JTextField txt_BuscarRegistroVenta;
     private javax.swing.JTextField txt_Cantidad;
     private javax.swing.JTextField txt_CodigoComprador;
+    private javax.swing.JTextPane txt_TotalRegistroVenta;
     private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }
