@@ -723,21 +723,32 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
     //Evento para guardar las modificaciones de la vista Modificar producto
     private void btn_GuadarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuadarModificarActionPerformed
-        if (ConfirmDialog("¿Desea guardar los cambios?")) {
-            proco.Update((int) index, new Producto(txt_IDModificar.getText().toUpperCase(),
-                    txt_NombreModificar.getText().toUpperCase(),
-                    Double.parseDouble(txt_PrecioModificar.getText()),
-                    Integer.parseInt(txt_CantidadModificar.getText())));
-            HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
-            HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
-            btn_GuadarModificar.setEnabled(false);
-            ListarTodo();
+        try {
+            if (ValCeroEspacio(txt_NombreProducto.getText(), txt_IDProducto.getText(), Integer.parseInt(txt_CantidaProducto.getText()), Double.parseDouble(txt_PrecioProducto.getText()))) {
+                if (ConfirmDialog("¿Desea guardar los cambios?")) {
+                    proco.Update((int) index, new Producto(txt_IDModificar.getText().toUpperCase(),
+                            txt_NombreModificar.getText().toUpperCase(),
+                            Double.parseDouble(txt_PrecioModificar.getText()),
+                            Integer.parseInt(txt_CantidadModificar.getText())));
+                    HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
+                    HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
+                    btn_GuadarModificar.setEnabled(false);
+                    ListarTodo();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+                }
+
+                txt_NombreModificar.setText("");
+                txt_PrecioModificar.setText("");
+                txt_IDModificar.setText("");
+                txt_CantidadModificar.setText("");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
         }
 
-        txt_NombreModificar.setText("");
-        txt_PrecioModificar.setText("");
-        txt_IDModificar.setText("");
-        txt_CantidadModificar.setText("");
+
     }//GEN-LAST:event_btn_GuadarModificarActionPerformed
 
     //Evento para eliminar un item de la vista Modificar producto
@@ -764,6 +775,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 btn_ModificarProducto.setEnabled(false);
                 HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, true);
             }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
         }
@@ -824,11 +836,16 @@ public class RegistrarProducto extends javax.swing.JFrame {
         proco.Backup();
         try {
             if (ConfirmDialog("¿Desea registrar?")) {
-                proco.create(new Producto(txt_IDProducto.getText().toUpperCase(),
-                        txt_NombreProducto.getText().toUpperCase(),
-                        Double.parseDouble(txt_PrecioProducto.getText()),
-                        Integer.parseInt(txt_CantidaProducto.getText())));
-                ListarTodo();
+                if (ValCeroEspacio(txt_NombreProducto.getText(), txt_IDProducto.getText(), Integer.parseInt(txt_CantidaProducto.getText()), Double.parseDouble(txt_PrecioProducto.getText()))) {
+                    proco.create(new Producto(txt_IDProducto.getText().toUpperCase(),
+                            txt_NombreProducto.getText().toUpperCase(),
+                            Double.parseDouble(txt_PrecioProducto.getText()),
+                            Integer.parseInt(txt_CantidaProducto.getText())));
+                    ListarTodo();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+                }
+
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
@@ -1008,6 +1025,19 @@ public class RegistrarProducto extends javax.swing.JFrame {
             Listar((DefaultTableModel) Tabla.getModel(), Array);
             Cancelar.setEnabled(true);
         }
+    }
+
+    public boolean ValCeroEspacio(String nombre, String id, int cantidad, double precio) {
+        try {
+            if (nombre.isEmpty() || nombre == null || id.isEmpty() || id == null || cantidad == 0 || precio == 0) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

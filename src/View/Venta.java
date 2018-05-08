@@ -265,7 +265,7 @@ public class Venta extends javax.swing.JFrame {
         }
 
         tp_TotalPagarVenta.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        tp_TotalPagarVenta.setText("sdfasda");
+        tp_TotalPagarVenta.setText("0.0");
         tp_TotalPagarVenta.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         tp_TotalPagarVenta.setEnabled(false);
         jScrollPane4.setViewportView(tp_TotalPagarVenta);
@@ -740,40 +740,45 @@ public class Venta extends javax.swing.JFrame {
     private void btn_AgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarVentaActionPerformed
 
         try {
-            if (Integer.parseInt(txt_Cantidad.getText()) <= Integer.parseInt(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 3).toString()) && Integer.parseInt(txt_Cantidad.getText()) > 1) {
-                venco.CreateB(new VentaM(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(),
-                        tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
-                        Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()),
-                        Integer.parseInt(txt_Cantidad.getText()), (String) cmbx_VendedorVenta.getSelectedItem(),
-                        Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString())
-                        * Integer.parseInt(txt_Cantidad.getText()), vendeco.getVendedor().get((int) IndexCmbx).getID(), txt_CodigoComprador.getText()));
+            if (ValCeroEspacio(txt_nombre.getText(), txt_Cantidad.getText(), txt_CodigoComprador.getText())) {
+                if (Integer.parseInt(txt_Cantidad.getText()) <= Integer.parseInt(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 3).toString()) && Integer.parseInt(txt_Cantidad.getText()) > 1) {
+                    venco.CreateB(new VentaM(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(),
+                            tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
+                            Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()),
+                            Integer.parseInt(txt_Cantidad.getText()), (String) cmbx_VendedorVenta.getSelectedItem(),
+                            Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString())
+                            * Integer.parseInt(txt_Cantidad.getText()), vendeco.getVendedor().get((int) IndexCmbx).getID(), txt_CodigoComprador.getText()));
 
-                proco.Update(tbl_ProductosVenta.getSelectedRow(), new Producto(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(), tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
-                        Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()), proco.getProducto().get(tbl_ProductosVenta.getSelectedRow()).getCantidad() - Integer.parseInt(txt_Cantidad.getText())));
-                System.out.println(" 1 ");
-                btn_AgregarVenta.setEnabled(false);
-                btn_ComprarVenta.setEnabled(true);
-                btn_CancelarCompra.setEnabled(true);
+                    proco.Update(tbl_ProductosVenta.getSelectedRow(), new Producto(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(), tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
+                            Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()), proco.getProducto().get(tbl_ProductosVenta.getSelectedRow()).getCantidad() - Integer.parseInt(txt_Cantidad.getText())));
+                    System.out.println(" 1 ");
+                    btn_AgregarVenta.setEnabled(false);
+                    btn_ComprarVenta.setEnabled(true);
+                    //btn_CancelarCompra.setEnabled(true);
 
-                System.out.println(" 2 ");
-                Subtotal(tp_TotalPagarVenta);
-                ListarTodo();
-                txt_nombre.setText(null);
-                txt_Cantidad.setText(null);
-                txt_CodigoComprador.setText(null);
-                txt_BuscarRegistroVenta.setText(null);
-                txt_BuscarProductoVenta.setText(null);
+                    System.out.println(" 2 ");
+                    Subtotal(tp_TotalPagarVenta);
+                    ListarTodo();
+                    txt_nombre.setText(null);
+                    txt_Cantidad.setText(null);
+                    txt_CodigoComprador.setText(null);
+                    txt_BuscarRegistroVenta.setText(null);
+                    txt_BuscarProductoVenta.setText(null);
 
-                System.out.println(" 3 ");
-            } else if (Integer.parseInt(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 3).toString()) == 0) {
-                JOptionPane.showMessageDialog(null, "No existe disponibilidad del producto en estos momentos.", "Error", 0);
+                    System.out.println(" 3 ");
+                } else if (Integer.parseInt(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 3).toString()) == 0) {
+                    JOptionPane.showMessageDialog(null, "No existe disponibilidad del producto en estos momentos.", "Error", 0);
 
-            } else if (Integer.parseInt(txt_Cantidad.getText()) == 0) {
-                JOptionPane.showMessageDialog(null, "Cantidad no admitida", "Error", 0);
-            } else if (Integer.parseInt(txt_Cantidad.getText()) < 0) {
-                JOptionPane.showMessageDialog(null, "No se pueden ingresar datos negativos", "Error", 0);
+                } else if (Integer.parseInt(txt_Cantidad.getText()) == 0) {
+                    JOptionPane.showMessageDialog(null, "Cantidad no admitida", "Error", 0);
+                } else if (Integer.parseInt(txt_Cantidad.getText()) < 0) {
+                    JOptionPane.showMessageDialog(null, "No se pueden ingresar datos negativos", "Error", 0);
+                } else {
+                    JOptionPane.showMessageDialog(null, "La cantidad a comprar es superior a la cantidad almacenada.", "Error", 0);
+                }
+
             } else {
-                JOptionPane.showMessageDialog(null, "La cantidad a comprar es superior a la cantidad almacenada.", "Error", 0);
+                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que este cumpliendo con todos los campos.", "Error", 0);
@@ -818,7 +823,7 @@ public class Venta extends javax.swing.JFrame {
             } else if (Integer.parseInt(txt_Cantidad.getText()) >= Integer.parseInt(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getSelectedRow(), 3).toString())) {
                 JOptionPane.showMessageDialog(null, "Al retirar, la cantidad no debe de ser mayor a la del carrito de compra.", "Error", 0);
             } else if (Integer.parseInt(txt_Cantidad.getText()) <= Integer.parseInt(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getSelectedRow(), 3).toString())) {
-                
+
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que este cumpliendo con todos los campos.", "Error", 0);
@@ -985,6 +990,18 @@ public class Venta extends javax.swing.JFrame {
         panel.setText(String.valueOf(total));
     }
 
+    public boolean ValCeroEspacio(String nombre, String cantidad, String id) {
+        try {
+            if (nombre.isEmpty() || nombre == null || id.isEmpty() || id == null || cantidad == null || cantidad.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AgregarVenta;

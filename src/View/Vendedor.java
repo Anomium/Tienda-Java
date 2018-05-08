@@ -97,7 +97,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel7.setText("Telefono");
 
-        txt_TelefonoVendedor.setText("1");
         txt_TelefonoVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_TelefonoVendedorKeyTyped(evt);
@@ -574,31 +573,35 @@ public class Vendedor extends javax.swing.JFrame {
 
     private void btn_RegistrarVendedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarVendedor1ActionPerformed
         try {
-            if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Registrar")) {
+            if (ValCeroEspacio(txt_NombreVendedor.getText(), txt_NumeroDocumento.getText(), txt_IdVendedor.getText())) {
+                if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Registrar")) {
 
-                if (ConfirmDialog("¿Desea Registrar?")) {
-                    venco.create(new Vendedorm(txt_NombreVendedor.getText().toUpperCase(),
-                            txt_NumeroDocumento.getText(),
-                            txt_IdVendedor.getText(),
-                            txt_TelefonoVendedor.getText()));
+                    if (ConfirmDialog("¿Desea Registrar?")) {
+                        venco.create(new Vendedorm(txt_NombreVendedor.getText().toUpperCase(),
+                                txt_NumeroDocumento.getText(),
+                                txt_IdVendedor.getText(),
+                                txt_TelefonoVendedor.getText()));
 
-                    listarTodo();
+                        listarTodo();
+                    }
+
+                } else if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Guardar")) {
+
+                    if (ConfirmDialog("¿Desea Guardar?")) {
+                        venco.Update((int) index, new Vendedorm(txt_NombreVendedor.getText(),
+                                txt_NumeroDocumento.getText(),
+                                txt_IdVendedor.getText(),
+                                txt_TelefonoVendedor.getText()));
+                        btn_Eliminar.setEnabled(false);
+                        btn_Cancelar.setEnabled(false);
+                        btn_RegistrarVendedor1.setText("Registrar");
+                        btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
+                        listarTodo();
+                    }
+
                 }
-
-            } else if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Guardar")) {
-
-                if (ConfirmDialog("¿Desea Guardar?")) {
-                    venco.Update((int) index, new Vendedorm(txt_NombreVendedor.getText(),
-                            txt_NumeroDocumento.getText(),
-                            txt_IdVendedor.getText(),
-                            txt_TelefonoVendedor.getText()));
-                    btn_Eliminar.setEnabled(false);
-                    btn_Cancelar.setEnabled(false);
-                    btn_RegistrarVendedor1.setText("Registrar");
-                    btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
-                    listarTodo();
-                }
-
+            } else {
+                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
             }
 
         } catch (Exception e) {
@@ -762,6 +765,19 @@ public class Vendedor extends javax.swing.JFrame {
             Listar((DefaultTableModel) Tabla.getModel(), Array);
             Cancelar.setEnabled(true);
         }
+    }
+
+    public boolean ValCeroEspacio(String nombre, String documento, String id) {
+        try {
+            if (nombre.isEmpty() || nombre == null || id.isEmpty() || id == null || documento == null || documento.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

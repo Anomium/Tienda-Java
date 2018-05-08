@@ -159,6 +159,7 @@ public class VentaController {
                     } else {
 
                         total = 0;
+                        subtotal = 0;
                     }
                 }
 
