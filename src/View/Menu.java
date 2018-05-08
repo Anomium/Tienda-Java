@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class Menu extends javax.swing.JFrame {
@@ -58,7 +59,6 @@ public class Menu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btn_VentaMenu = new javax.swing.JButton();
         btn_VendedoresMenu = new javax.swing.JButton();
-        btn_PagosMenu = new javax.swing.JButton();
         btn_InformacionMenu = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -155,15 +155,6 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(btn_VendedoresMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
-        btn_PagosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pagos.png"))); // NOI18N
-        btn_PagosMenu.setText("Pagos");
-        btn_PagosMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_PagosMenuMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btn_PagosMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 110, 100, -1));
-
         btn_InformacionMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
         btn_InformacionMenu.setText("Informacion");
         btn_InformacionMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -231,18 +222,15 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_VendedoresMenuMouseClicked
 
-    //Evento para pasar a la ventana Pagos
-    private void btn_PagosMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PagosMenuMouseClicked
-        Pagos pagos = new Pagos();
-        pagos.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_PagosMenuMouseClicked
-
     //Evento para pasar a la ventana Informacion
     private void btn_InformacionMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionMenuMouseClicked
-        Informacion informacion = new Informacion();
-        informacion.setVisible(true);
-        this.dispose();
+        try {
+            Informacion infomacion = new Informacion();
+            infomacion.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No puede acceder a esta opcion, primero se necesta una venta.", "Error", 0);
+        };
     }//GEN-LAST:event_btn_InformacionMenuMouseClicked
     
     //Evento para cerrar el programa
@@ -322,7 +310,6 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_InformacionMenu;
-    private javax.swing.JButton btn_PagosMenu;
     private javax.swing.JButton btn_VendedoresMenu;
     private javax.swing.JButton btn_VentaMenu;
     private javax.swing.JLabel fecha;

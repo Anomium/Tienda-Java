@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 
 import Controller.ProductoController;
 import Model.Producto;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -44,7 +45,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
         txt_CantidaProducto = new javax.swing.JTextField();
         btn_RegistarProducto = new javax.swing.JButton();
         btn_InformacionMenu1 = new javax.swing.JButton();
-        btn_PagosMenu1 = new javax.swing.JButton();
         btn_VendedoresMenu1 = new javax.swing.JButton();
         btn_VentaMenu1 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -69,9 +69,9 @@ public class RegistrarProducto extends javax.swing.JFrame {
         btn_BuscarModificar = new javax.swing.JButton();
         txt_BuscarModificar = new javax.swing.JTextField();
         btn_CancelarBusqueda = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         btn_VentaMenu = new javax.swing.JButton();
         btn_VendedoresMenu = new javax.swing.JButton();
-        btn_PagosMenu = new javax.swing.JButton();
         btn_InformacionMenu = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -114,18 +114,38 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jLabel1.setText("Nombre:");
 
         txt_NombreProducto.setText("Manzana");
+        txt_NombreProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_NombreProductoKeyTyped(evt);
+            }
+        });
 
         txt_IDProducto.setText("123");
+        txt_IDProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_IDProductoKeyTyped(evt);
+            }
+        });
 
         jLabel2.setText("ID del Producto:");
 
         jLabel3.setText("Precio unidad:");
 
         txt_PrecioProducto.setText("500");
+        txt_PrecioProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_PrecioProductoKeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Cantidad:");
 
         txt_CantidaProducto.setText("55");
+        txt_CantidaProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_CantidaProductoKeyTyped(evt);
+            }
+        });
 
         btn_RegistarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registarpro.png"))); // NOI18N
         btn_RegistarProducto.setText("Registrar");
@@ -145,19 +165,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
         btn_InformacionMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InformacionMenu1ActionPerformed(evt);
-            }
-        });
-
-        btn_PagosMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pagos.png"))); // NOI18N
-        btn_PagosMenu1.setText("Pagos");
-        btn_PagosMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_PagosMenu1MouseClicked(evt);
-            }
-        });
-        btn_PagosMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_PagosMenu1ActionPerformed(evt);
             }
         });
 
@@ -222,9 +229,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                         .addComponent(btn_VentaMenu1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_VendedoresMenu1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_PagosMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(110, 110, 110)
                         .addComponent(btn_InformacionMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -261,8 +266,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                     .addComponent(jButton10)
                     .addComponent(btn_VentaMenu1)
                     .addComponent(btn_InformacionMenu1)
-                    .addComponent(btn_VendedoresMenu1)
-                    .addComponent(btn_PagosMenu1))
+                    .addComponent(btn_VendedoresMenu1))
                 .addGap(19, 19, 19))
         );
 
@@ -303,20 +307,40 @@ public class RegistrarProducto extends javax.swing.JFrame {
         }
 
         txt_IDModificar.setEnabled(false);
+        txt_IDModificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_IDModificarKeyTyped(evt);
+            }
+        });
 
         txt_CantidadModificar.setEnabled(false);
+        txt_CantidadModificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_CantidadModificarKeyTyped(evt);
+            }
+        });
 
         jLabel5.setText("Cantidad:");
 
         jLabel6.setText("ID del Producto:");
 
         txt_NombreModificar.setEnabled(false);
+        txt_NombreModificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_NombreModificarKeyTyped(evt);
+            }
+        });
 
         jLabel7.setText("Nombre:");
 
         jLabel8.setText("Precio unidad:");
 
         txt_PrecioModificar.setEnabled(false);
+        txt_PrecioModificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_PrecioModificarKeyTyped(evt);
+            }
+        });
 
         btn_CancelarModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
         btn_CancelarModificar.setText("Cancelar");
@@ -378,7 +402,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btn_EliminarModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_ModificarProducto)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(btn_GuadarModificar)
                 .addContainerGap())
         );
@@ -393,6 +417,12 @@ public class RegistrarProducto extends javax.swing.JFrame {
             }
         });
 
+        txt_BuscarModificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_BuscarModificarKeyTyped(evt);
+            }
+        });
+
         btn_CancelarBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
         btn_CancelarBusqueda.setText("Cancelar Busqueda");
         btn_CancelarBusqueda.setEnabled(false);
@@ -402,6 +432,8 @@ public class RegistrarProducto extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setText("Buscar producto por nombre");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -409,22 +441,26 @@ public class RegistrarProducto extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_BuscarModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_CancelarBusqueda))
-                .addGap(36, 36, 36)
-                .addComponent(btn_BuscarModificar)
+                    .addComponent(jLabel10)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_BuscarModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_CancelarBusqueda))
+                        .addGap(36, 36, 36)
+                        .addComponent(btn_BuscarModificar)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_BuscarModificar)
                     .addComponent(txt_BuscarModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_CancelarBusqueda)
-                .addContainerGap())
+                .addComponent(btn_CancelarBusqueda))
         );
 
         jTabbedPane3.addTab("Buscar", jPanel5);
@@ -442,19 +478,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
         btn_VendedoresMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_VendedoresMenuMouseClicked(evt);
-            }
-        });
-
-        btn_PagosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pagos.png"))); // NOI18N
-        btn_PagosMenu.setText("Pagos");
-        btn_PagosMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_PagosMenuMouseClicked(evt);
-            }
-        });
-        btn_PagosMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_PagosMenuActionPerformed(evt);
             }
         });
 
@@ -513,9 +536,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                         .addComponent(btn_VentaMenu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_VendedoresMenu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_PagosMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(110, 110, 110)
                         .addComponent(btn_InformacionMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -554,8 +575,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                     .addComponent(jButton9)
                     .addComponent(btn_VentaMenu)
                     .addComponent(btn_InformacionMenu)
-                    .addComponent(btn_VendedoresMenu)
-                    .addComponent(btn_PagosMenu))
+                    .addComponent(btn_VendedoresMenu))
                 .addGap(23, 23, 23))
         );
 
@@ -671,26 +691,17 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
     private void btn_InformacionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenuActionPerformed
 
-        Informacion informacion = new Informacion();
-        informacion.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btn_InformacionMenuActionPerformed
 
     private void btn_InformacionMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionMenuMouseClicked
-        Informacion informacion = new Informacion();
-        informacion.setVisible(true);
-        this.dispose();
+        try {
+            Informacion infomacion = new Informacion();
+            infomacion.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No puede acceder a esta opcion, primero se necesta una venta.", "Error", 0);
+        }
     }//GEN-LAST:event_btn_InformacionMenuMouseClicked
-
-    private void btn_PagosMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PagosMenuActionPerformed
-
-    }//GEN-LAST:event_btn_PagosMenuActionPerformed
-
-    private void btn_PagosMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PagosMenuMouseClicked
-        Pagos pagos = new Pagos();
-        pagos.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_PagosMenuMouseClicked
 
     private void btn_VendedoresMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VendedoresMenuMouseClicked
         Vendedor vendedor = new Vendedor();
@@ -799,26 +810,18 @@ public class RegistrarProducto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_VendedoresMenu1MouseClicked
 
-    private void btn_PagosMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PagosMenu1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_PagosMenu1ActionPerformed
-
-    private void btn_PagosMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PagosMenu1MouseClicked
-
-        Pagos pagos = new Pagos();
-        pagos.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_PagosMenu1MouseClicked
-
     private void btn_InformacionMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_InformacionMenu1ActionPerformed
 
     private void btn_InformacionMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionMenu1MouseClicked
-
-        Informacion informacion = new Informacion();
-        informacion.setVisible(true);
-        this.dispose();
+        try {
+            Informacion infomacion = new Informacion();
+            infomacion.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No puede acceder a esta opcion, primero se necesta una venta.", "Error", 0);
+        }
     }//GEN-LAST:event_btn_InformacionMenu1MouseClicked
 
     private void btn_RegistarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistarProductoActionPerformed
@@ -841,6 +844,113 @@ public class RegistrarProducto extends javax.swing.JFrame {
         txt_CantidaProducto.setText("");
 
     }//GEN-LAST:event_btn_RegistarProductoActionPerformed
+
+    private void txt_PrecioProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PrecioProductoKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txt_PrecioProductoKeyTyped
+
+    private void txt_CantidaProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CantidaProductoKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txt_CantidaProductoKeyTyped
+
+    private void txt_IDProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_IDProductoKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if (txt_IDProducto.getText().length() >= 8) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Maximo 8 digitos.", "Informacion", 1);
+        }
+
+    }//GEN-LAST:event_txt_IDProductoKeyTyped
+
+    private void txt_NombreProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_NombreProductoKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if (txt_IDProducto.getText().length() >= 8) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Maximo 8 digitos.", "Informacion", 1);
+        }
+        if (!Character.isLetter(c) && c != KeyEvent.VK_SPACE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_NombreProductoKeyTyped
+
+    private void txt_NombreModificarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_NombreModificarKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if (!Character.isLetter(c) && c != KeyEvent.VK_SPACE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_NombreModificarKeyTyped
+
+    private void txt_PrecioModificarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PrecioModificarKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if (!Character.isLetter(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_PrecioModificarKeyTyped
+
+    private void txt_IDModificarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_IDModificarKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if (txt_IDModificar.getText().length() == 8) {
+            evt.consume();
+        }
+        if (!Character.isLetter(c)) {
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txt_IDModificarKeyTyped
+
+    private void txt_CantidadModificarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CantidadModificarKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if (!Character.isLetter(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_CantidadModificarKeyTyped
+
+    private void txt_BuscarModificarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarModificarKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if (!Character.isLetter(c) && c != KeyEvent.VK_SPACE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_BuscarModificarKeyTyped
 
     //Este Metodo Sirve Para Listar las Tablas
     private void Listar(DefaultTableModel Tabla, ArrayList<String[]> Lista) {
@@ -913,8 +1023,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
     private javax.swing.JButton btn_InformacionMenu;
     private javax.swing.JButton btn_InformacionMenu1;
     private javax.swing.JButton btn_ModificarProducto;
-    private javax.swing.JButton btn_PagosMenu;
-    private javax.swing.JButton btn_PagosMenu1;
     private javax.swing.JButton btn_RegistarProducto;
     private javax.swing.JButton btn_VendedoresMenu;
     private javax.swing.JButton btn_VendedoresMenu1;
@@ -925,6 +1033,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

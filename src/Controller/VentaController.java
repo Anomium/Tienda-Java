@@ -3,6 +3,7 @@ package Controller;
 import Model.Producto;
 import Model.VentaM;
 import Controller.VendedorController;
+import com.sun.swing.internal.plaf.basic.resources.basic;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JTextPane;
@@ -70,14 +71,10 @@ public class VentaController {
         return Get;
     }
 
-    public void asd(){
-        
-    }
-
     public void Read(String filter, int cant) {
 
         for (int i = 0; i < proco.getProducto().size(); i++) {
-            if (proco.getProducto().get(i).getID().contains(filter)) {
+            if (proco.getProducto().get(i).getID().equals(filter)) {
                 proco.Update(i, new Producto(proco.getProducto().get(i).getID(),
                         proco.getProducto().get(i).getNombre(),
                         proco.getProducto().get(i).getPrecio(), proco.getProducto().get(i).getCantidad() + cant));
@@ -90,7 +87,7 @@ public class VentaController {
         ArrayList<String[]> Get = new ArrayList<>();
         double total = 0;
         for (int i = 0; i < Backup.size(); i++) {
-            if (Backup.get(i).getCodigoVend().contains(filter)) {
+            if (Backup.get(i).getCodigoVend().equals(filter)) {
                 Get.add(new String[]{Backup.get(i).getVendedor(),
                     Backup.get(i).getCodigoVend(), Backup.get(i).getCodigoComp(),
                     Backup.get(i).getID(), String.valueOf(Backup.get(i).getPrecio()),
@@ -122,6 +119,83 @@ public class VentaController {
                     Registro.get(i).getVendedor(), (double) Registro.get(i).getSubtotal(),
                     Registro.get(i).getCodigoVend(), Registro.get(i).getCodigoComp()));
         }
+    }
+
+    public ArrayList<String[]> ReadTotalOrdenado() {
+        double total = 0;
+
+        double subtotal = 0;
+        ArrayList<String[]> Get = new ArrayList<>();
+        Get.removeAll(Get);
+        BackupOrdenado.removeAll(BackupOrdenado);
+        for (int i = 0; i < vendeco.getVendedor().size(); i++) {
+            System.out.println(vendeco.getVendedor().get(i).getNombre());
+            for (int j = 0; j < Backup.size(); j++) {
+
+
+                if (vendeco.getVendedor().get(i).getNombre().equalsIgnoreCase(Backup.get(j).getVendedor())) {
+
+                    if (Backup.get(j).getCantidad() >= 1 && Backup.get(j).getCantidad() < 30) {
+                        total = total + Backup.get(j).getSubtotal() * 0.3;
+
+                        subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
+
+                    } else if (Backup.get(j).getCantidad() >= 30 && Backup.get(j).getCantidad() < 50) {
+                        total = total + (Backup.get(j).getSubtotal() * 0.3) + (Backup.get(j).getSubtotal() * 0.05);
+                        
+
+                        subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
+
+                    } else if (Backup.get(j).getCantidad() >= 51 && Backup.get(j).getCantidad() < 100) {
+                        total = total + (Backup.get(j).getSubtotal() * 0.3) + (Backup.get(j).getSubtotal() * 0.1);
+          
+
+                        subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
+
+                    } else if (Backup.get(j).getCantidad() >= 101) {
+                        total = total + (Backup.get(j).getSubtotal() * 0.3) + (Backup.get(j).getSubtotal() * 0.15) - (Backup.get(j).getSubtotal() * 0.08);
+                        subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
+
+                    } else {
+
+                        total = 0;
+                    }
+                }
+
+            }
+            int cont = 0;
+            for (int j = 0; j < vendeco.getVendedor().size(); j++) {
+                cont++;
+                if (vendeco.getVendedor().size() == 2) {
+                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                } else if (vendeco.getVendedor().size() == 0) {
+                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                } else if (vendeco.getVendedor().size() == 1) {
+                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                }
+            }
+            CreateBO(new VentaM(String.valueOf(subtotal), Backup.get(i).getNombre(),
+                    Backup.get(i).getPrecio(), Backup.get(i).getCantidad(),
+                    Backup.get(i).getVendedor(), total, Backup.get(i).getCodigoVend()));
+
+            total = 0;
+            subtotal = 0;
+        }
+        
+        Collections.sort(BackupOrdenado);
+
+        for (int i = 0; i < BackupOrdenado.size(); i++) {
+            Get.add(new String[]{BackupOrdenado.get(i).getCodigoVend(),
+                BackupOrdenado.get(i).getVendedor(), BackupOrdenado.get(i).getID(),
+                String.valueOf(BackupOrdenado.get(i).getSubtotal())});
+
+        }
+        subtotal = 0;
+        return Get;
     }
 
     public void BorrarRegistro() {

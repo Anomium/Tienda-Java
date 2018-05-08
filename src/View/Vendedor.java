@@ -2,6 +2,7 @@ package View;
 
 import Controller.VendedorController;
 import Model.Vendedorm;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
@@ -45,7 +46,6 @@ public class Vendedor extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btn_VentaVendedor = new javax.swing.JButton();
-        btn_PagosVendedor = new javax.swing.JButton();
         btn_MenuVendedor = new javax.swing.JButton();
         btn_InformacionVendedor = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -74,18 +74,38 @@ public class Vendedor extends javax.swing.JFrame {
         jLabel4.setText("Nombre completo");
 
         txt_NombreVendedor.setText("Alguien");
+        txt_NombreVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_NombreVendedorKeyTyped(evt);
+            }
+        });
 
         jLabel5.setText("nº documento:");
 
         txt_NumeroDocumento.setText("1");
+        txt_NumeroDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_NumeroDocumentoKeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("Id del vendedor:");
 
         txt_IdVendedor.setText("1");
+        txt_IdVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_IdVendedorKeyTyped(evt);
+            }
+        });
 
         jLabel7.setText("Telefono");
 
         txt_TelefonoVendedor.setText("1");
+        txt_TelefonoVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_TelefonoVendedorKeyTyped(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 0));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -165,14 +185,6 @@ public class Vendedor extends javax.swing.JFrame {
             }
         });
 
-        btn_PagosVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pagos.png"))); // NOI18N
-        btn_PagosVendedor.setText("Pagos");
-        btn_PagosVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_PagosVendedorMouseClicked(evt);
-            }
-        });
-
         btn_MenuVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/menu.png"))); // NOI18N
         btn_MenuVendedor.setText("Menu");
         btn_MenuVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,6 +198,11 @@ public class Vendedor extends javax.swing.JFrame {
         btn_InformacionVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_InformacionVendedorMouseClicked(evt);
+            }
+        });
+        btn_InformacionVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InformacionVendedorActionPerformed(evt);
             }
         });
 
@@ -298,7 +315,13 @@ public class Vendedor extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Registro", jPanel3);
 
-        jLabel8.setText("Buscar Vendedor por nº Documento");
+        jLabel8.setText("Buscar Vendedor por nombre");
+
+        txt_Buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_BuscarKeyTyped(evt);
+            }
+        });
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
         btn_buscar.setText("Buscar");
@@ -331,16 +354,16 @@ public class Vendedor extends javax.swing.JFrame {
                 .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(75, 75, 75)
                 .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -397,9 +420,7 @@ public class Vendedor extends javax.swing.JFrame {
                                 .addComponent(btn_MenuVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(8, 8, 8)
                                 .addComponent(btn_VentaVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)
-                                .addComponent(btn_PagosVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
+                                .addGap(149, 149, 149)
                                 .addComponent(btn_InformacionVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
@@ -444,7 +465,6 @@ public class Vendedor extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_MenuVendedor)
                             .addComponent(btn_VentaVendedor)
-                            .addComponent(btn_PagosVendedor)
                             .addComponent(btn_InformacionVendedor))
                         .addGap(16, 16, 16)
                         .addComponent(jButton1))))
@@ -452,13 +472,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    //Evento para pasar a la ventana Pagos
-    private void btn_PagosVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_PagosVendedorMouseClicked
-        Pagos pagos = new Pagos();
-        pagos.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_PagosVendedorMouseClicked
 
     //Evento para pasar a la ventana Venta
     private void btn_VentaVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VentaVendedorMouseClicked
@@ -474,9 +487,13 @@ public class Vendedor extends javax.swing.JFrame {
 
     //Evento para pasar a la ventana Informacion
     private void btn_InformacionVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionVendedorMouseClicked
-        Informacion informacion = new Informacion();
-        informacion.setVisible(true);
-        this.dispose();
+        try {
+            Informacion infomacion = new Informacion();
+            infomacion.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No puede acceder a esta opcion, primero se necesta una venta.", "Error", 0);
+        }
     }//GEN-LAST:event_btn_InformacionVendedorMouseClicked
 
     //Evento para pasar a la ventana Menu
@@ -619,13 +636,72 @@ public class Vendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_CancelarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarBuscarActionPerformed
-        
+
         listarTodo();
         btn_CancelarBuscar.setEnabled(false);
-        
+
         txt_Buscar.setText(null);
-        
+
     }//GEN-LAST:event_btn_CancelarBuscarActionPerformed
+
+    private void btn_InformacionVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionVendedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_InformacionVendedorActionPerformed
+
+    private void txt_NumeroDocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_NumeroDocumentoKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_NumeroDocumentoKeyTyped
+
+    private void txt_IdVendedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_IdVendedorKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+        if (txt_IdVendedor.getText().length() >= 8) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Maximo 8 digitos.", "Informacion", 1);
+        }
+
+    }//GEN-LAST:event_txt_IdVendedorKeyTyped
+
+    private void txt_TelefonoVendedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_TelefonoVendedorKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txt_TelefonoVendedorKeyTyped
+
+    private void txt_NombreVendedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_NombreVendedorKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if (!Character.isLetter(c) && c != KeyEvent.VK_SPACE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_NombreVendedorKeyTyped
+
+    private void txt_BuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        if (!Character.isLetter(c) && c != KeyEvent.VK_SPACE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_BuscarKeyTyped
 
     private boolean ConfirmDialog(String texto) {
         int num = JOptionPane.showConfirmDialog(null, texto);
@@ -699,7 +775,6 @@ public class Vendedor extends javax.swing.JFrame {
     private javax.swing.JButton btn_InformacionVendedor;
     private javax.swing.JButton btn_MenuVendedor;
     private javax.swing.JButton btn_Modificar;
-    private javax.swing.JButton btn_PagosVendedor;
     private javax.swing.JToggleButton btn_RegistrarVendedor1;
     private javax.swing.JButton btn_VentaVendedor;
     private javax.swing.JButton btn_buscar;

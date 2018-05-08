@@ -108,9 +108,7 @@
                                   <Component id="btn_VentaMenu1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btn_VendedoresMenu1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btn_PagosMenu1" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                                   <Component id="btn_InformacionMenu1" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -159,7 +157,6 @@
                               <Component id="btn_VentaMenu1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_InformacionMenu1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_VendedoresMenu1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_PagosMenu1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
@@ -224,11 +221,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Manzana"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_NombreProductoKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_IDProducto">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="123"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_IDProductoKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
@@ -244,6 +247,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="500"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_PrecioProductoKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
@@ -254,6 +260,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="55"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_CantidaProductoKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_RegistarProducto">
                   <Properties>
@@ -276,18 +285,6 @@
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_InformacionMenu1MouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_InformacionMenu1ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btn_PagosMenu1">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Img/pagos.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Pagos"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_PagosMenu1MouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_PagosMenu1ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_VendedoresMenu1">
@@ -375,9 +372,7 @@
                                   <Component id="btn_VentaMenu" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btn_VendedoresMenu" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btn_PagosMenu" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                                   <Component id="btn_InformacionMenu" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -430,7 +425,6 @@
                               <Component id="btn_VentaMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_InformacionMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_VendedoresMenu" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_PagosMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
@@ -493,11 +487,17 @@
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_IDModificarKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_CantidadModificar">
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_CantidadModificarKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
@@ -513,6 +513,9 @@
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_NombreModificarKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
@@ -528,6 +531,9 @@
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_PrecioModificarKeyTyped"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JTabbedPane" name="jTabbedPane3">
 
@@ -570,7 +576,7 @@
                                           <Component id="btn_ModificarProducto" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                                  <EmptySpace pref="18" max="32767" attributes="0"/>
                                   <Component id="btn_GuadarModificar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -643,26 +649,32 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace pref="42" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txt_BuscarModificar" min="-2" pref="227" max="-2" attributes="0"/>
-                                      <Component id="btn_CancelarBusqueda" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txt_BuscarModificar" min="-2" pref="227" max="-2" attributes="0"/>
+                                              <Component id="btn_CancelarBusqueda" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                          <Component id="btn_BuscarModificar" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="btn_BuscarModificar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btn_BuscarModificar" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txt_BuscarModificar" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btn_CancelarBusqueda" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -680,6 +692,9 @@
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txt_BuscarModificar">
+                          <Events>
+                            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_BuscarModificarKeyTyped"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="btn_CancelarBusqueda">
                           <Properties>
@@ -692,6 +707,11 @@
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CancelarBusquedaActionPerformed"/>
                           </Events>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel10">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Buscar producto por nombre"/>
+                          </Properties>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -717,18 +737,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_VendedoresMenuMouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btn_PagosMenu">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Img/pagos.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Pagos"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_PagosMenuMouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_PagosMenuActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_InformacionMenu">

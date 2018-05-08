@@ -79,9 +79,7 @@
                               <Component id="btn_MenuVendedor" min="-2" pref="102" max="-2" attributes="0"/>
                               <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
                               <Component id="btn_VentaVendedor" min="-2" pref="101" max="-2" attributes="0"/>
-                              <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
-                              <Component id="btn_PagosVendedor" min="-2" pref="129" max="-2" attributes="0"/>
-                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
                               <Component id="btn_InformacionVendedor" min="-2" pref="122" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jButton1" min="-2" pref="120" max="-2" attributes="0"/>
@@ -141,7 +139,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btn_MenuVendedor" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_VentaVendedor" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_PagosVendedor" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_InformacionVendedor" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
@@ -170,6 +167,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Alguien"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_NombreVendedorKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -180,6 +180,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_NumeroDocumentoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -190,6 +193,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_IdVendedorKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -200,6 +206,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_TelefonoVendedorKeyTyped"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
@@ -317,17 +326,6 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_VentaVendedorMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_PagosVendedor">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Img/pagos.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Pagos"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_PagosVendedorMouseClicked"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btn_MenuVendedor">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -348,6 +346,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_InformacionVendedorMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_InformacionVendedorActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -537,7 +536,7 @@
                       <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -546,9 +545,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="txt_Buscar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -563,10 +562,13 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar Vendedor por n&#xba; Documento"/>
+                <Property name="text" type="java.lang.String" value="Buscar Vendedor por nombre"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_Buscar">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_BuscarKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_buscar">
               <Properties>
