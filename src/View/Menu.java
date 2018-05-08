@@ -111,7 +111,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
+                .addContainerGap(174, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(118, 118, 118)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,7 +130,7 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 20));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 20));
 
         btn_VentaMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/venta.png"))); // NOI18N
         btn_VentaMenu.setText("Venta");
@@ -144,7 +144,7 @@ public class Menu extends javax.swing.JFrame {
                 btn_VentaMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_VentaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        getContentPane().add(btn_VentaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, -1));
 
         btn_VendedoresMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
         btn_VendedoresMenu.setText("Vendedores");
@@ -153,7 +153,7 @@ public class Menu extends javax.swing.JFrame {
                 btn_VendedoresMenuMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_VendedoresMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
+        getContentPane().add(btn_VendedoresMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 120, -1));
 
         btn_InformacionMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
         btn_InformacionMenu.setText("Informacion");
@@ -167,19 +167,19 @@ public class Menu extends javax.swing.JFrame {
                 btn_InformacionMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_InformacionMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 120, -1));
+        getContentPane().add(btn_InformacionMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 120, -1));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logot.png"))); // NOI18N
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 0, 0));
         jLabel1.setFont(new java.awt.Font("Papyrus", 3, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("koda");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 143, 62));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 143, 62));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen6.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 190, 430, 340));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 170, 450, 340));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/producto.png"))); // NOI18N
         jButton1.setText("Productos ");
@@ -193,17 +193,17 @@ public class Menu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 120, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 120, -1));
 
         hora.setFont(new java.awt.Font("Copperplate Gothic Bold", 3, 12)); // NOI18N
         hora.setForeground(new java.awt.Color(255, 0, 0));
         hora.setText("hora");
-        getContentPane().add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 90, 20));
+        getContentPane().add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 90, 20));
 
         fecha.setFont(new java.awt.Font("Copperplate Gothic Bold", 3, 12)); // NOI18N
         fecha.setForeground(new java.awt.Color(255, 0, 0));
         fecha.setText("fecha");
-        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 54, 120, 20));
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 120, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

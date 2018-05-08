@@ -108,7 +108,7 @@
                                   <Component id="btn_VentaMenu1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btn_VendedoresMenu1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btn_InformacionMenu1" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -218,17 +218,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_NombreProducto">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Manzana"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_NombreProductoKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_IDProducto">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="123"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_IDProductoKeyTyped"/>
                   </Events>
@@ -244,9 +238,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_PrecioProducto">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="500"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_PrecioProductoKeyTyped"/>
                   </Events>
@@ -257,9 +248,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_CantidaProducto">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="55"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_CantidaProductoKeyTyped"/>
                   </Events>
@@ -372,7 +360,7 @@
                                   <Component id="btn_VentaMenu" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btn_VendedoresMenu" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btn_InformacionMenu" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>

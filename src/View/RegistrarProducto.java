@@ -113,14 +113,12 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
 
-        txt_NombreProducto.setText("Manzana");
         txt_NombreProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_NombreProductoKeyTyped(evt);
             }
         });
 
-        txt_IDProducto.setText("123");
         txt_IDProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_IDProductoKeyTyped(evt);
@@ -131,7 +129,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel3.setText("Precio unidad:");
 
-        txt_PrecioProducto.setText("500");
         txt_PrecioProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_PrecioProductoKeyTyped(evt);
@@ -140,7 +137,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel4.setText("Cantidad:");
 
-        txt_CantidaProducto.setText("55");
         txt_CantidaProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_CantidaProductoKeyTyped(evt);
@@ -229,7 +225,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                         .addComponent(btn_VentaMenu1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_VendedoresMenu1)
-                        .addGap(110, 110, 110)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_InformacionMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -536,7 +532,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                         .addComponent(btn_VentaMenu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_VendedoresMenu)
-                        .addGap(110, 110, 110)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_InformacionMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
