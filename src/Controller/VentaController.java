@@ -101,7 +101,7 @@ public class VentaController {
 
     public void Registro() {
 
-        Registro.removeAll(Registro);
+        Registro.clear();
         for (int i = 0; i < venta.size(); i++) {
             Registro.add(new VentaM(venta.get(i).getID(), venta.get(i).getNombre(),
                     (double) venta.get(i).getPrecio(), (int) venta.get(i).getCantidad(),
@@ -126,12 +126,11 @@ public class VentaController {
 
         double subtotal = 0;
         ArrayList<String[]> Get = new ArrayList<>();
-        Get.removeAll(Get);
-        BackupOrdenado.removeAll(BackupOrdenado);
+        Get.clear();
+        BackupOrdenado.clear();
         for (int i = 0; i < vendeco.getVendedor().size(); i++) {
             System.out.println(vendeco.getVendedor().get(i).getNombre());
             for (int j = 0; j < Backup.size(); j++) {
-
 
                 if (vendeco.getVendedor().get(i).getNombre().equalsIgnoreCase(Backup.get(j).getVendedor())) {
 
@@ -142,13 +141,11 @@ public class VentaController {
 
                     } else if (Backup.get(j).getCantidad() >= 30 && Backup.get(j).getCantidad() < 50) {
                         total = total + (Backup.get(j).getSubtotal() * 0.3) + (Backup.get(j).getSubtotal() * 0.05);
-                        
 
                         subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
 
                     } else if (Backup.get(j).getCantidad() >= 51 && Backup.get(j).getCantidad() < 100) {
                         total = total + (Backup.get(j).getSubtotal() * 0.3) + (Backup.get(j).getSubtotal() * 0.1);
-          
 
                         subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
 
@@ -156,10 +153,6 @@ public class VentaController {
                         total = total + (Backup.get(j).getSubtotal() * 0.3) + (Backup.get(j).getSubtotal() * 0.15) - (Backup.get(j).getSubtotal() * 0.08);
                         subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
 
-                    } else {
-
-                        total = 0;
-                        subtotal = 0;
                     }
                 }
 
@@ -168,25 +161,28 @@ public class VentaController {
             for (int j = 0; j < vendeco.getVendedor().size(); j++) {
                 cont++;
                 if (vendeco.getVendedor().size() == 2) {
-                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("", "", 0, 0, "", 0, ""));
                 } else if (vendeco.getVendedor().size() == 0) {
-                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
-                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
-                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("", "", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("", "", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("", "", 0, 0, "", 0, ""));
                 } else if (vendeco.getVendedor().size() == 1) {
-                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
-                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
-                    CreateBO(new VentaM("","", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("", "", 0, 0, "", 0, ""));
+                    CreateBO(new VentaM("", "", 0, 0, "", 0, ""));
                 }
             }
-            CreateBO(new VentaM(String.valueOf(subtotal), Backup.get(i).getNombre(),
-                    Backup.get(i).getPrecio(), Backup.get(i).getCantidad(),
-                    Backup.get(i).getVendedor(), total, Backup.get(i).getCodigoVend()));
+            try {
+                CreateBO(new VentaM(String.valueOf(subtotal), Backup.get(i).getNombre(),
+                        Backup.get(i).getPrecio(), Backup.get(i).getCantidad(),
+                        Backup.get(i).getVendedor(), total, Backup.get(i).getCodigoVend()));
+            } catch (Exception e) {
+                
+            }
 
             total = 0;
             subtotal = 0;
         }
-        
+
         Collections.sort(BackupOrdenado);
 
         for (int i = 0; i < BackupOrdenado.size(); i++) {
