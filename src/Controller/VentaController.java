@@ -123,7 +123,7 @@ public class VentaController {
 
     public ArrayList<String[]> ReadTotalOrdenado() {
         double total = 0;
-
+        boolean val = true;
         double subtotal = 0;
         ArrayList<String[]> Get = new ArrayList<>();
         Get.clear();
@@ -138,21 +138,21 @@ public class VentaController {
                         total = total + Backup.get(j).getSubtotal() * 0.3;
 
                         subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
-
+                        val = false;
                     } else if (Backup.get(j).getCantidad() >= 30 && Backup.get(j).getCantidad() < 50) {
                         total = total + (Backup.get(j).getSubtotal() * 0.3) + (Backup.get(j).getSubtotal() * 0.05);
 
                         subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
-
+                        val = false;
                     } else if (Backup.get(j).getCantidad() >= 51 && Backup.get(j).getCantidad() < 100) {
                         total = total + (Backup.get(j).getSubtotal() * 0.3) + (Backup.get(j).getSubtotal() * 0.1);
 
                         subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
-
+                        val = false;
                     } else if (Backup.get(j).getCantidad() >= 101) {
                         total = total + (Backup.get(j).getSubtotal() * 0.3) + (Backup.get(j).getSubtotal() * 0.15) - (Backup.get(j).getSubtotal() * 0.08);
                         subtotal = subtotal + Backup.get(j).getPrecio() * Backup.get(j).getCantidad();
-
+                        val = false;
                     }
                 }
 
@@ -172,11 +172,14 @@ public class VentaController {
                 }
             }
             try {
-                CreateBO(new VentaM(String.valueOf(subtotal), Backup.get(i).getNombre(),
-                        Backup.get(i).getPrecio(), Backup.get(i).getCantidad(),
-                        Backup.get(i).getVendedor(), total, Backup.get(i).getCodigoVend()));
+                if (val == false) {
+                    CreateBO(new VentaM(String.valueOf(subtotal), Backup.get(i).getNombre(),
+                            Backup.get(i).getPrecio(), Backup.get(i).getCantidad(),
+                            Backup.get(i).getVendedor(), total, Backup.get(i).getCodigoVend()));
+                    val = true;
+                }
             } catch (Exception e) {
-                
+                System.out.println("ERROR");
             }
 
             total = 0;

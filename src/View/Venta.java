@@ -741,7 +741,7 @@ public class Venta extends javax.swing.JFrame {
 
         try {
             if (ValCeroEspacio(txt_nombre.getText(), txt_Cantidad.getText(), txt_CodigoComprador.getText())) {
-                if (Integer.parseInt(txt_Cantidad.getText()) <= Integer.parseInt(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 3).toString()) && Integer.parseInt(txt_Cantidad.getText()) > 1) {
+                if (Integer.parseInt(txt_Cantidad.getText()) <= Integer.parseInt(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 3).toString()) && Integer.parseInt(txt_Cantidad.getText()) >= 1) {
                     venco.CreateB(new VentaM(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 0).toString(),
                             tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString(),
                             Double.parseDouble(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 2).toString()),
