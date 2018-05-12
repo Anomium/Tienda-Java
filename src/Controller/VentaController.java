@@ -245,8 +245,7 @@ public class VentaController {
         Collections.sort(BackupOrdenado);
         for (int i = 0; i < BackupOrdenado.size(); i++) {
             Get.add(new String[]{BackupOrdenado.get(i).getCodigoVend(),
-                BackupOrdenado.get(i).getVendedor(), BackupOrdenado.get(i).getID(),
-                String.valueOf(BackupOrdenado.get(i).getSubtotal())});
+                BackupOrdenado.get(i).getVendedor(), String.valueOf(BackupOrdenado.get(i).getSubtotal())});
 
         }
         return Get;

@@ -9,7 +9,7 @@ public class Informacion extends javax.swing.JFrame {
 
     private VentaController venco = new VentaController();
     private int x, y;
-    
+
     public Informacion() {
         initComponents();
         setLocationRelativeTo(null);
@@ -343,21 +343,21 @@ public class Informacion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     //Evento para pasar a la ventana Venta
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         Venta venta = new Venta();
         venta.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton9MouseClicked
-    
+
     //Evento para pasar a la ventana Vendedor
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Vendedor vendedor = new Vendedor();
         vendedor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
-    
+
     //Evento para pasar a la ventana Menu
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         Menu menu = new Menu();
@@ -369,7 +369,7 @@ public class Informacion extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton8ActionPerformed
-    
+
     //Evento para maximizar la Ventana en la que se encuentra
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         this.setExtendedState(ICONIFIED);
@@ -385,7 +385,7 @@ public class Informacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        
+
         RegistrarProducto registrarproducto = new RegistrarProducto();
         registrarproducto.setVisible(true);
         this.dispose();
@@ -396,7 +396,7 @@ public class Informacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-        //Este Metodo Sirve Para Listar las Tablas
+    //Este Metodo Sirve Para Listar las Tablas
     private void Listar(DefaultTableModel Tabla, ArrayList<String[]> Lista) {
         //Elimino todas las filas
         while (Tabla.getRowCount() != 0) {
@@ -408,14 +408,35 @@ public class Informacion extends javax.swing.JFrame {
         }
     }
     
-    private void TresPrimero(){
-        txt_NombreVendedor1.setText(tbl_Informacion1.getValueAt(0, 1).toString());
-        txt_NombreVendedor2.setText(tbl_Informacion1.getValueAt(1, 1).toString());
-        txt_NombreVendedor3.setText(tbl_Informacion1.getValueAt(2, 1).toString());
-        
-        txt_SueldoVendedor1.setText(tbl_Informacion1.getValueAt(0, 3).toString());
-        txt_SueldoVendedor2.setText(tbl_Informacion1.getValueAt(1, 3).toString());
-        txt_SueldoVendedor3.setText(tbl_Informacion1.getValueAt(2, 3).toString());
+    //Este metodo sirve para agarrar los tres primeros de la tabla
+    private void TresPrimero() {
+        try {
+            txt_NombreVendedor1.setText(tbl_Informacion1.getValueAt(0, 1).toString());
+            txt_SueldoVendedor1.setText(tbl_Informacion1.getValueAt(0, 3).toString());
+        } catch (Exception e) {
+            //Si no existen ventas realizadas por algun vendedor, el primer, segundo y tercer lugar queda en vacio
+            txt_NombreVendedor1.setText("No existe");
+            txt_SueldoVendedor1.setText("0.0");
+        }
+
+        try {
+            txt_NombreVendedor2.setText(tbl_Informacion1.getValueAt(1, 1).toString());
+            txt_SueldoVendedor2.setText(tbl_Informacion1.getValueAt(1, 3).toString());
+        } catch (Exception e) {
+            //Si no existen ventas realizadas por algun vendedor, el segundo y tercer lugar queda en vacio
+            txt_NombreVendedor2.setText("No existe");
+            txt_SueldoVendedor2.setText("0.0");
+        }
+
+        try {
+            txt_NombreVendedor3.setText(tbl_Informacion1.getValueAt(2, 1).toString());
+            txt_SueldoVendedor3.setText(tbl_Informacion1.getValueAt(2, 3).toString());
+        } catch (Exception e) {
+            //Si no existen ventas realizadas por algun vendedor, el tercer lugar queda en vacio
+            txt_NombreVendedor3.setText("No existe");
+            txt_SueldoVendedor3.setText("0.0");
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
