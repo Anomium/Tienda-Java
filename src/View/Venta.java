@@ -172,11 +172,6 @@ public class Venta extends javax.swing.JFrame {
                 btn_InformacionVentaMouseClicked(evt);
             }
         });
-        btn_InformacionVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_InformacionVentaActionPerformed(evt);
-            }
-        });
 
         btn_ProductosVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/producto.png"))); // NOI18N
         btn_ProductosVenta.setText("Productos ");
@@ -663,13 +658,13 @@ public class Venta extends javax.swing.JFrame {
 
     //Evento para pasar a la ventana Informacion
     private void btn_InformacionVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionVentaMouseClicked
-        try {
+//        try {
             Informacion infomacion = new Informacion();
             infomacion.setVisible(true);
             this.dispose();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No puede acceder a esta opcion, primero se necesta una venta.", "Error", 0);
-        }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "No puede acceder a esta opcion, primero se necesita una venta.", "Error", 0);
+//        }
 
 
     }//GEN-LAST:event_btn_InformacionVentaMouseClicked
@@ -848,7 +843,7 @@ public class Venta extends javax.swing.JFrame {
         ListarTodo();
         Subtotal(tp_TotalPagarVenta);
         btn_ComprarVenta.setEnabled(false);
-        venco.ReadTotalOrdenado();
+        venco.Ordenamiento();
     }//GEN-LAST:event_btn_ComprarVentaActionPerformed
 
     private void cmbx_VendedorVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbx_VendedorVentaActionPerformed
@@ -865,10 +860,6 @@ public class Venta extends javax.swing.JFrame {
         txt_TotalRegistroVenta.setText("0.0");
         btn_CancelarBusquedaRegistroVenta.setEnabled(false);
     }//GEN-LAST:event_btn_CancelarBusquedaRegistroVentaActionPerformed
-
-    private void btn_InformacionVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionVentaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_InformacionVentaActionPerformed
 
     private void txt_CantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CantidadKeyTyped
         char c = evt.getKeyChar();

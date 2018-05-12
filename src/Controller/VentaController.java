@@ -39,6 +39,10 @@ public class VentaController {
         venta.set(index, vent);
     }
 
+    public void UpdateB(int index, VentaM vent) {
+        BackupOrdenado.set(index, vent);
+    }
+
     public ArrayList<String[]> ReadAll() {
         ArrayList<String[]> Get = new ArrayList<>();
         for (int i = 0; i < venta.size(); i++) {
@@ -121,7 +125,7 @@ public class VentaController {
         }
     }
 
-    public ArrayList<String[]> ReadTotalOrdenado() {
+    /*public ArrayList<String[]> ReadTotalOrdenado() {
         double total = 0;
         boolean val = true;
         double subtotal = 0;
@@ -195,6 +199,56 @@ public class VentaController {
 
         }
         subtotal = 0;
+        return Get;
+    }*/
+    public void Ordenamiento() {
+        double total = 0;
+        boolean bol = false;
+        BackupOrdenado.clear();
+        for (int i = 0; i < vendeco.getVendedor().size(); i++) {
+
+            for (int j = 0; j < Backup.size(); j++) {
+                if (vendeco.getVendedor().get(i).getID().equals(Backup.get(j).getCodigoVend())) {
+                    bol = true;
+                    for (int k = 0; k < BackupOrdenado.size(); k++) {
+                        
+                        try {
+                            if (Backup.get(j).getCodigoVend().equals(BackupOrdenado.get(k).getCodigoVend())) {
+                                int cant = Backup.get(j).getCantidad() + BackupOrdenado.get(k).getCantidad();
+                                double pre = Backup.get(j).getPrecio() + BackupOrdenado.get(k).getPrecio();
+                                double sub = Backup.get(j).getSubtotal() + BackupOrdenado.get(k).getSubtotal();
+                                UpdateB(k, new VentaM(Backup.get(j).getID(), Backup.get(j).getNombre(), pre,
+                                        cant, Backup.get(j).getVendedor(), sub, Backup.get(j).getCodigoVend()));
+                                bol = false;
+                            }
+                        } catch (Exception e) {
+                            break;
+                        }
+
+                    }
+
+                    if (bol == true) {
+                        CreateBO(new VentaM(Backup.get(j).getID(), Backup.get(j).getNombre(), Backup.get(j).getPrecio(),
+                                Backup.get(j).getCantidad(), Backup.get(j).getVendedor(), Backup.get(j).getSubtotal(), Backup.get(j).getCodigoVend()));
+                    }
+
+                }
+            }
+
+        }
+
+    }
+
+    public ArrayList<String[]> ReadTO() {
+        ArrayList<String[]> Get = new ArrayList<>();
+        Get.clear();
+        Collections.sort(BackupOrdenado);
+        for (int i = 0; i < BackupOrdenado.size(); i++) {
+            Get.add(new String[]{BackupOrdenado.get(i).getCodigoVend(),
+                BackupOrdenado.get(i).getVendedor(), BackupOrdenado.get(i).getID(),
+                String.valueOf(BackupOrdenado.get(i).getSubtotal())});
+
+        }
         return Get;
     }
 

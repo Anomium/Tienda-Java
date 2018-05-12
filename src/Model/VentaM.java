@@ -24,10 +24,8 @@ public class VentaM extends Producto implements Comparable<VentaM> {
         this.Vendedor = Vendedor;
         this.subtotal = subtotal;
         this.CodigoVend = CodigoVend;
-    }
+    }   
 
-    
-    
     public double getSubtotal() {
         return subtotal;
     }

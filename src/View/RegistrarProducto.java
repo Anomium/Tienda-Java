@@ -923,9 +923,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
             getToolkit().beep();
             evt.consume();
         }
-        if (!Character.isLetter(c)) {
-            evt.consume();
-        }
     }//GEN-LAST:event_txt_PrecioModificarKeyTyped
 
     private void txt_IDModificarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_IDModificarKeyTyped
@@ -934,11 +931,9 @@ public class RegistrarProducto extends javax.swing.JFrame {
             getToolkit().beep();
             evt.consume();
         }
-        if (txt_IDModificar.getText().length() == 8) {
+        if (txt_IDModificar.getText().length() >= 8) {
             evt.consume();
-        }
-        if (!Character.isLetter(c)) {
-            evt.consume();
+            JOptionPane.showMessageDialog(null, "Maximo 8 digitos.", "Informacion", 1);
         }
 
     }//GEN-LAST:event_txt_IDModificarKeyTyped
@@ -947,9 +942,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (Character.isLetter(c)) {
             getToolkit().beep();
-            evt.consume();
-        }
-        if (!Character.isLetter(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_txt_CantidadModificarKeyTyped
