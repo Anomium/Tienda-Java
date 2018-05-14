@@ -578,7 +578,7 @@ public class Vendedor extends javax.swing.JFrame {
     private void btn_RegistrarVendedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarVendedor1ActionPerformed
         try {
             if (ValCeroEspacio(txt_NombreVendedor.getText(), txt_NumeroDocumento.getText(), txt_IdVendedor.getText())) {
-                if (ValCodigo(txt_Buscar.getText())) {
+                if (ValCodigo(txt_IdVendedor.getText())) {
                     if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Registrar")) {
 
                         if (ConfirmDialog("¿Desea Registrar?")) {
@@ -801,7 +801,7 @@ public class Vendedor extends javax.swing.JFrame {
     //Metodo para validar que el codigo no se repita
     public boolean ValCodigo(String codigo) {
         for (int i = 0; i < venco.getVendedor().size(); i++) {
-            if (!venco.getVendedor().get(i).getID().equals(codigo)) {
+            if (venco.getVendedor().get(i).getID().equals(codigo)) {
                 return false;
             }
         }
