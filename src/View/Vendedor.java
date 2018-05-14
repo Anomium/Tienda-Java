@@ -578,32 +578,45 @@ public class Vendedor extends javax.swing.JFrame {
     private void btn_RegistrarVendedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarVendedor1ActionPerformed
         try {
             if (ValCeroEspacio(txt_NombreVendedor.getText(), txt_NumeroDocumento.getText(), txt_IdVendedor.getText())) {
-                if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Registrar")) {
+                if (ValCodigo(txt_Buscar.getText())) {
+                    if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Registrar")) {
 
-                    if (ConfirmDialog("¿Desea Registrar?")) {
-                        venco.create(new Vendedorm(txt_NombreVendedor.getText().toUpperCase(),
-                                txt_NumeroDocumento.getText(),
-                                txt_IdVendedor.getText(),
-                                txt_TelefonoVendedor.getText()));
+                        if (ConfirmDialog("¿Desea Registrar?")) {
+                            venco.create(new Vendedorm(txt_NombreVendedor.getText().toUpperCase(),
+                                    txt_NumeroDocumento.getText(),
+                                    txt_IdVendedor.getText(),
+                                    txt_TelefonoVendedor.getText()));
+                            txt_NombreVendedor.setText("");
+                            txt_IdVendedor.setText("");
+                            txt_NumeroDocumento.setText("");
+                            txt_TelefonoVendedor.setText("");
 
-                        listarTodo();
+                            listarTodo();
+                        }
+
+                    } else if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Guardar")) {
+
+                        if (ConfirmDialog("¿Desea Guardar?")) {
+                            venco.Update((int) index, new Vendedorm(txt_NombreVendedor.getText(),
+                                    txt_NumeroDocumento.getText(),
+                                    txt_IdVendedor.getText(),
+                                    txt_TelefonoVendedor.getText()));
+                            btn_Eliminar.setEnabled(false);
+                            btn_Cancelar.setEnabled(false);
+                            btn_RegistrarVendedor1.setText("Registrar");
+                            btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
+                            listarTodo();
+                            txt_NombreVendedor.setText("");
+                            txt_IdVendedor.setText("");
+                            txt_NumeroDocumento.setText("");
+                            txt_TelefonoVendedor.setText("");
+                        }
+
                     }
-
-                } else if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Guardar")) {
-
-                    if (ConfirmDialog("¿Desea Guardar?")) {
-                        venco.Update((int) index, new Vendedorm(txt_NombreVendedor.getText(),
-                                txt_NumeroDocumento.getText(),
-                                txt_IdVendedor.getText(),
-                                txt_TelefonoVendedor.getText()));
-                        btn_Eliminar.setEnabled(false);
-                        btn_Cancelar.setEnabled(false);
-                        btn_RegistrarVendedor1.setText("Registrar");
-                        btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
-                        listarTodo();
-                    }
-
+                } else {
+                    JOptionPane.showMessageDialog(null, "El codigo ya existe");
                 }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
             }
@@ -612,10 +625,7 @@ public class Vendedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
         }
 
-        txt_NombreVendedor.setText("");
-        txt_IdVendedor.setText("");
-        txt_NumeroDocumento.setText("");
-        txt_TelefonoVendedor.setText("");
+
     }//GEN-LAST:event_btn_RegistrarVendedor1ActionPerformed
 
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
@@ -737,6 +747,7 @@ public class Vendedor extends javax.swing.JFrame {
 
     }
 
+    //Metodo para borrar TextField 
     private void BorrarTextField(JTextField nombre, JTextField Id, JTextField n_documento, JTextField telefono) {
         nombre.setText(null);
         Id.setText(null);
@@ -752,6 +763,7 @@ public class Vendedor extends javax.swing.JFrame {
         telefono.setEnabled(Cond);
     }
 
+    //Metodo para habilitar botones
     private void HabilitarBotones(JButton modificar, JButton eliminar, JButton cancelar, boolean Cond) {
         modificar.setEnabled(Cond);
         eliminar.setEnabled(Cond);
@@ -759,6 +771,7 @@ public class Vendedor extends javax.swing.JFrame {
 
     }
 
+    //Metodo para buscar, enlistar la busqueda y habilitar un boton
     private void BuscarTodo(String Filter, JTable Tabla, ArrayList Array, JButton Cancelar) {
         //Valido la entrada del buscar
         if (Filter.isEmpty() || Filter == null) {
@@ -771,6 +784,7 @@ public class Vendedor extends javax.swing.JFrame {
         }
     }
 
+    //Validar que los campos del vendedor no queden vacios
     public boolean ValCeroEspacio(String nombre, String documento, String id) {
         try {
             if (nombre.isEmpty() || nombre == null || id.isEmpty() || id == null || documento == null || documento.isEmpty()) {
@@ -782,6 +796,16 @@ public class Vendedor extends javax.swing.JFrame {
             return false;
         }
 
+    }
+
+    //Metodo para validar que el codigo no se repita
+    public boolean ValCodigo(String codigo) {
+        for (int i = 0; i < venco.getVendedor().size(); i++) {
+            if (!venco.getVendedor().get(i).getID().equals(codigo)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
