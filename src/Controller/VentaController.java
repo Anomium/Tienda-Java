@@ -241,7 +241,7 @@ public class VentaController {
 
     }
 
-    public void UpdateBS() {
+     public void UpdateBS() {
         double sueldo = 0;
         double ventas = 0;
         int cant = 0;
@@ -268,6 +268,7 @@ public class VentaController {
                         ventas = sueldo - (ventas * 0.4) + (ventas * 0.4);
 
                     }
+                    break;
                 }
             }
 
