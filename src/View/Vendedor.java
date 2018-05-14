@@ -614,11 +614,11 @@ public class Vendedor extends javax.swing.JFrame {
 
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "El codigo ya existe");
+                    JOptionPane.showMessageDialog(null, "El ID del vendedor ya existe.", "Error", 0);
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos.", "Error", 0);
             }
 
         } catch (Exception e) {

@@ -844,26 +844,31 @@ public class RegistrarProducto extends javax.swing.JFrame {
     private void btn_RegistarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistarProductoActionPerformed
         proco.Backup();
         try {
-            if (ConfirmDialog("¿Desea registrar?")) {
-                if (ValCeroEspacio(txt_NombreProducto.getText(), txt_IDProducto.getText(), Integer.parseInt(txt_CantidaProducto.getText()), Double.parseDouble(txt_PrecioProducto.getText()))) {
-                    proco.create(new Producto(txt_IDProducto.getText().toUpperCase(),
-                            txt_NombreProducto.getText().toUpperCase(),
-                            Double.parseDouble(txt_PrecioProducto.getText()),
-                            Integer.parseInt(txt_CantidaProducto.getText())));
-                    ListarTodo();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
-                }
+            if (ValCodigo(txt_IDProducto.getText())) {
+                if (ConfirmDialog("¿Desea registrar?")) {
+                    if (ValCeroEspacio(txt_NombreProducto.getText(), txt_IDProducto.getText(), Integer.parseInt(txt_CantidaProducto.getText()), Double.parseDouble(txt_PrecioProducto.getText()))) {
+                        proco.create(new Producto(txt_IDProducto.getText().toUpperCase(),
+                                txt_NombreProducto.getText().toUpperCase(),
+                                Double.parseDouble(txt_PrecioProducto.getText()),
+                                Integer.parseInt(txt_CantidaProducto.getText())));
+                        txt_NombreProducto.setText("");
+                        txt_PrecioProducto.setText("");
+                        txt_IDProducto.setText("");
+                        txt_CantidaProducto.setText("");
+                        ListarTodo();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+                    }
 
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "El ID del producto ya existe.", "Error", 0);
             }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
         }
 
-        txt_NombreProducto.setText("");
-        txt_PrecioProducto.setText("");
-        txt_IDProducto.setText("");
-        txt_CantidaProducto.setText("");
 
     }//GEN-LAST:event_btn_RegistarProductoActionPerformed
 
@@ -1043,6 +1048,16 @@ public class RegistrarProducto extends javax.swing.JFrame {
             return false;
         }
 
+    }
+
+    //Metodo para validar que el codigo no se repita
+    public boolean ValCodigo(String codigo) {
+        for (int i = 0; i < proco.getProducto().size(); i++) {
+            if (proco.getProducto().get(i).getID().equals(codigo)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
