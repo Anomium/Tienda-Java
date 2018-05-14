@@ -258,7 +258,7 @@ public class VentaController {
                 if (BackupOrdenado.get(i).getCodigoVend().equals(Backup.get(j).getCodigoVend())) {
                     sueldo = sueldo + (cant * Backup.get(j).getPrecio()) * 0.3;
                     bol = false;
-
+                    ventas = sueldo;
                     if (cant >= 30 && cant <= 50) {
                         ventas = sueldo + (cant * Backup.get(j).getPrecio()) * 0.05;
                     } else if (cant >= 51 && cant <= 100) {
