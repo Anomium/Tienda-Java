@@ -210,15 +210,17 @@ public class VentaController {
             for (int j = 0; j < Backup.size(); j++) {
                 if (vendeco.getVendedor().get(i).getID().equals(Backup.get(j).getCodigoVend())) {
                     bol = true;
+                    total = 0;
                     for (int k = 0; k < BackupOrdenado.size(); k++) {
-                        
+
                         try {
                             if (Backup.get(j).getCodigoVend().equals(BackupOrdenado.get(k).getCodigoVend())) {
+
                                 int cant = Backup.get(j).getCantidad() + BackupOrdenado.get(k).getCantidad();
                                 double pre = Backup.get(j).getPrecio() + BackupOrdenado.get(k).getPrecio();
                                 double sub = Backup.get(j).getSubtotal() + BackupOrdenado.get(k).getSubtotal();
                                 UpdateB(k, new VentaM(Backup.get(j).getID(), Backup.get(j).getNombre(), pre,
-                                        cant, Backup.get(j).getVendedor(), sub, Backup.get(j).getCodigoVend()));
+                                        cant, Backup.get(j).getVendedor(), sub, Backup.get(j).getCodigoVend(), 0.0));
                                 bol = false;
                             }
                         } catch (Exception e) {
@@ -229,10 +231,58 @@ public class VentaController {
 
                     if (bol == true) {
                         CreateBO(new VentaM(Backup.get(j).getID(), Backup.get(j).getNombre(), Backup.get(j).getPrecio(),
-                                Backup.get(j).getCantidad(), Backup.get(j).getVendedor(), Backup.get(j).getSubtotal(), Backup.get(j).getCodigoVend()));
+                                Backup.get(j).getCantidad(), Backup.get(j).getVendedor(), Backup.get(j).getSubtotal(), Backup.get(j).getCodigoVend(), 0));
                     }
 
                 }
+            }
+
+        }
+
+    }
+
+    public void UpdateBS() {
+        double sueldo = 0;
+        double ventas = 0;
+        int cant = 0;
+        boolean bol = true;
+        for (int i = 0; i < BackupOrdenado.size(); i++) {
+            cant = 0;
+            for (int k = 0; k < Backup.size(); k++) {
+                if (BackupOrdenado.get(i).getCodigoVend().equals(Backup.get(k).getCodigoVend())) {
+                    cant = cant + Backup.get(k).getCantidad();
+                }
+            }
+            for (int j = 0; j < Backup.size(); j++) {
+
+                if (BackupOrdenado.get(i).getCodigoVend().equals(Backup.get(j).getCodigoVend())) {
+                    sueldo = sueldo + (cant * Backup.get(j).getPrecio()) * 0.3;
+                    bol = false;
+
+                    if (cant >= 30 && cant <= 50) {
+                        ventas = sueldo + (cant * Backup.get(j).getPrecio()) * 0.05;
+                    } else if (cant >= 51 && cant <= 100) {
+                        ventas = sueldo + (cant * Backup.get(j).getPrecio()) * 0.1;
+                    } else if (cant >= 101) {
+                        ventas = sueldo + (cant * Backup.get(j).getPrecio()) * 0.15;
+                        ventas = sueldo - (ventas * 0.4) + (ventas * 0.4);
+
+                    }
+                }
+            }
+
+            if (bol == false) {
+
+                System.out.println(sueldo);
+                System.out.println(ventas);
+                UpdateB(i, new VentaM(BackupOrdenado.get(i).getID(), BackupOrdenado.get(i).getNombre(),
+                        BackupOrdenado.get(i).getPrecio(), BackupOrdenado.get(i).getCantidad(),
+                        BackupOrdenado.get(i).getVendedor(), BackupOrdenado.get(i).getSubtotal(),
+                        BackupOrdenado.get(i).getCodigoVend(), ventas));
+                bol = true;
+                ventas = 0;
+                sueldo = 0;
+                cant = 0;
             }
 
         }
@@ -245,7 +295,8 @@ public class VentaController {
         Collections.sort(BackupOrdenado);
         for (int i = 0; i < BackupOrdenado.size(); i++) {
             Get.add(new String[]{BackupOrdenado.get(i).getCodigoVend(),
-                BackupOrdenado.get(i).getVendedor(), String.valueOf(BackupOrdenado.get(i).getSubtotal())});
+                BackupOrdenado.get(i).getVendedor(), String.valueOf(BackupOrdenado.get(i).getSubtotal()),
+                String.valueOf(BackupOrdenado.get(i).getSueldo())});
 
         }
         return Get;

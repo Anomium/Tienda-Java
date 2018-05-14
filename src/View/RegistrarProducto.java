@@ -113,12 +113,14 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
 
+        txt_NombreProducto.setText("Manzana");
         txt_NombreProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_NombreProductoKeyTyped(evt);
             }
         });
 
+        txt_IDProducto.setText("123");
         txt_IDProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_IDProductoKeyTyped(evt);
@@ -129,6 +131,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel3.setText("Precio unidad:");
 
+        txt_PrecioProducto.setText("500");
         txt_PrecioProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_PrecioProductoKeyTyped(evt);
@@ -137,6 +140,12 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel4.setText("Cantidad:");
 
+        txt_CantidaProducto.setText("200");
+        txt_CantidaProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_CantidaProductoActionPerformed(evt);
+            }
+        });
         txt_CantidaProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_CantidaProductoKeyTyped(evt);
@@ -956,6 +965,10 @@ public class RegistrarProducto extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txt_BuscarModificarKeyTyped
+
+    private void txt_CantidaProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CantidaProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_CantidaProductoActionPerformed
 
     //Este Metodo Sirve Para Listar las Tablas
     private void Listar(DefaultTableModel Tabla, ArrayList<String[]> Lista) {

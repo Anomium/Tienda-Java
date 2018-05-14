@@ -8,6 +8,7 @@ public class VentaM extends Producto implements Comparable<VentaM> {
     private double subtotal;
     private String CodigoVend;
     private String CodigoComp;
+    private double sueldo;
     private Integer x = (int) subtotal;
 
     public VentaM(String ID, String nombre, double precio, int cantidad, String Vendedor, double subtotal, String CodigoVend, String CodigoComp) {
@@ -19,11 +20,12 @@ public class VentaM extends Producto implements Comparable<VentaM> {
         this.CodigoComp = CodigoComp;
     }
 
-    public VentaM(String ID, String nombre, double precio, int cantidad, String Vendedor, double subtotal, String CodigoVend) {
+    public VentaM(String ID, String nombre, double precio, int cantidad, String Vendedor, double subtotal, String CodigoVend, double sueldo) {
         super(ID, nombre, precio, cantidad);
         this.Vendedor = Vendedor;
         this.subtotal = subtotal;
         this.CodigoVend = CodigoVend;
+        this.sueldo = sueldo;
     }   
 
     public double getSubtotal() {
@@ -58,6 +60,16 @@ public class VentaM extends Producto implements Comparable<VentaM> {
         this.CodigoComp = CodigoComp;
     }
 
+    public double getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(double sueldo) {
+        this.sueldo = sueldo;
+    }
+    
+    
+    
     @Override
     public int compareTo(VentaM o) {
         if (this.subtotal < o.getSubtotal()) {

@@ -14,7 +14,10 @@ public class Informacion extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
+        venco.ReadTO();
+        venco.UpdateBS();
         Listar((DefaultTableModel) tbl_Informacion1.getModel(), venco.ReadTO());
+        
         TresPrimero();
     }
 
