@@ -2,11 +2,15 @@ package View;
 
 import Controller.VendedorController;
 import Model.Vendedorm;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -23,6 +27,7 @@ public class Vendedor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
         listarTodo();
+        popupTable();
     }
 
     @SuppressWarnings("unchecked")
@@ -806,6 +811,28 @@ public class Vendedor extends javax.swing.JFrame {
             }
         }
         return true;
+    }
+
+    //Metodo para agregar items al evento del clic derecho de la 
+    public void popupTable() {
+        JPopupMenu popupMenu = new JPopupMenu();
+        JMenuItem Eliminar = new JMenuItem("Eliminar", new ImageIcon(getClass().getResource("../Img/informacion.png")));
+        //JMenuItem menuItem = new JMenuItem("Prueba", new ImageIcon(getClass().getResource("../Img/informacion.png")));
+
+        Eliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    venco.Delete((int) index);
+                } catch (java.lang.NullPointerException a) {
+                    JOptionPane.showMessageDialog(null, "No ha seleccionado un vendedor de la tabla.", "Error", 0);
+                }
+                listarTodo();
+            }
+        });
+
+        popupMenu.add(Eliminar);
+        tbl_TablaVendedor.setComponentPopupMenu(popupMenu);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

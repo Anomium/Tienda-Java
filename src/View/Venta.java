@@ -9,10 +9,14 @@ import Controller.VendedorController;
 import Model.Producto;
 import Model.Vendedorm;
 import Model.VentaM;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
 
@@ -32,6 +36,7 @@ public class Venta extends javax.swing.JFrame {
         Subtotal(tp_TotalPagarVenta);
         ListarCombobox(cmbx_VendedorVenta, vendeco.getVendedor());
         ListarTodo();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -659,9 +664,9 @@ public class Venta extends javax.swing.JFrame {
     //Evento para pasar a la ventana Informacion
     private void btn_InformacionVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionVentaMouseClicked
 //        try {
-            Informacion infomacion = new Informacion();
-            infomacion.setVisible(true);
-            this.dispose();
+        Informacion infomacion = new Informacion();
+        infomacion.setVisible(true);
+        this.dispose();
 //        } catch (Exception e) {
 //            JOptionPane.showMessageDialog(null, "No puede acceder a esta opcion, primero se necesita una venta.", "Error", 0);
 //        }
@@ -993,6 +998,8 @@ public class Venta extends javax.swing.JFrame {
         }
 
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AgregarVenta;
