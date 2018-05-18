@@ -36,7 +36,7 @@ public class Venta extends javax.swing.JFrame {
         Subtotal(tp_TotalPagarVenta);
         ListarCombobox(cmbx_VendedorVenta, vendeco.getVendedor());
         ListarTodo();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -729,12 +729,16 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_tbl_ProductosVentaMouseClicked
 
     private void tbl_CarritoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CarritoVentaMouseClicked
+        try {
+            Index = null;
+            SelecTable(tbl_CarritoVenta, btn_RetirarVenta, true);
+            txt_Cantidad.setEnabled(true);
+            txt_nombre.setText(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getSelectedRow(), 1).toString());
+            Index = tbl_CarritoVenta.getSelectedRow();
+        } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Para seleccionar un producto es con clic izquierdo.");
+        }
 
-        Index = null;
-        SelecTable(tbl_CarritoVenta, btn_RetirarVenta, true);
-        txt_Cantidad.setEnabled(true);
-        txt_nombre.setText(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getSelectedRow(), 1).toString());
-        Index = tbl_CarritoVenta.getSelectedRow();
     }//GEN-LAST:event_tbl_CarritoVentaMouseClicked
 
     private void btn_AgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarVentaActionPerformed
@@ -998,7 +1002,6 @@ public class Venta extends javax.swing.JFrame {
         }
 
     }
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -796,17 +796,27 @@ public class RegistrarProducto extends javax.swing.JFrame {
         HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
         HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
         btn_GuadarModificar.setEnabled(false);
+        index = null;
     }//GEN-LAST:event_btn_CancelarModificarActionPerformed
 
     //Evento de la tabla de la vista modificar producto
     private void tbl_RegistrarProducto1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_RegistrarProducto1MouseClicked
-        btn_CancelarModificar.doClick();
-        HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, true);
-        index = tbl_RegistrarProducto1.getSelectedRow();
-        txt_IDModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 0).toString());
-        txt_NombreModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 1).toString());
-        txt_PrecioModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 2).toString());
-        txt_CantidadModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 3).toString());
+        try {
+            btn_CancelarModificar.doClick();
+            if (evt.getButton() != 3 && evt.getButton() != 2) {
+                
+                HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, true);
+                index = tbl_RegistrarProducto1.getSelectedRow();
+                txt_IDModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 0).toString());
+                txt_NombreModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 1).toString());
+                txt_PrecioModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 2).toString());
+                txt_CantidadModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 3).toString());
+            }
+
+        } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Para seleccionar un producto es con clic izquierdo.");
+            btn_CancelarModificar.doClick();
+        }
     }//GEN-LAST:event_tbl_RegistrarProducto1MouseClicked
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked

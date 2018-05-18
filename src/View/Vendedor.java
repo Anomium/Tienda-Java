@@ -16,12 +16,12 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Vendedor extends javax.swing.JFrame {
-    
+
     private VendedorController venco = new VendedorController();
     private Object index = null;
-    
+
     private int x, y;
-    
+
     public Vendedor() {
         initComponents();
         setLocationRelativeTo(null);
@@ -29,7 +29,7 @@ public class Vendedor extends javax.swing.JFrame {
         listarTodo();
         popupTable();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -537,11 +537,11 @@ public class Vendedor extends javax.swing.JFrame {
                 btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png")));
                 btn_RegistrarVendedor1.setEnabled(true);
                 btn_Modificar.setEnabled(false);
-                
+
                 btn_RegistrarVendedor1.setText("Guardar");
-                
+
                 HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
-                
+
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
@@ -549,29 +549,39 @@ public class Vendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ModificarActionPerformed
 
     private void tbl_TablaVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_TablaVendedorMouseClicked
-        btn_Cancelar.doClick();
-        HabilitarBotones(btn_Modificar, btn_Eliminar, btn_Cancelar, true);
-        index = tbl_TablaVendedor.getSelectedRow();
-        HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, false);
+        try {
+            btn_Cancelar.doClick();
+            if (evt.getButton() != 3 && evt.getButton() != 2) {
+                HabilitarBotones(btn_Modificar, btn_Eliminar, btn_Cancelar, true);
+                index = tbl_TablaVendedor.getSelectedRow();
+                HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, false);
+
+                txt_IdVendedor.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 0).toString());
+                txt_NombreVendedor.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 1).toString());
+                txt_NumeroDocumento.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 2).toString());
+                txt_TelefonoVendedor.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 3).toString());
+            }
+        } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Para seleccionar un vendedor es con clic izquierdo.");
+            btn_Cancelar.doClick();
+        }
+
         
-        txt_IdVendedor.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 0).toString());
-        txt_NombreVendedor.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 1).toString());
-        txt_NumeroDocumento.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 2).toString());
-        txt_TelefonoVendedor.setText(tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 3).toString());
+
     }//GEN-LAST:event_tbl_TablaVendedorMouseClicked
 
     private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
         try {
             if (ConfirmDialog("¿Desea eliminar el producto?")) {
                 venco.Delete((int) index);
-                
+
                 index = null;
-                
+
                 btn_Cancelar.setEnabled(false);
                 btn_Modificar.setEnabled(false);
                 btn_Eliminar.setEnabled(false);
                 HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, false);
-                
+
                 listarTodo();
             }
         } catch (Exception e) {
@@ -585,7 +595,7 @@ public class Vendedor extends javax.swing.JFrame {
             if (ValCeroEspacio(txt_NombreVendedor.getText(), txt_NumeroDocumento.getText(), txt_IdVendedor.getText())) {
                 if (ValCodigo(txt_IdVendedor.getText())) {
                     if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Registrar")) {
-                        
+
                         if (ConfirmDialog("¿Desea Registrar?")) {
                             venco.create(new Vendedorm(txt_NombreVendedor.getText().toUpperCase(),
                                     txt_NumeroDocumento.getText(),
@@ -595,12 +605,12 @@ public class Vendedor extends javax.swing.JFrame {
                             txt_IdVendedor.setText("");
                             txt_NumeroDocumento.setText("");
                             txt_TelefonoVendedor.setText("");
-                            
+
                             listarTodo();
                         }
-                        
+
                     } else if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Guardar")) {
-                        
+
                         if (ConfirmDialog("¿Desea Guardar?")) {
                             venco.Update((int) index, new Vendedorm(txt_NombreVendedor.getText(),
                                     txt_NumeroDocumento.getText(),
@@ -616,20 +626,20 @@ public class Vendedor extends javax.swing.JFrame {
                             txt_NumeroDocumento.setText("");
                             txt_TelefonoVendedor.setText("");
                         }
-                        
+
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "El ID del vendedor ya existe.", "Error", 0);
                 }
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos.", "Error", 0);
             }
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
         }
-        
+
 
     }//GEN-LAST:event_btn_RegistrarVendedor1ActionPerformed
 
@@ -637,7 +647,7 @@ public class Vendedor extends javax.swing.JFrame {
         BorrarTextField(txt_NombreVendedor, txt_NumeroDocumento, txt_IdVendedor, txt_TelefonoVendedor);
         HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
         btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
-        
+
         btn_Modificar.setEnabled(false);
         btn_Eliminar.setEnabled(false);
         btn_Cancelar.setEnabled(false);
@@ -645,7 +655,7 @@ public class Vendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        
+
         BuscarTodo(txt_Buscar.getText().toUpperCase(),
                 tbl_TablaVendedor,
                 venco.Read(txt_Buscar.getText().toUpperCase()),
@@ -654,10 +664,10 @@ public class Vendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_CancelarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarBuscarActionPerformed
-        
+
         listarTodo();
         btn_CancelarBuscar.setEnabled(false);
-        
+
         txt_Buscar.setText(null);
 
     }//GEN-LAST:event_btn_CancelarBuscarActionPerformed
@@ -670,7 +680,7 @@ public class Vendedor extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (Character.isLetter(c)) {
             getToolkit().beep();
-            
+
             evt.consume();
         }
     }//GEN-LAST:event_txt_NumeroDocumentoKeyTyped
@@ -679,7 +689,7 @@ public class Vendedor extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (Character.isLetter(c)) {
             getToolkit().beep();
-            
+
             evt.consume();
         }
         if (txt_IdVendedor.getText().length() >= 8) {
@@ -693,7 +703,7 @@ public class Vendedor extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (Character.isLetter(c)) {
             getToolkit().beep();
-            
+
             evt.consume();
         }
 
@@ -720,7 +730,7 @@ public class Vendedor extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txt_BuscarKeyTyped
-    
+
     private boolean ConfirmDialog(String texto) {
         int num = JOptionPane.showConfirmDialog(null, texto);
         if (num == JOptionPane.YES_OPTION) {
@@ -731,7 +741,7 @@ public class Vendedor extends javax.swing.JFrame {
             index = null;
             return false;
         }
-        
+
     }
 
     //Este Metodo Sirve Para Listar las Tablas
@@ -749,7 +759,7 @@ public class Vendedor extends javax.swing.JFrame {
     //Metodo para listar todas la tablas de la vista modificar producto
     private void listarTodo() {
         Listar((DefaultTableModel) tbl_TablaVendedor.getModel(), venco.ReadAll());
-        
+
     }
 
     //Metodo para borrar TextField 
@@ -773,7 +783,7 @@ public class Vendedor extends javax.swing.JFrame {
         modificar.setEnabled(Cond);
         eliminar.setEnabled(Cond);
         cancelar.setEnabled(Cond);
-        
+
     }
 
     //Metodo para buscar, enlistar la busqueda y habilitar un boton
@@ -800,7 +810,7 @@ public class Vendedor extends javax.swing.JFrame {
         } catch (Exception e) {
             return false;
         }
-        
+
     }
 
     //Metodo para validar que el codigo no se repita
@@ -818,30 +828,30 @@ public class Vendedor extends javax.swing.JFrame {
         JPopupMenu popupMenu = new JPopupMenu();
         JMenuItem Eliminar = new JMenuItem("Eliminar", new ImageIcon(getClass().getResource("../Img/eliminar.png")));
         JMenuItem Modificar = new JMenuItem("Modificar", new ImageIcon(getClass().getResource("../Img/modificar.png")));
-        
+
         Eliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (ConfirmDialog("¿Desea eliminar el producto?")) {
                         venco.Delete((int) index);
-                        
+
                         index = null;
-                        
+
                         btn_Cancelar.setEnabled(false);
                         btn_Modificar.setEnabled(false);
                         btn_Eliminar.setEnabled(false);
                         HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, false);
-                        
+
                         listarTodo();
                     }
                 } catch (java.lang.NullPointerException a) {
                     JOptionPane.showMessageDialog(null, "No ha seleccionado un vendedor de la tabla.", "Error", 0);
                 }
-                
+
             }
         });
-        
+
         Modificar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -850,18 +860,18 @@ public class Vendedor extends javax.swing.JFrame {
                         btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png")));
                         btn_RegistrarVendedor1.setEnabled(true);
                         btn_Modificar.setEnabled(false);
-                        
+
                         btn_RegistrarVendedor1.setText("Guardar");
-                        
+
                         HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
-                        
+
                     }
                 } catch (Exception a) {
                     JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
                 }
             }
         });
-        
+
         popupMenu.add(Modificar);
         popupMenu.add(Eliminar);
         tbl_TablaVendedor.setComponentPopupMenu(popupMenu);
