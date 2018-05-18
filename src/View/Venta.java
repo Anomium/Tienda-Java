@@ -720,11 +720,27 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_CantidadActionPerformed
 
     private void tbl_ProductosVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ProductosVentaMouseClicked
+        try {
+            if (evt.getButton() != 3 && evt.getButton() != 2) {
+                Index = null;
+                SelecTable(tbl_ProductosVenta, btn_AgregarVenta, true);
+                txt_Cantidad.setEnabled(true);
+                txt_nombre.setText(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString());
+            } else {
+                Index = null;
+                txt_nombre.setText(null);
+                txt_Cantidad.setText(null);
+                txt_CodigoComprador.setText(null);
+            }
 
-        Index = null;
-        SelecTable(tbl_ProductosVenta, btn_AgregarVenta, true);
-        txt_Cantidad.setEnabled(true);
-        txt_nombre.setText(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString());
+        } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+            Index = null;
+            txt_nombre.setText(null);
+            txt_nombre.setText(null);
+            txt_Cantidad.setText(null);
+            txt_CodigoComprador.setText(null);
+        }
+
 
     }//GEN-LAST:event_tbl_ProductosVentaMouseClicked
 
