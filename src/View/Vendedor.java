@@ -566,7 +566,6 @@ public class Vendedor extends javax.swing.JFrame {
             btn_Cancelar.doClick();
         }
 
-        
 
     }//GEN-LAST:event_tbl_TablaVendedorMouseClicked
 
@@ -580,8 +579,10 @@ public class Vendedor extends javax.swing.JFrame {
                 btn_Cancelar.setEnabled(false);
                 btn_Modificar.setEnabled(false);
                 btn_Eliminar.setEnabled(false);
-                HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, false);
-
+                BorrarTextField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor);
+                HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
+                btn_RegistrarVendedor1.setText("Registrar");
+                btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
                 listarTodo();
             }
         } catch (Exception e) {
@@ -646,11 +647,13 @@ public class Vendedor extends javax.swing.JFrame {
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
         BorrarTextField(txt_NombreVendedor, txt_NumeroDocumento, txt_IdVendedor, txt_TelefonoVendedor);
         HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
+        btn_RegistrarVendedor1.setText("Registrar");
         btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
 
         btn_Modificar.setEnabled(false);
         btn_Eliminar.setEnabled(false);
         btn_Cancelar.setEnabled(false);
+
         index = null;
     }//GEN-LAST:event_btn_CancelarActionPerformed
 

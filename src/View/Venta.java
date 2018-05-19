@@ -533,6 +533,7 @@ public class Venta extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_RegistroVenta.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tbl_RegistroVenta);
         if (tbl_RegistroVenta.getColumnModel().getColumnCount() > 0) {
             tbl_RegistroVenta.getColumnModel().getColumn(0).setResizable(false);
