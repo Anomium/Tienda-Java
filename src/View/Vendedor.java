@@ -626,6 +626,7 @@ public class Vendedor extends javax.swing.JFrame {
                             txt_IdVendedor.setText("");
                             txt_NumeroDocumento.setText("");
                             txt_TelefonoVendedor.setText("");
+                            index = null;
                         }
 
                     }
@@ -836,20 +837,27 @@ public class Vendedor extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (ConfirmDialog("¿Desea eliminar el producto?")) {
-                        venco.Delete((int) index);
+                    if (index != null) {
+                        if (ConfirmDialog("¿Desea eliminar el producto?")) {
+                            venco.Delete((int) index);
 
-                        index = null;
+                            index = null;
 
-                        btn_Cancelar.setEnabled(false);
-                        btn_Modificar.setEnabled(false);
-                        btn_Eliminar.setEnabled(false);
-                        HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, false);
-
-                        listarTodo();
+                            btn_Cancelar.setEnabled(false);
+                            btn_Modificar.setEnabled(false);
+                            btn_Eliminar.setEnabled(false);
+                            BorrarTextField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor);
+                            HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
+                            btn_RegistrarVendedor1.setText("Registrar");
+                            btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
+                            listarTodo();
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No ha seleccionado un vendedor.","Aviso",1);
                     }
+
                 } catch (java.lang.NullPointerException a) {
-                    JOptionPane.showMessageDialog(null, "No ha seleccionado un vendedor de la tabla.", "Error", 0);
+                    JOptionPane.showMessageDialog(null, "Puede que no exista mas item para eliminar.", "Error", 0);
                 }
 
             }
@@ -858,20 +866,28 @@ public class Vendedor extends javax.swing.JFrame {
         Modificar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 try {
-                    if (ConfirmDialog("¿Desea editar el producto?")) {
-                        btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png")));
-                        btn_RegistrarVendedor1.setEnabled(true);
-                        btn_Modificar.setEnabled(false);
+                    if (index != null) {
+                        if (ConfirmDialog("¿Desea editar el producto?")) {
+                            btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png")));
+                            btn_RegistrarVendedor1.setEnabled(true);
+                            btn_Modificar.setEnabled(false);
 
-                        btn_RegistrarVendedor1.setText("Guardar");
+                            btn_RegistrarVendedor1.setText("Guardar");
 
-                        HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
+                            HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
+                            
 
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No ha seleccionado vendedor.", "Aviso", 1);
                     }
+
                 } catch (Exception a) {
                     JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
                 }
+
             }
         });
 
