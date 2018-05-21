@@ -322,6 +322,7 @@ public class Venta extends javax.swing.JFrame {
 
         jLabel2.setText("Cantidad");
 
+        txt_Cantidad.setEnabled(false);
         txt_Cantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_CantidadActionPerformed(evt);
@@ -353,6 +354,7 @@ public class Venta extends javax.swing.JFrame {
             }
         });
 
+        txt_CodigoComprador.setEnabled(false);
         txt_CodigoComprador.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_CodigoCompradorKeyTyped(evt);
@@ -726,6 +728,7 @@ public class Venta extends javax.swing.JFrame {
                 Index = null;
                 SelecTable(tbl_ProductosVenta, btn_AgregarVenta, true);
                 txt_Cantidad.setEnabled(true);
+                txt_CodigoComprador.setEnabled(true);
                 txt_nombre.setText(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString());
             } else {
                 Index = null;
@@ -782,9 +785,10 @@ public class Venta extends javax.swing.JFrame {
                     ListarTodo();
                     txt_nombre.setText(null);
                     txt_Cantidad.setText(null);
-                    txt_CodigoComprador.setText(null);
                     txt_BuscarRegistroVenta.setText(null);
                     txt_BuscarProductoVenta.setText(null);
+                    txt_Cantidad.setEnabled(false);
+                    txt_CodigoComprador.setEnabled(false);
 
                     System.out.println(" 3 ");
                 } else if (Integer.parseInt(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 3).toString()) == 0) {
@@ -834,9 +838,10 @@ public class Venta extends javax.swing.JFrame {
 
                 txt_nombre.setText(null);
                 txt_Cantidad.setText(null);
-                txt_CodigoComprador.setText(null);
                 txt_BuscarRegistroVenta.setText(null);
                 txt_BuscarProductoVenta.setText(null);
+                txt_Cantidad.setEnabled(false);
+                txt_CodigoComprador.setEnabled(false);
 
                 btn_RetirarVenta.setEnabled(false);
 
@@ -870,6 +875,7 @@ public class Venta extends javax.swing.JFrame {
         Subtotal(tp_TotalPagarVenta);
         btn_ComprarVenta.setEnabled(false);
         venco.Ordenamiento();
+        txt_CodigoComprador.setText(null);
     }//GEN-LAST:event_btn_ComprarVentaActionPerformed
 
     private void cmbx_VendedorVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbx_VendedorVentaActionPerformed
