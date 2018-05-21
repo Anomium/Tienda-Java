@@ -830,9 +830,9 @@ public class Vendedor extends javax.swing.JFrame {
     //Metodo para agregar items al evento del clic derecho de la 
     public void popupTable() {
         JPopupMenu popupMenu = new JPopupMenu();
-        JMenuItem Eliminar = new JMenuItem("Eliminar", new ImageIcon(getClass().getResource("../Img/eliminar.png")));
-        JMenuItem Modificar = new JMenuItem("Modificar", new ImageIcon(getClass().getResource("../Img/modificar.png")));
-
+        JMenuItem Eliminar = new JMenuItem("Eliminar", new ImageIcon(getClass().getResource("../Img/elim.png")));
+        JMenuItem Modificar = new JMenuItem("Modificar", new ImageIcon(getClass().getResource("../Img/modif.png")));
+        
         Eliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
