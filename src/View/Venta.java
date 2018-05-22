@@ -876,6 +876,12 @@ public class Venta extends javax.swing.JFrame {
         btn_ComprarVenta.setEnabled(false);
         venco.Ordenamiento();
         txt_CodigoComprador.setText(null);
+        txt_CodigoComprador.setEnabled(false);
+        txt_nombre.setText(null);
+        txt_Cantidad.setText(null);
+        txt_Cantidad.setEnabled(false);
+        btn_AgregarVenta.setEnabled(false);
+        btn_RetirarVenta.setEnabled(false);
     }//GEN-LAST:event_btn_ComprarVentaActionPerformed
 
     private void cmbx_VendedorVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbx_VendedorVentaActionPerformed
