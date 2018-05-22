@@ -1024,7 +1024,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         try {
-            if (proco.getProducto().size() != 0) {
+            if (proco.getProducto().size() != 0 && index != null) {
                 if (ConfirmDialog("¿Desea eliminar el producto?")) {
                     proco.Delete((int) index);
                     HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
