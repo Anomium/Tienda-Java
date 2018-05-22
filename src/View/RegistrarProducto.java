@@ -30,11 +30,10 @@ public class RegistrarProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        Menu = new javax.swing.JPopupMenu();
+        Modificar = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        Eliminar = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -84,15 +83,24 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
-        jMenuItem1.setText("jMenuItem1");
-        jPopupMenu1.add(jMenuItem1);
+        Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/modif.png"))); // NOI18N
+        Modificar.setText("Modificar");
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
+        Menu.add(Modificar);
+        Menu.add(jSeparator1);
 
-        jMenuItem2.setText("jMenuItem2");
-        jPopupMenu1.add(jMenuItem2);
-        jPopupMenu1.add(jSeparator1);
-
-        jMenuItem3.setText("jMenuItem3");
-        jPopupMenu1.add(jMenuItem3);
+        Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/elim.png"))); // NOI18N
+        Eliminar.setText("Eliminar\n");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+        Menu.add(Eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -113,7 +121,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbl_RegistrarProducto.setComponentPopupMenu(jPopupMenu1);
         tbl_RegistrarProducto.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tbl_RegistrarProducto);
         if (tbl_RegistrarProducto.getColumnModel().getColumnCount() > 0) {
@@ -309,6 +316,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_RegistrarProducto1.setComponentPopupMenu(Menu);
         tbl_RegistrarProducto1.getTableHeader().setReorderingAllowed(false);
         tbl_RegistrarProducto1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -820,7 +828,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
         try {
             btn_CancelarModificar.doClick();
             if (evt.getButton() != 3 && evt.getButton() != 2) {
-                
+
                 HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, true);
                 index = tbl_RegistrarProducto1.getSelectedRow();
                 txt_IDModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 0).toString());
@@ -1001,6 +1009,42 @@ public class RegistrarProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_CantidaProductoActionPerformed
 
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        try {
+            if (proco.getProducto().size() != 0 && index != null) {
+                if (ConfirmDialog("¿Desea editar el producto?")) {
+                    btn_GuadarModificar.setEnabled(true);
+                    btn_ModificarProducto.setEnabled(false);
+                    HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, true);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado producto.", "Aviso", 1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
+        }
+    }//GEN-LAST:event_ModificarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        try {
+            if (proco.getProducto().size() != 0) {
+                if (ConfirmDialog("¿Desea eliminar el producto?")) {
+                    proco.Delete((int) index);
+                    HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
+                    HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
+                    btn_GuadarModificar.setEnabled(false);
+                    ListarTodo();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado producto.", "Aviso", 1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Puede que no exista mas item para eliminar.", "Error", 0);
+        }
+    }//GEN-LAST:event_EliminarActionPerformed
+
     //Este Metodo Sirve Para Listar las Tablas
     private void Listar(DefaultTableModel Tabla, ArrayList<String[]> Lista) {
         //Elimino todas las filas
@@ -1087,6 +1131,9 @@ public class RegistrarProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Eliminar;
+    private javax.swing.JPopupMenu Menu;
+    private javax.swing.JMenuItem Modificar;
     private javax.swing.JButton btn_BuscarModificar;
     private javax.swing.JButton btn_CancelarBusqueda;
     private javax.swing.JButton btn_CancelarModificar;
@@ -1114,15 +1161,11 @@ public class RegistrarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
