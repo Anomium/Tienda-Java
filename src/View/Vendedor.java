@@ -100,7 +100,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre completo");
 
-        txt_NombreVendedor.setText("Melvin");
         txt_NombreVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_NombreVendedorKeyTyped(evt);
@@ -109,7 +108,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel5.setText("nº documento:");
 
-        txt_NumeroDocumento.setText("1");
         txt_NumeroDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_NumeroDocumentoKeyTyped(evt);
@@ -118,7 +116,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel6.setText("Id del vendedor:");
 
-        txt_IdVendedor.setText("1");
         txt_IdVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_IdVendedorKeyTyped(evt);
@@ -127,7 +124,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel7.setText("Telefono");
 
-        txt_TelefonoVendedor.setText("1");
         txt_TelefonoVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_TelefonoVendedorKeyTyped(evt);
