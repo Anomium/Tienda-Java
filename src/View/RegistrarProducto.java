@@ -30,6 +30,10 @@ public class RegistrarProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        Pop_Modificar = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        Pop_Eliminar = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -79,6 +83,25 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
+        Pop_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/modif.png"))); // NOI18N
+        Pop_Modificar.setText("Modificar");
+        Pop_Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pop_ModificarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(Pop_Modificar);
+        jPopupMenu1.add(jSeparator1);
+
+        Pop_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/elim.png"))); // NOI18N
+        Pop_Eliminar.setText("Eliminar");
+        Pop_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pop_EliminarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(Pop_Eliminar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
@@ -113,14 +136,12 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
 
-        txt_NombreProducto.setText("Manzana");
         txt_NombreProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_NombreProductoKeyTyped(evt);
             }
         });
 
-        txt_IDProducto.setText("123");
         txt_IDProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_IDProductoKeyTyped(evt);
@@ -131,7 +152,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel3.setText("Precio unidad:");
 
-        txt_PrecioProducto.setText("500");
         txt_PrecioProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_PrecioProductoKeyTyped(evt);
@@ -140,7 +160,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel4.setText("Cantidad:");
 
-        txt_CantidaProducto.setText("200");
         txt_CantidaProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_CantidaProductoActionPerformed(evt);
@@ -293,6 +312,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_RegistrarProducto1.setComponentPopupMenu(jPopupMenu1);
         tbl_RegistrarProducto1.getTableHeader().setReorderingAllowed(false);
         tbl_RegistrarProducto1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -733,7 +753,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
     //Evento para guardar las modificaciones de la vista Modificar producto
     private void btn_GuadarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuadarModificarActionPerformed
         try {
-            if (ValCeroEspacio(txt_NombreProducto.getText(), txt_IDProducto.getText(), Integer.parseInt(txt_CantidaProducto.getText()), Double.parseDouble(txt_PrecioProducto.getText()))) {
+            if (ValCeroEspacio(txt_NombreModificar.getText(), txt_IDModificar.getText(), Integer.parseInt(txt_CantidadModificar.getText()), Double.parseDouble(txt_PrecioModificar.getText()))) {
                 if (ConfirmDialog("¿Desea guardar los cambios?")) {
                     proco.Update((int) index, new Producto(txt_IDModificar.getText().toUpperCase(),
                             txt_NombreModificar.getText().toUpperCase(),
@@ -768,6 +788,10 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
                 HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
                 btn_GuadarModificar.setEnabled(false);
+                txt_NombreModificar.setText("");
+                txt_PrecioModificar.setText("");
+                txt_IDModificar.setText("");
+                txt_CantidadModificar.setText("");
                 ListarTodo();
             }
         } catch (Exception e) {
@@ -796,15 +820,19 @@ public class RegistrarProducto extends javax.swing.JFrame {
         HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
         HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
         btn_GuadarModificar.setEnabled(false);
+        txt_NombreModificar.setText("");
+        txt_PrecioModificar.setText("");
+        txt_IDModificar.setText("");
+        txt_CantidadModificar.setText("");
         index = null;
     }//GEN-LAST:event_btn_CancelarModificarActionPerformed
 
     //Evento de la tabla de la vista modificar producto
     private void tbl_RegistrarProducto1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_RegistrarProducto1MouseClicked
         try {
-            btn_CancelarModificar.doClick();
+            //btn_CancelarModificar.doClick();
             if (evt.getButton() != 3 && evt.getButton() != 2) {
-                
+
                 HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, true);
                 index = tbl_RegistrarProducto1.getSelectedRow();
                 txt_IDModificar.setText(tbl_RegistrarProducto1.getValueAt(tbl_RegistrarProducto1.getSelectedRow(), 0).toString());
@@ -815,7 +843,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         } catch (java.lang.ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(null, "Para seleccionar un producto es con clic izquierdo.");
-            btn_CancelarModificar.doClick();
+            //btn_CancelarModificar.doClick();
         }
     }//GEN-LAST:event_tbl_RegistrarProducto1MouseClicked
 
@@ -985,6 +1013,51 @@ public class RegistrarProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_CantidaProductoActionPerformed
 
+    private void Pop_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pop_EliminarActionPerformed
+        try {
+            if (proco.getProducto().size() > 0 && index != null) {
+                if (ConfirmDialog("¿Desea eliminar el producto?")) {
+                    proco.Delete((int) index);
+                    HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
+                    HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
+                    btn_GuadarModificar.setEnabled(false);
+                    btn_GuadarModificar.setEnabled(false);
+                    txt_NombreModificar.setText("");
+                    txt_PrecioModificar.setText("");
+                    txt_IDModificar.setText("");
+                    txt_CantidadModificar.setText("");
+                    ListarTodo();
+                }
+            } else if (proco.getProducto().size() == 0) {
+                JOptionPane.showMessageDialog(null, "No exite producto para eliminar", "Aviso", 1);
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione un item con el clic izquierdo", "Aviso", 1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Puede que no exista mas item para eliminar.", "Error", 0);
+        }
+    }//GEN-LAST:event_Pop_EliminarActionPerformed
+
+    private void Pop_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pop_ModificarActionPerformed
+        try {
+            if (proco.getProducto().size() > 0 && index != null) {
+                if (ConfirmDialog("¿Desea editar el producto?")) {
+                    btn_GuadarModificar.setEnabled(true);
+                    btn_ModificarProducto.setEnabled(false);
+                    HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, true);
+                }
+            } else if (proco.getProducto().size() == 0) {
+                JOptionPane.showMessageDialog(null, "No exite producto para eliminar", "Aviso", 1);
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione un item con el clic izquierdo", "Aviso", 1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
+        }
+    }//GEN-LAST:event_Pop_ModificarActionPerformed
+
     //Este Metodo Sirve Para Listar las Tablas
     private void Listar(DefaultTableModel Tabla, ArrayList<String[]> Lista) {
         //Elimino todas las filas
@@ -1071,6 +1144,8 @@ public class RegistrarProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Pop_Eliminar;
+    private javax.swing.JMenuItem Pop_Modificar;
     private javax.swing.JButton btn_BuscarModificar;
     private javax.swing.JButton btn_CancelarBusqueda;
     private javax.swing.JButton btn_CancelarModificar;
@@ -1103,8 +1178,10 @@ public class RegistrarProducto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;

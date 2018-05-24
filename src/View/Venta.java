@@ -730,6 +730,7 @@ public class Venta extends javax.swing.JFrame {
                 txt_Cantidad.setEnabled(true);
                 txt_CodigoComprador.setEnabled(true);
                 txt_nombre.setText(tbl_ProductosVenta.getValueAt(tbl_ProductosVenta.getSelectedRow(), 1).toString());
+                btn_RetirarVenta.setEnabled(false);
             } else {
                 Index = null;
                 txt_nombre.setText(null);
@@ -754,6 +755,7 @@ public class Venta extends javax.swing.JFrame {
             SelecTable(tbl_CarritoVenta, btn_RetirarVenta, true);
             txt_Cantidad.setEnabled(true);
             txt_nombre.setText(tbl_CarritoVenta.getValueAt(tbl_CarritoVenta.getSelectedRow(), 1).toString());
+            btn_AgregarVenta.setEnabled(false);
             Index = tbl_CarritoVenta.getSelectedRow();
         } catch (java.lang.ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(null, "Para seleccionar un producto es con clic izquierdo.");
@@ -871,6 +873,13 @@ public class Venta extends javax.swing.JFrame {
         venco.Registro();
         venco.BackupV();
         venco.BorrarRegistro();
+        txt_Cantidad.setEnabled(false);
+        txt_CodigoComprador.setEnabled(false);
+        btn_RetirarVenta.setEnabled(false);
+        btn_AgregarVenta.setEnabled(false);
+        txt_Cantidad.setText(null);
+        txt_nombre.setText(null);
+        txt_CodigoComprador.setText(null);
         ListarTodo();
         Subtotal(tp_TotalPagarVenta);
         btn_ComprarVenta.setEnabled(false);

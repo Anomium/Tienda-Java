@@ -27,7 +27,6 @@ public class Vendedor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
         listarTodo();
-        popupTable();
     }
 
     @SuppressWarnings("unchecked")
@@ -35,6 +34,10 @@ public class Vendedor extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        Pop_Modificar = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        Pop_Eliminar = new javax.swing.JMenuItem();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txt_NombreVendedor = new javax.swing.JTextField();
@@ -70,6 +73,25 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel3.setText("jLabel3");
 
+        Pop_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/modif.png"))); // NOI18N
+        Pop_Modificar.setText("Modificar");
+        Pop_Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pop_ModificarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(Pop_Modificar);
+        jPopupMenu1.add(jSeparator1);
+
+        Pop_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/elim.png"))); // NOI18N
+        Pop_Eliminar.setText("Eliminar");
+        Pop_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pop_EliminarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(Pop_Eliminar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
@@ -78,7 +100,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre completo");
 
-        txt_NombreVendedor.setText("Melvin");
         txt_NombreVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_NombreVendedorKeyTyped(evt);
@@ -87,7 +108,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel5.setText("nº documento:");
 
-        txt_NumeroDocumento.setText("1");
         txt_NumeroDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_NumeroDocumentoKeyTyped(evt);
@@ -96,7 +116,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel6.setText("Id del vendedor:");
 
-        txt_IdVendedor.setText("1");
         txt_IdVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_IdVendedorKeyTyped(evt);
@@ -105,7 +124,6 @@ public class Vendedor extends javax.swing.JFrame {
 
         jLabel7.setText("Telefono");
 
-        txt_TelefonoVendedor.setText("1");
         txt_TelefonoVendedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_TelefonoVendedorKeyTyped(evt);
@@ -227,6 +245,7 @@ public class Vendedor extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_TablaVendedor.setComponentPopupMenu(jPopupMenu1);
         tbl_TablaVendedor.getTableHeader().setReorderingAllowed(false);
         tbl_TablaVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -594,7 +613,7 @@ public class Vendedor extends javax.swing.JFrame {
     private void btn_RegistrarVendedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarVendedor1ActionPerformed
         try {
             if (ValCeroEspacio(txt_NombreVendedor.getText(), txt_NumeroDocumento.getText(), txt_IdVendedor.getText())) {
-                if (ValCodigo(txt_IdVendedor.getText())) {
+                if (ValCodigo(txt_IdVendedor.getText()) || txt_IdVendedor.getText().equalsIgnoreCase((String)tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 0).toString())) {
                     if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Registrar")) {
 
                         if (ConfirmDialog("¿Desea Registrar?")) {
@@ -735,6 +754,54 @@ public class Vendedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_BuscarKeyTyped
 
+    private void Pop_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pop_ModificarActionPerformed
+        try {
+            if (index != null) {
+                if (ConfirmDialog("¿Desea editar el producto?")) {
+                    btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png")));
+                    btn_RegistrarVendedor1.setEnabled(true);
+                    btn_Modificar.setEnabled(false);
+
+                    btn_RegistrarVendedor1.setText("Guardar");
+
+                    HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado vendedor.", "Aviso", 1);
+            }
+
+        } catch (Exception a) {
+            JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
+        }
+    }//GEN-LAST:event_Pop_ModificarActionPerformed
+
+    private void Pop_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pop_EliminarActionPerformed
+        try {
+            if (index != null) {
+                if (ConfirmDialog("¿Desea eliminar el producto?")) {
+                    venco.Delete((int) index);
+
+                    index = null;
+
+                    btn_Cancelar.setEnabled(false);
+                    btn_Modificar.setEnabled(false);
+                    btn_Eliminar.setEnabled(false);
+                    BorrarTextField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor);
+                    HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
+                    btn_RegistrarVendedor1.setText("Registrar");
+                    btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
+                    listarTodo();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado un vendedor.", "Aviso", 1);
+            }
+
+        } catch (java.lang.NullPointerException a) {
+            JOptionPane.showMessageDialog(null, "Puede que no exista mas item para eliminar.", "Error", 0);
+        }
+    }//GEN-LAST:event_Pop_EliminarActionPerformed
+
     private boolean ConfirmDialog(String texto) {
         int num = JOptionPane.showConfirmDialog(null, texto);
         if (num == JOptionPane.YES_OPTION) {
@@ -827,76 +894,10 @@ public class Vendedor extends javax.swing.JFrame {
         return true;
     }
 
-    //Metodo para agregar items al evento del clic derecho de la 
-    public void popupTable() {
-        JPopupMenu popupMenu = new JPopupMenu();
-        JMenuItem Eliminar = new JMenuItem("Eliminar", new ImageIcon(getClass().getResource("../Img/elim.png")));
-        JMenuItem Modificar = new JMenuItem("Modificar", new ImageIcon(getClass().getResource("../Img/modif.png")));
-        
-        Eliminar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    if (index != null) {
-                        if (ConfirmDialog("¿Desea eliminar el producto?")) {
-                            venco.Delete((int) index);
-
-                            index = null;
-
-                            btn_Cancelar.setEnabled(false);
-                            btn_Modificar.setEnabled(false);
-                            btn_Eliminar.setEnabled(false);
-                            BorrarTextField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor);
-                            HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
-                            btn_RegistrarVendedor1.setText("Registrar");
-                            btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
-                            listarTodo();
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No ha seleccionado un vendedor.","Aviso",1);
-                    }
-
-                } catch (java.lang.NullPointerException a) {
-                    JOptionPane.showMessageDialog(null, "Puede que no exista mas item para eliminar.", "Error", 0);
-                }
-
-            }
-        });
-
-        Modificar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                try {
-                    if (index != null) {
-                        if (ConfirmDialog("¿Desea editar el producto?")) {
-                            btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/guardar.png")));
-                            btn_RegistrarVendedor1.setEnabled(true);
-                            btn_Modificar.setEnabled(false);
-
-                            btn_RegistrarVendedor1.setText("Guardar");
-
-                            HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
-                            
-
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No ha seleccionado vendedor.", "Aviso", 1);
-                    }
-
-                } catch (Exception a) {
-                    JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
-                }
-
-            }
-        });
-
-        popupMenu.add(Modificar);
-        popupMenu.add(Eliminar);
-        tbl_TablaVendedor.setComponentPopupMenu(popupMenu);
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Pop_Eliminar;
+    private javax.swing.JMenuItem Pop_Modificar;
     private javax.swing.JButton btn_Cancelar;
     private javax.swing.JButton btn_CancelarBuscar;
     private javax.swing.JButton btn_Eliminar;
@@ -922,7 +923,9 @@ public class Vendedor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tbl_TablaVendedor;
     private javax.swing.JTextField txt_Buscar;
