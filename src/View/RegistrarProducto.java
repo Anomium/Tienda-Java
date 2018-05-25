@@ -762,6 +762,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                     HabilitarBotones(btn_ModificarProducto, btn_EliminarModificar, btn_CancelarModificar, false);
                     HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, false);
                     btn_GuadarModificar.setEnabled(false);
+                    proco.Backup();
                     ListarTodo();
                 } else {
                     JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
@@ -792,6 +793,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 txt_PrecioModificar.setText("");
                 txt_IDModificar.setText("");
                 txt_CantidadModificar.setText("");
+                proco.Backup();
                 ListarTodo();
             }
         } catch (Exception e) {

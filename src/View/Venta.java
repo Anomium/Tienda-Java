@@ -780,7 +780,7 @@ public class Venta extends javax.swing.JFrame {
                     System.out.println(" 1 ");
                     btn_AgregarVenta.setEnabled(false);
                     btn_ComprarVenta.setEnabled(true);
-                    //btn_CancelarCompra.setEnabled(true);
+                    btn_CancelarCompra.setEnabled(true);
 
                     System.out.println(" 2 ");
                     Subtotal(tp_TotalPagarVenta);
@@ -859,24 +859,29 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_RetirarVentaActionPerformed
 
     private void btn_CancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarCompraActionPerformed
-        /*btn_AgregarVenta.setEnabled(false);
+        btn_AgregarVenta.setEnabled(false);
         btn_RetirarVenta.setEnabled(false);
         btn_ComprarVenta.setEnabled(false);
+        txt_Cantidad.setText(null);
+        txt_CodigoComprador.setText(null);
+        txt_nombre.setText(null);
         proco.BorrarCompra(venco.getVenta());
         Subtotal(tp_TotalPagarVenta);
         ListarTodo();
         btn_CancelarCompra.setEnabled(false);
-        Index = null;*/
+        Index = null;
     }//GEN-LAST:event_btn_CancelarCompraActionPerformed
 
     private void btn_ComprarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ComprarVentaActionPerformed
         venco.Registro();
         venco.BackupV();
+        proco.Backup();
         venco.BorrarRegistro();
         txt_Cantidad.setEnabled(false);
         txt_CodigoComprador.setEnabled(false);
         btn_RetirarVenta.setEnabled(false);
         btn_AgregarVenta.setEnabled(false);
+        btn_CancelarCompra.setEnabled(false);
         txt_Cantidad.setText(null);
         txt_nombre.setText(null);
         txt_CodigoComprador.setText(null);
