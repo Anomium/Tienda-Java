@@ -44,6 +44,9 @@ public class Venta extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        pop_ActivComprador = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jPanel1 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -91,6 +94,10 @@ public class Venta extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
+
+        pop_ActivComprador.setText("Actividad del comprador");
+        jPopupMenu1.add(pop_ActivComprador);
+        jPopupMenu1.add(jSeparator1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -535,6 +542,7 @@ public class Venta extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_RegistroVenta.setComponentPopupMenu(jPopupMenu1);
         tbl_RegistroVenta.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tbl_RegistroVenta);
         if (tbl_RegistroVenta.getColumnModel().getColumnCount() > 0) {
@@ -1072,12 +1080,15 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JMenuItem pop_ActivComprador;
     private javax.swing.JTable tbl_CarritoVenta;
     private javax.swing.JTable tbl_ProductosVenta;
     private javax.swing.JTable tbl_RegistroVenta;
