@@ -44,6 +44,10 @@ public class Venta extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
+        jd_InformacionVenta = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         pop_ActivComprador = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -95,7 +99,71 @@ public class Venta extends javax.swing.JFrame {
 
         jLabel3.setText("jLabel3");
 
+        jd_InformacionVenta.setSize(new java.awt.Dimension(691, 480));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Producto", "Cantidad", "Precio", "Subtotal"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane6.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_InformacionVentaLayout = new javax.swing.GroupLayout(jd_InformacionVenta.getContentPane());
+        jd_InformacionVenta.getContentPane().setLayout(jd_InformacionVentaLayout);
+        jd_InformacionVentaLayout.setHorizontalGroup(
+            jd_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jd_InformacionVentaLayout.setVerticalGroup(
+            jd_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         pop_ActivComprador.setText("Actividad del comprador");
+        pop_ActivComprador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pop_ActivCompradorActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(pop_ActivComprador);
         jPopupMenu1.add(jSeparator1);
 
@@ -954,6 +1022,10 @@ public class Venta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_BuscarRegistroVentaKeyTyped
 
+    private void pop_ActivCompradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pop_ActivCompradorActionPerformed
+        jd_InformacionVenta.setVisible(true);
+    }//GEN-LAST:event_pop_ActivCompradorActionPerformed
+
     //Metodo para listar todas la tablas de la vista modificar producto
     private void ListarTodo() {
         Listar((DefaultTableModel) tbl_ProductosVenta.getModel(), proco.ReadAll());
@@ -1080,14 +1152,18 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JDialog jd_InformacionVenta;
     private javax.swing.JMenuItem pop_ActivComprador;
     private javax.swing.JTable tbl_CarritoVenta;
     private javax.swing.JTable tbl_ProductosVenta;
