@@ -47,7 +47,7 @@ public class Venta extends javax.swing.JFrame {
         jd_InformacionVenta = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_RegistroInfor = new javax.swing.JTable();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         pop_ActivComprador = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -101,7 +101,7 @@ public class Venta extends javax.swing.JFrame {
 
         jd_InformacionVenta.setSize(new java.awt.Dimension(691, 480));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_RegistroInfor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -120,14 +120,14 @@ public class Venta extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane6.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        tbl_RegistroInfor.getTableHeader().setReorderingAllowed(false);
+        jScrollPane6.setViewportView(tbl_RegistroInfor);
+        if (tbl_RegistroInfor.getColumnModel().getColumnCount() > 0) {
+            tbl_RegistroInfor.getColumnModel().getColumn(0).setResizable(false);
+            tbl_RegistroInfor.getColumnModel().getColumn(1).setResizable(false);
+            tbl_RegistroInfor.getColumnModel().getColumn(2).setResizable(false);
+            tbl_RegistroInfor.getColumnModel().getColumn(3).setResizable(false);
+            tbl_RegistroInfor.getColumnModel().getColumn(4).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1024,6 +1024,8 @@ public class Venta extends javax.swing.JFrame {
 
     private void pop_ActivCompradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pop_ActivCompradorActionPerformed
         jd_InformacionVenta.setVisible(true);
+        jd_InformacionVenta.setLocationRelativeTo(null);
+        Listar((DefaultTableModel) tbl_RegistroInfor.getModel(), venco.ReadVentasInfo(tbl_RegistroVenta.getValueAt(tbl_RegistroVenta.getSelectedRow(), 2).toString()));
     }//GEN-LAST:event_pop_ActivCompradorActionPerformed
 
     //Metodo para listar todas la tablas de la vista modificar producto
@@ -1162,11 +1164,11 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JDialog jd_InformacionVenta;
     private javax.swing.JMenuItem pop_ActivComprador;
     private javax.swing.JTable tbl_CarritoVenta;
     private javax.swing.JTable tbl_ProductosVenta;
+    private javax.swing.JTable tbl_RegistroInfor;
     private javax.swing.JTable tbl_RegistroVenta;
     private javax.swing.JTextPane tp_TotalPagarVenta;
     private javax.swing.JTextField txt_BuscarProductoVenta;

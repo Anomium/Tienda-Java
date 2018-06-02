@@ -75,6 +75,23 @@ public class VentaController {
         return Get;
     }
 
+    public ArrayList<String[]> ReadVentasInfo(String codigo) {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < Backup.size(); i++) {
+            if (codigo.equals(Backup.get(i).getCodigoComp())) {
+                Get.add(new String[]{
+                    Backup.get(i).getID(),
+                    Backup.get(i).getNombre(),
+                    String.valueOf(Backup.get(i).getPrecio()),
+                    String.valueOf(Backup.get(i).getCantidad()),
+                    String.valueOf(Backup.get(i).getSubtotal())});
+            }
+
+        }
+
+        return Get;
+    }
+
     public void Read(String filter, int cant) {
 
         for (int i = 0; i < proco.getProducto().size(); i++) {
@@ -241,7 +258,7 @@ public class VentaController {
 
     }
 
-     public void UpdateBS() {
+    public void UpdateBS() {
         double sueldo = 0;
         double ventas = 0;
         int cant = 0;
