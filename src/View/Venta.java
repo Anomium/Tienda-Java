@@ -22,13 +22,14 @@ import javax.swing.JTextPane;
 
 public class Venta extends javax.swing.JFrame {
 
-    private int x, y;
+    
     private ProductoController proco = new ProductoController();
     private VentaController venco = new VentaController();
     private VendedorController vendeco = new VendedorController();
     private Object Index = null;
     private Object IndexCmbx = null;
-
+    private int x, y;
+    
     public Venta() {
         initComponents();
         setLocationRelativeTo(null);
@@ -48,6 +49,10 @@ public class Venta extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tbl_RegistroInfor = new javax.swing.JTable();
+        jp_InformacionVenta = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         pop_ActivComprador = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -144,7 +149,66 @@ public class Venta extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jp_InformacionVenta.setBackground(new java.awt.Color(255, 0, 0));
+        jp_InformacionVenta.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jp_InformacionVentaMouseDragged(evt);
+            }
+        });
+        jp_InformacionVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jp_InformacionVentaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jp_InformacionVentaMouseReleased(evt);
+            }
+        });
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen1.png"))); // NOI18N
+        jButton9.setBorderPainted(false);
+        jButton9.setContentAreaFilled(false);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen5.png"))); // NOI18N
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/koda.png"))); // NOI18N
+        jLabel12.setText("Koda..");
+
+        javax.swing.GroupLayout jp_InformacionVentaLayout = new javax.swing.GroupLayout(jp_InformacionVenta);
+        jp_InformacionVenta.setLayout(jp_InformacionVentaLayout);
+        jp_InformacionVentaLayout.setHorizontalGroup(
+            jp_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_InformacionVentaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(273, 273, 273)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jp_InformacionVentaLayout.setVerticalGroup(
+            jp_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_InformacionVentaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jp_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
 
         javax.swing.GroupLayout jd_InformacionVentaLayout = new javax.swing.GroupLayout(jd_InformacionVenta.getContentPane());
@@ -152,10 +216,14 @@ public class Venta extends javax.swing.JFrame {
         jd_InformacionVentaLayout.setHorizontalGroup(
             jd_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jp_InformacionVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jd_InformacionVentaLayout.setVerticalGroup(
             jd_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_InformacionVentaLayout.createSequentialGroup()
+                .addComponent(jp_InformacionVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pop_ActivComprador.setText("Actividad del comprador");
@@ -766,10 +834,13 @@ public class Venta extends javax.swing.JFrame {
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         x = evt.getX();
         y = evt.getY();
+        
     }//GEN-LAST:event_jPanel1MousePressed
 
     private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+
         this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
+        
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void btn_ProductosVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ProductosVentaMouseClicked
@@ -1023,10 +1094,33 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_BuscarRegistroVentaKeyTyped
 
     private void pop_ActivCompradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pop_ActivCompradorActionPerformed
+        jd_InformacionVenta.setUndecorated(true);
         jd_InformacionVenta.setVisible(true);
         jd_InformacionVenta.setLocationRelativeTo(null);
+        
         Listar((DefaultTableModel) tbl_RegistroInfor.getModel(), venco.ReadVentasInfo(tbl_RegistroVenta.getValueAt(tbl_RegistroVenta.getSelectedRow(), 2).toString()));
     }//GEN-LAST:event_pop_ActivCompradorActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        jd_InformacionVenta.dispose();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jp_InformacionVentaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_InformacionVentaMouseDragged
+        jd_InformacionVenta.setLocation(jd_InformacionVenta.getLocation().x + evt.getX() - x, jd_InformacionVenta.getLocation().y + evt.getY() - y);
+    }//GEN-LAST:event_jp_InformacionVentaMouseDragged
+
+    private void jp_InformacionVentaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_InformacionVentaMousePressed
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_jp_InformacionVentaMousePressed
+
+    private void jp_InformacionVentaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_InformacionVentaMouseReleased
+
+    }//GEN-LAST:event_jp_InformacionVentaMouseReleased
 
     //Metodo para listar todas la tablas de la vista modificar producto
     private void ListarTodo() {
@@ -1137,11 +1231,14 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JButton btn_RetirarVenta;
     private javax.swing.JButton btn_VendedoresVenta;
     private javax.swing.JComboBox<String> cmbx_VendedorVenta;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
@@ -1165,6 +1262,7 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_InformacionVenta;
+    private javax.swing.JPanel jp_InformacionVenta;
     private javax.swing.JMenuItem pop_ActivComprador;
     private javax.swing.JTable tbl_CarritoVenta;
     private javax.swing.JTable tbl_ProductosVenta;
