@@ -11,6 +11,7 @@ import Model.Vendedorm;
 import Model.VentaM;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -22,14 +23,13 @@ import javax.swing.JTextPane;
 
 public class Venta extends javax.swing.JFrame {
 
-    
     private ProductoController proco = new ProductoController();
     private VentaController venco = new VentaController();
     private VendedorController vendeco = new VendedorController();
     private Object Index = null;
     private Object IndexCmbx = null;
     private int x, y;
-    
+
     public Venta() {
         initComponents();
         setLocationRelativeTo(null);
@@ -104,6 +104,7 @@ public class Venta extends javax.swing.JFrame {
 
         jLabel3.setText("jLabel3");
 
+        jd_InformacionVenta.setModal(true);
         jd_InformacionVenta.setSize(new java.awt.Dimension(691, 480));
 
         tbl_RegistroInfor.setModel(new javax.swing.table.DefaultTableModel(
@@ -680,6 +681,11 @@ public class Venta extends javax.swing.JFrame {
         });
         tbl_RegistroVenta.setComponentPopupMenu(jPopupMenu1);
         tbl_RegistroVenta.getTableHeader().setReorderingAllowed(false);
+        tbl_RegistroVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_RegistroVentaMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tbl_RegistroVenta);
         if (tbl_RegistroVenta.getColumnModel().getColumnCount() > 0) {
             tbl_RegistroVenta.getColumnModel().getColumn(0).setResizable(false);
@@ -834,13 +840,13 @@ public class Venta extends javax.swing.JFrame {
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         x = evt.getX();
         y = evt.getY();
-        
+
     }//GEN-LAST:event_jPanel1MousePressed
 
     private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
 
         this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
-        
+
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void btn_ProductosVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ProductosVentaMouseClicked
@@ -932,6 +938,7 @@ public class Venta extends javax.swing.JFrame {
                     System.out.println(" 2 ");
                     Subtotal(tp_TotalPagarVenta);
                     ListarTodo();
+                    Index = null;
                     txt_nombre.setText(null);
                     txt_Cantidad.setText(null);
                     txt_BuscarRegistroVenta.setText(null);
@@ -1094,11 +1101,22 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_BuscarRegistroVentaKeyTyped
 
     private void pop_ActivCompradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pop_ActivCompradorActionPerformed
-        jd_InformacionVenta.setUndecorated(true);
-        jd_InformacionVenta.setVisible(true);
-        jd_InformacionVenta.setLocationRelativeTo(null);
-        
-        Listar((DefaultTableModel) tbl_RegistroInfor.getModel(), venco.ReadVentasInfo(tbl_RegistroVenta.getValueAt(tbl_RegistroVenta.getSelectedRow(), 2).toString()));
+        try {
+            if (Index != null && (int) Index >= 0) {
+                jd_InformacionVenta.setUndecorated(true);
+                jd_InformacionVenta.setLocationRelativeTo(null);
+                Listar((DefaultTableModel) tbl_RegistroInfor.getModel(), venco.ReadVentasInfo(tbl_RegistroVenta.getValueAt(tbl_RegistroVenta.getSelectedRow(), 2).toString()));
+                jd_InformacionVenta.setVisible(true);
+                
+                Index = null;
+            } else if (Index == null || (int) Index <= -1) {
+                JOptionPane.showMessageDialog(null, "Se selecciona con clic izquierdo.", "Aviso", 1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado una venta.", "Aviso", 1);
+        }
+
     }//GEN-LAST:event_pop_ActivCompradorActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -1121,6 +1139,10 @@ public class Venta extends javax.swing.JFrame {
     private void jp_InformacionVentaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_InformacionVentaMouseReleased
 
     }//GEN-LAST:event_jp_InformacionVentaMouseReleased
+
+    private void tbl_RegistroVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_RegistroVentaMouseClicked
+        Index = tbl_RegistroVenta.getSelectedRow();
+    }//GEN-LAST:event_tbl_RegistroVentaMouseClicked
 
     //Metodo para listar todas la tablas de la vista modificar producto
     private void ListarTodo() {
