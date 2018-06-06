@@ -26,6 +26,8 @@ public class Informacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        Pop_Informacion = new javax.swing.JMenuItem();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
@@ -57,6 +59,14 @@ public class Informacion extends javax.swing.JFrame {
         txt_SueldoVendedor3 = new javax.swing.JTextField();
 
         jLabel3.setText("jLabel3");
+
+        Pop_Informacion.setText("Informacion");
+        Pop_Informacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pop_InformacionActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(Pop_Informacion);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -399,6 +409,10 @@ public class Informacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void Pop_InformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pop_InformacionActionPerformed
+        
+    }//GEN-LAST:event_Pop_InformacionActionPerformed
+
     //Este Metodo Sirve Para Listar las Tablas
     private void Listar(DefaultTableModel Tabla, ArrayList<String[]> Lista) {
         //Elimino todas las filas
@@ -443,6 +457,7 @@ public class Informacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Pop_Informacion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
@@ -465,6 +480,7 @@ public class Informacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane tbl_Informacion;
     private javax.swing.JTable tbl_Informacion1;
     private javax.swing.JTextField txt_NombreVendedor1;
