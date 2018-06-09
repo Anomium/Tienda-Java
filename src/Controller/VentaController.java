@@ -265,4 +265,8 @@ public class VentaController {
         VentaController.Registro = Registro;
     }
 
+    public static ArrayList<VentaM> getBackup() {
+        return Backup;
+    }
+
 }

@@ -51,7 +51,6 @@ public class Venta extends javax.swing.JFrame {
         tbl_RegistroInfor = new javax.swing.JTable();
         jp_InformacionVenta = new javax.swing.JPanel();
         jButton9 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         pop_ActivComprador = new javax.swing.JMenuItem();
@@ -177,15 +176,6 @@ public class Venta extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen5.png"))); // NOI18N
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/koda.png"))); // NOI18N
         jLabel12.setText("Koda..");
 
@@ -194,11 +184,9 @@ public class Venta extends javax.swing.JFrame {
         jp_InformacionVentaLayout.setHorizontalGroup(
             jp_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_InformacionVentaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(320, Short.MAX_VALUE)
                 .addComponent(jLabel12)
-                .addGap(273, 273, 273)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(294, 294, 294)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -206,9 +194,8 @@ public class Venta extends javax.swing.JFrame {
             jp_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_InformacionVentaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jp_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jp_InformacionVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
 
@@ -1123,10 +1110,6 @@ public class Venta extends javax.swing.JFrame {
         jd_InformacionVenta.dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jp_InformacionVentaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_InformacionVentaMouseDragged
         jd_InformacionVenta.setLocation(jd_InformacionVenta.getLocation().x + evt.getX() - x, jd_InformacionVenta.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_jp_InformacionVentaMouseDragged
@@ -1253,7 +1236,6 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JButton btn_RetirarVenta;
     private javax.swing.JButton btn_VendedoresVenta;
     private javax.swing.JComboBox<String> cmbx_VendedorVenta;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
