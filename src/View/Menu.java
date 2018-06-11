@@ -13,38 +13,32 @@ import javax.swing.Timer;
 public class Menu extends javax.swing.JFrame {
 
     private int x, y;
- 
+
     public Menu() {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
-    
-    
-           // fecha 
-        
-       Date sistFecha = new Date();
+
+        // fecha 
+        Date sistFecha = new Date();
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/YYYY");
         fecha.setText(formato.format(sistFecha));
-        
+
         // hora
         Timer tiempo = new Timer(100, new Menu.horas());
         tiempo.start();
-        }
+    }
 
-       
+    class horas implements ActionListener {
 
-    
-    
-    class horas implements ActionListener{
-        
-        public void actionPerformed(ActionEvent e){
-            
-            Date sisHora=new Date();
-            
+        public void actionPerformed(ActionEvent e) {
+
+            Date sisHora = new Date();
+
             SimpleDateFormat format = new SimpleDateFormat("hh:mm a");
             Calendar hoy = Calendar.getInstance();
-            hora.setText(String.format(format.format(sisHora),hoy));
-            
+            hora.setText(String.format(format.format(sisHora), hoy));
+
         }
     }
 
@@ -232,7 +226,7 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No puede acceder a esta opcion, primero se necesta una venta.", "Error", 0);
         };
     }//GEN-LAST:event_btn_InformacionMenuMouseClicked
-    
+
     //Evento para cerrar el programa
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         System.exit(0);
@@ -261,20 +255,17 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       
+
         RegistrarProducto registrarproducto = new RegistrarProducto();
         registrarproducto.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void btn_VentaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VentaMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_VentaMenuActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -616,7 +616,7 @@ public class Vendedor extends javax.swing.JFrame {
     private void btn_RegistrarVendedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarVendedor1ActionPerformed
         try {
             if (ValCeroEspacio(txt_NombreVendedor.getText(), txt_NumeroDocumento.getText(), txt_IdVendedor.getText())) {
-                if (ValCodigo(txt_IdVendedor.getText()) || txt_IdVendedor.getText().equalsIgnoreCase((String)tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 0).toString())) {
+                if (ValCodigo(txt_IdVendedor.getText()) || txt_IdVendedor.getText().equalsIgnoreCase((String) tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 0).toString())) {
                     if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Registrar")) {
 
                         if (ConfirmDialog("¿Desea Registrar?")) {

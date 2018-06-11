@@ -803,15 +803,9 @@ public class Venta extends javax.swing.JFrame {
 
     //Evento para pasar a la ventana Informacion
     private void btn_InformacionVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionVentaMouseClicked
-//        try {
         Informacion infomacion = new Informacion();
         infomacion.setVisible(true);
         this.dispose();
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "No puede acceder a esta opcion, primero se necesita una venta.", "Error", 0);
-//        }
-
-
     }//GEN-LAST:event_btn_InformacionVentaMouseClicked
 
     //Evento para cerrar el programa
@@ -831,17 +825,13 @@ public class Venta extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MousePressed
 
     private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-
         this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
-
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void btn_ProductosVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ProductosVentaMouseClicked
-
         RegistrarProducto registrarproducto = new RegistrarProducto();
         registrarproducto.setVisible(true);
         this.dispose();
-
     }//GEN-LAST:event_btn_ProductosVentaMouseClicked
 
     private void btn_ProductosVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProductosVentaActionPerformed
@@ -855,7 +845,6 @@ public class Venta extends javax.swing.JFrame {
     private void btn_CancelarBusquedaProdVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarBusquedaProdVentaActionPerformed
         ListarTodo();
         btn_CancelarBusquedaProdVenta.setEnabled(false);
-
     }//GEN-LAST:event_btn_CancelarBusquedaProdVentaActionPerformed
 
     private void txt_CantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CantidadActionPerformed
@@ -1094,7 +1083,7 @@ public class Venta extends javax.swing.JFrame {
                 jd_InformacionVenta.setLocationRelativeTo(null);
                 Listar((DefaultTableModel) tbl_RegistroInfor.getModel(), venco.ReadVentasInfo(tbl_RegistroVenta.getValueAt(tbl_RegistroVenta.getSelectedRow(), 2).toString()));
                 jd_InformacionVenta.setVisible(true);
-                
+
                 Index = null;
             } else if (Index == null || (int) Index <= -1) {
                 JOptionPane.showMessageDialog(null, "Se selecciona con clic izquierdo.", "Aviso", 1);
