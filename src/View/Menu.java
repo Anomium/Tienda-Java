@@ -133,11 +133,6 @@ public class Menu extends javax.swing.JFrame {
                 btn_VentaMenuMouseClicked(evt);
             }
         });
-        btn_VentaMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_VentaMenuActionPerformed(evt);
-            }
-        });
         getContentPane().add(btn_VentaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, -1));
 
         btn_VendedoresMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
@@ -154,11 +149,6 @@ public class Menu extends javax.swing.JFrame {
         btn_InformacionMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_InformacionMenuMouseClicked(evt);
-            }
-        });
-        btn_InformacionMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_InformacionMenuActionPerformed(evt);
             }
         });
         getContentPane().add(btn_InformacionMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 120, -1));
@@ -180,11 +170,6 @@ public class Menu extends javax.swing.JFrame {
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 120, -1));
@@ -246,14 +231,6 @@ public class Menu extends javax.swing.JFrame {
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void btn_InformacionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_InformacionMenuActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         RegistrarProducto registrarproducto = new RegistrarProducto();
@@ -261,10 +238,6 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void btn_VentaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VentaMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_VentaMenuActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

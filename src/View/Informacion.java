@@ -299,11 +299,6 @@ public class Informacion extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         tbl_Informacion1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -518,10 +513,6 @@ public class Informacion extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void Pop_InformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pop_InformacionActionPerformed
         cantidad = 0;

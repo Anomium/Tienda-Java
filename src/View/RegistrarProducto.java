@@ -160,11 +160,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jLabel4.setText("Cantidad:");
 
-        txt_CantidaProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_CantidaProductoActionPerformed(evt);
-            }
-        });
         txt_CantidaProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_CantidaProductoKeyTyped(evt);
@@ -184,11 +179,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
         btn_InformacionMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_InformacionMenu1MouseClicked(evt);
-            }
-        });
-        btn_InformacionMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_InformacionMenu1ActionPerformed(evt);
             }
         });
 
@@ -513,11 +503,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 btn_InformacionMenuMouseClicked(evt);
             }
         });
-        btn_InformacionMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_InformacionMenuActionPerformed(evt);
-            }
-        });
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/menu.png"))); // NOI18N
         jButton9.setText("Menu");
@@ -714,10 +699,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton9MouseClicked
 
-    private void btn_InformacionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenuActionPerformed
-
-    }//GEN-LAST:event_btn_InformacionMenuActionPerformed
-
     private void btn_InformacionMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionMenuMouseClicked
         try {
             Informacion infomacion = new Informacion();
@@ -867,10 +848,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_VendedoresMenu1MouseClicked
 
-    private void btn_InformacionMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionMenu1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_InformacionMenu1ActionPerformed
-
     private void btn_InformacionMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InformacionMenu1MouseClicked
         try {
             Informacion infomacion = new Informacion();
@@ -1010,10 +987,6 @@ public class RegistrarProducto extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txt_BuscarModificarKeyTyped
-
-    private void txt_CantidaProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CantidaProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_CantidaProductoActionPerformed
 
     private void Pop_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pop_EliminarActionPerformed
         try {

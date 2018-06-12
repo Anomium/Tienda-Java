@@ -223,11 +223,6 @@ public class Vendedor extends javax.swing.JFrame {
                 btn_InformacionVendedorMouseClicked(evt);
             }
         });
-        btn_InformacionVendedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_InformacionVendedorActionPerformed(evt);
-            }
-        });
 
         tbl_TablaVendedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -265,11 +260,6 @@ public class Vendedor extends javax.swing.JFrame {
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -549,10 +539,6 @@ public class Vendedor extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void btn_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ModificarActionPerformed
         try {
             if (ConfirmDialog("¿Desea editar el producto?")) {
@@ -587,8 +573,6 @@ public class Vendedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Para seleccionar un vendedor es con clic izquierdo.");
             btn_Cancelar.doClick();
         }
-
-
     }//GEN-LAST:event_tbl_TablaVendedorMouseClicked
 
     private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
@@ -610,7 +594,6 @@ public class Vendedor extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Puede que no exista mas item para eliminar.", "Error", 0);
         }
-
     }//GEN-LAST:event_btn_EliminarActionPerformed
 
     private void btn_RegistrarVendedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarVendedor1ActionPerformed
@@ -663,8 +646,6 @@ public class Vendedor extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
         }
-
-
     }//GEN-LAST:event_btn_RegistrarVendedor1ActionPerformed
 
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
@@ -681,26 +662,17 @@ public class Vendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-
         BuscarTodo(txt_Buscar.getText().toUpperCase(),
                 tbl_TablaVendedor,
                 venco.Read(txt_Buscar.getText().toUpperCase()),
                 btn_CancelarBuscar);
-
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_CancelarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarBuscarActionPerformed
-
         listarTodo();
         btn_CancelarBuscar.setEnabled(false);
-
         txt_Buscar.setText(null);
-
     }//GEN-LAST:event_btn_CancelarBuscarActionPerformed
-
-    private void btn_InformacionVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InformacionVendedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_InformacionVendedorActionPerformed
 
     private void txt_NumeroDocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_NumeroDocumentoKeyTyped
         char c = evt.getKeyChar();
@@ -722,7 +694,6 @@ public class Vendedor extends javax.swing.JFrame {
             evt.consume();
             JOptionPane.showMessageDialog(null, "Maximo 8 digitos.", "Informacion", 1);
         }
-
     }//GEN-LAST:event_txt_IdVendedorKeyTyped
 
     private void txt_TelefonoVendedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_TelefonoVendedorKeyTyped
@@ -732,7 +703,6 @@ public class Vendedor extends javax.swing.JFrame {
 
             evt.consume();
         }
-
     }//GEN-LAST:event_txt_TelefonoVendedorKeyTyped
 
     private void txt_NombreVendedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_NombreVendedorKeyTyped
@@ -815,7 +785,6 @@ public class Vendedor extends javax.swing.JFrame {
             index = null;
             return false;
         }
-
     }
 
     //Este Metodo Sirve Para Listar las Tablas
@@ -833,7 +802,6 @@ public class Vendedor extends javax.swing.JFrame {
     //Metodo para listar todas la tablas de la vista modificar producto
     private void listarTodo() {
         Listar((DefaultTableModel) tbl_TablaVendedor.getModel(), venco.ReadAll());
-
     }
 
     //Metodo para borrar TextField 
@@ -857,7 +825,6 @@ public class Vendedor extends javax.swing.JFrame {
         modificar.setEnabled(Cond);
         eliminar.setEnabled(Cond);
         cancelar.setEnabled(Cond);
-
     }
 
     //Metodo para buscar, enlistar la busqueda y habilitar un boton

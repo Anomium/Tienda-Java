@@ -162,9 +162,6 @@ public class Venta extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jp_InformacionVentaMousePressed(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jp_InformacionVentaMouseReleased(evt);
-            }
         });
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen1.png"))); // NOI18N
@@ -316,11 +313,6 @@ public class Venta extends javax.swing.JFrame {
                 btn_ProductosVentaMouseClicked(evt);
             }
         });
-        btn_ProductosVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ProductosVentaActionPerformed(evt);
-            }
-        });
 
         btn_VendedoresVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
         btn_VendedoresVenta.setText("Vendedores");
@@ -454,11 +446,6 @@ public class Venta extends javax.swing.JFrame {
         jLabel2.setText("Cantidad");
 
         txt_Cantidad.setEnabled(false);
-        txt_Cantidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_CantidadActionPerformed(evt);
-            }
-        });
         txt_Cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_CantidadKeyTyped(evt);
@@ -833,11 +820,7 @@ public class Venta extends javax.swing.JFrame {
         registrarproducto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_ProductosVentaMouseClicked
-
-    private void btn_ProductosVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProductosVentaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ProductosVentaActionPerformed
-
+   
     private void btn_BuscarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarVentaActionPerformed
         BuscarTodo(txt_BuscarProductoVenta.getText().toUpperCase(), tbl_ProductosVenta, proco.Read(txt_BuscarProductoVenta.getText().toUpperCase()), btn_CancelarBusquedaProdVenta);
     }//GEN-LAST:event_btn_BuscarVentaActionPerformed
@@ -846,10 +829,6 @@ public class Venta extends javax.swing.JFrame {
         ListarTodo();
         btn_CancelarBusquedaProdVenta.setEnabled(false);
     }//GEN-LAST:event_btn_CancelarBusquedaProdVentaActionPerformed
-
-    private void txt_CantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CantidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_CantidadActionPerformed
 
     private void tbl_ProductosVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ProductosVentaMouseClicked
         try {
@@ -1107,10 +1086,6 @@ public class Venta extends javax.swing.JFrame {
         x = evt.getX();
         y = evt.getY();
     }//GEN-LAST:event_jp_InformacionVentaMousePressed
-
-    private void jp_InformacionVentaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_InformacionVentaMouseReleased
-
-    }//GEN-LAST:event_jp_InformacionVentaMouseReleased
 
     private void tbl_RegistroVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_RegistroVentaMouseClicked
         Index = tbl_RegistroVenta.getSelectedRow();
