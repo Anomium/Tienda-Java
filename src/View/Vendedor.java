@@ -640,11 +640,11 @@ public class Vendedor extends javax.swing.JFrame {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos.", "Error", 0);
+                JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
+        } catch (ArrayIndexOutOfBoundsException h) {
+            JOptionPane.showMessageDialog(null, "El ID del vendedor ya existe.", "Error", 0);
         }
     }//GEN-LAST:event_btn_RegistrarVendedor1ActionPerformed
 
