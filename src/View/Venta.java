@@ -866,7 +866,9 @@ public class Venta extends javax.swing.JFrame {
             btn_AgregarVenta.setEnabled(false);
             Index = tbl_CarritoVenta.getSelectedRow();
         } catch (java.lang.ArrayIndexOutOfBoundsException e) {
+            btn_RetirarVenta.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Para seleccionar un producto es con clic izquierdo.");
+            
         }
 
     }//GEN-LAST:event_tbl_CarritoVentaMouseClicked

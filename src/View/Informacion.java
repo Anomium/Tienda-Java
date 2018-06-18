@@ -81,6 +81,7 @@ public class Informacion extends javax.swing.JFrame {
         });
         jPopupMenu1.add(Pop_Informacion);
 
+        jd_Informacion.setModal(true);
         jd_Informacion.setSize(new java.awt.Dimension(345, 234));
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 0));
