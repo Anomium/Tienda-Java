@@ -292,6 +292,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_MenuVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/menu.png"))); // NOI18N
         btn_MenuVenta.setText("Menu");
+        btn_MenuVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_MenuVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_MenuVentaMouseClicked(evt);
@@ -300,6 +301,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_InformacionVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
         btn_InformacionVenta.setText("Informacion");
+        btn_InformacionVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_InformacionVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_InformacionVentaMouseClicked(evt);
@@ -308,6 +310,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_ProductosVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/producto.png"))); // NOI18N
         btn_ProductosVenta.setText("Productos ");
+        btn_ProductosVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_ProductosVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_ProductosVentaMouseClicked(evt);
@@ -316,6 +319,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_VendedoresVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
         btn_VendedoresVenta.setText("Vendedores");
+        btn_VendedoresVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_VendedoresVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_VendedoresVentaMouseClicked(evt);
@@ -338,6 +342,7 @@ public class Venta extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_ProductosVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tbl_ProductosVenta.getTableHeader().setReorderingAllowed(false);
         tbl_ProductosVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -372,6 +377,7 @@ public class Venta extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_CarritoVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tbl_CarritoVenta.getTableHeader().setReorderingAllowed(false);
         tbl_CarritoVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -395,6 +401,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_AgregarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/comprar.png"))); // NOI18N
         btn_AgregarVenta.setText("Agregar");
+        btn_AgregarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_AgregarVenta.setEnabled(false);
         btn_AgregarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,6 +411,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_RetirarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
         btn_RetirarVenta.setText("Retirar");
+        btn_RetirarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_RetirarVenta.setEnabled(false);
         btn_RetirarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -413,6 +421,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_BuscarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
         btn_BuscarVenta.setText("Buscar");
+        btn_BuscarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_BuscarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_BuscarVentaActionPerformed(evt);
@@ -427,6 +436,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_ComprarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agrgar.png"))); // NOI18N
         btn_ComprarVenta.setText("Comprar");
+        btn_ComprarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_ComprarVenta.setEnabled(false);
         btn_ComprarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -436,6 +446,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_CancelarBusquedaProdVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
         btn_CancelarBusquedaProdVenta.setText("Cancelar Busqueda");
+        btn_CancelarBusquedaProdVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_CancelarBusquedaProdVenta.setEnabled(false);
         btn_CancelarBusquedaProdVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -456,6 +467,7 @@ public class Venta extends javax.swing.JFrame {
 
         txt_nombre.setEnabled(false);
 
+        cmbx_VendedorVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmbx_VendedorVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbx_VendedorVentaActionPerformed(evt);
@@ -465,6 +477,7 @@ public class Venta extends javax.swing.JFrame {
         jLabel6.setText("Vendedor");
 
         btn_CancelarCompra.setText("Cancelar Compra");
+        btn_CancelarCompra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_CancelarCompra.setEnabled(false);
         btn_CancelarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -654,6 +667,7 @@ public class Venta extends javax.swing.JFrame {
             }
         });
         tbl_RegistroVenta.setComponentPopupMenu(jPopupMenu1);
+        tbl_RegistroVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tbl_RegistroVenta.getTableHeader().setReorderingAllowed(false);
         tbl_RegistroVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -672,6 +686,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_BuscarRegistroVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
         btn_BuscarRegistroVenta.setText("Buscar");
+        btn_BuscarRegistroVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_BuscarRegistroVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_BuscarRegistroVentaActionPerformed(evt);
@@ -695,6 +710,7 @@ public class Venta extends javax.swing.JFrame {
 
         btn_CancelarBusquedaRegistroVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
         btn_CancelarBusquedaRegistroVenta.setText("Cancelar Busqueda");
+        btn_CancelarBusquedaRegistroVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_CancelarBusquedaRegistroVenta.setEnabled(false);
         btn_CancelarBusquedaRegistroVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

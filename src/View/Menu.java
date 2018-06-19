@@ -82,6 +82,7 @@ public class Menu extends javax.swing.JFrame {
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen1.png"))); // NOI18N
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -91,6 +92,7 @@ public class Menu extends javax.swing.JFrame {
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen5.png"))); // NOI18N
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -128,6 +130,7 @@ public class Menu extends javax.swing.JFrame {
 
         btn_VentaMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/venta.png"))); // NOI18N
         btn_VentaMenu.setText("Venta");
+        btn_VentaMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_VentaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_VentaMenuMouseClicked(evt);
@@ -137,6 +140,7 @@ public class Menu extends javax.swing.JFrame {
 
         btn_VendedoresMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedores.png"))); // NOI18N
         btn_VendedoresMenu.setText("Vendedores");
+        btn_VendedoresMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_VendedoresMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_VendedoresMenuMouseClicked(evt);
@@ -146,6 +150,7 @@ public class Menu extends javax.swing.JFrame {
 
         btn_InformacionMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
         btn_InformacionMenu.setText("Informacion");
+        btn_InformacionMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_InformacionMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_InformacionMenuMouseClicked(evt);
@@ -167,6 +172,7 @@ public class Menu extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/producto.png"))); // NOI18N
         jButton1.setText("Productos ");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);

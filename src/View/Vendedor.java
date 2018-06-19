@@ -145,6 +145,7 @@ public class Vendedor extends javax.swing.JFrame {
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen5.png"))); // NOI18N
         jButton10.setBorderPainted(false);
         jButton10.setContentAreaFilled(false);
+        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -154,6 +155,7 @@ public class Vendedor extends javax.swing.JFrame {
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Imagen1.png"))); // NOI18N
         jButton11.setBorderPainted(false);
         jButton11.setContentAreaFilled(false);
+        jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -202,6 +204,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         btn_VentaVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/venta.png"))); // NOI18N
         btn_VentaVendedor.setText("Venta");
+        btn_VentaVendedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_VentaVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_VentaVendedorMouseClicked(evt);
@@ -210,6 +213,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         btn_MenuVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/menu.png"))); // NOI18N
         btn_MenuVendedor.setText("Menu");
+        btn_MenuVendedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_MenuVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_MenuVendedorMouseClicked(evt);
@@ -218,6 +222,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         btn_InformacionVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
         btn_InformacionVendedor.setText("Informacion");
+        btn_InformacionVendedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_InformacionVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_InformacionVendedorMouseClicked(evt);
@@ -241,6 +246,7 @@ public class Vendedor extends javax.swing.JFrame {
             }
         });
         tbl_TablaVendedor.setComponentPopupMenu(jPopupMenu1);
+        tbl_TablaVendedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tbl_TablaVendedor.getTableHeader().setReorderingAllowed(false);
         tbl_TablaVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -257,6 +263,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/producto.png"))); // NOI18N
         jButton1.setText("Productos ");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -265,6 +272,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         btn_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/modificar.png"))); // NOI18N
         btn_Modificar.setText("Modificar");
+        btn_Modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Modificar.setEnabled(false);
         btn_Modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,6 +282,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         btn_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
         btn_Cancelar.setText("Cancelar");
+        btn_Cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Cancelar.setEnabled(false);
         btn_Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,6 +292,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         btn_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
         btn_Eliminar.setText("Eliminar");
+        btn_Eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Eliminar.setEnabled(false);
         btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,6 +302,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png"))); // NOI18N
         btn_RegistrarVendedor1.setText("Registrar");
+        btn_RegistrarVendedor1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_RegistrarVendedor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_RegistrarVendedor1ActionPerformed(evt);
@@ -339,6 +350,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
         btn_buscar.setText("Buscar");
+        btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarActionPerformed(evt);
@@ -347,6 +359,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         btn_CancelarBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N
         btn_CancelarBuscar.setText("Cancelar");
+        btn_CancelarBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_CancelarBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CancelarBuscarActionPerformed(evt);
@@ -430,11 +443,11 @@ public class Vendedor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(btn_MenuVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_VentaVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(8, 8, 8)
                         .addComponent(btn_InformacionVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
@@ -477,11 +490,11 @@ public class Vendedor extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_MenuVendedor)
-                            .addComponent(btn_VentaVendedor)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btn_InformacionVendedor)
+                                    .addComponent(btn_VentaVendedor)
                                     .addComponent(jButton1))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -561,6 +574,7 @@ public class Vendedor extends javax.swing.JFrame {
             btn_Cancelar.doClick();
             if (evt.getButton() != 3 && evt.getButton() != 2) {
                 HabilitarBotones(btn_Modificar, btn_Eliminar, btn_Cancelar, true);
+                btn_RegistrarVendedor1.setEnabled(false);
                 index = tbl_TablaVendedor.getSelectedRow();
                 HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, false);
 
@@ -585,6 +599,7 @@ public class Vendedor extends javax.swing.JFrame {
                 btn_Cancelar.setEnabled(false);
                 btn_Modificar.setEnabled(false);
                 btn_Eliminar.setEnabled(false);
+                btn_RegistrarVendedor1.setEnabled(true);
                 BorrarTextField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor);
                 HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
                 btn_RegistrarVendedor1.setText("Registrar");
@@ -599,7 +614,7 @@ public class Vendedor extends javax.swing.JFrame {
     private void btn_RegistrarVendedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarVendedor1ActionPerformed
         try {
             if (ValCeroEspacio(txt_NombreVendedor.getText(), txt_NumeroDocumento.getText(), txt_IdVendedor.getText())) {
-                if (ValCodigo(txt_IdVendedor.getText()) || txt_IdVendedor.getText().equalsIgnoreCase((String) tbl_TablaVendedor.getValueAt(tbl_TablaVendedor.getSelectedRow(), 0).toString())) {
+                if (ValCodigo(txt_IdVendedor.getText()) || index != null) {
                     if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Registrar")) {
 
                         if (ConfirmDialog("¿Desea Registrar?")) {
@@ -616,24 +631,25 @@ public class Vendedor extends javax.swing.JFrame {
                         }
 
                     } else if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Guardar")) {
+                        
 
-                        if (ConfirmDialog("¿Desea Guardar?")) {
-                            venco.Update((int) index, new Vendedorm(txt_NombreVendedor.getText(),
-                                    txt_NumeroDocumento.getText(),
-                                    txt_IdVendedor.getText(),
-                                    txt_TelefonoVendedor.getText()));
-                            btn_Eliminar.setEnabled(false);
-                            btn_Cancelar.setEnabled(false);
-                            btn_RegistrarVendedor1.setText("Registrar");
-                            btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
-                            listarTodo();
-                            txt_NombreVendedor.setText("");
-                            txt_IdVendedor.setText("");
-                            txt_NumeroDocumento.setText("");
-                            txt_TelefonoVendedor.setText("");
-                            index = null;
-                        }
-
+                            if (ConfirmDialog("¿Desea Guardar?")) {
+                                venco.Update((int) index, new Vendedorm(txt_NombreVendedor.getText(),
+                                        txt_NumeroDocumento.getText(),
+                                        txt_IdVendedor.getText(),
+                                        txt_TelefonoVendedor.getText()));
+                                btn_Eliminar.setEnabled(false);
+                                btn_Cancelar.setEnabled(false);
+                                btn_RegistrarVendedor1.setText("Registrar");
+                                btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
+                                listarTodo();
+                                txt_NombreVendedor.setText("");
+                                txt_IdVendedor.setText("");
+                                txt_NumeroDocumento.setText("");
+                                txt_TelefonoVendedor.setText("");
+                                index = null;
+                            }
+                        
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "El ID del vendedor ya existe.", "Error", 0);
@@ -657,7 +673,7 @@ public class Vendedor extends javax.swing.JFrame {
         btn_Modificar.setEnabled(false);
         btn_Eliminar.setEnabled(false);
         btn_Cancelar.setEnabled(false);
-
+        btn_RegistrarVendedor1.setEnabled(true);
         index = null;
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
