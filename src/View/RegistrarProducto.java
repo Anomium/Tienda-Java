@@ -791,6 +791,8 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 txt_CantidadModificar.setText("");
                 proco.Backup();
                 ListarTodo();
+            } else if(JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1){
+                btn_CancelarModificar.doClick();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Puede que no exista mas item para eliminar.", "Error", 0);
@@ -805,6 +807,8 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 btn_GuadarModificar.setEnabled(true);
                 btn_ModificarProducto.setEnabled(false);
                 HabilitarTxtField(txt_NombreModificar, txt_PrecioModificar, txt_IDModificar, txt_CantidadModificar, true);
+            } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
+                btn_CancelarModificar.doClick();
             }
 
         } catch (Exception e) {
@@ -877,8 +881,9 @@ public class RegistrarProducto extends javax.swing.JFrame {
         proco.Backup();
         try {
             if (ValCodigo(txt_IDProducto.getText())) {
-                if (ConfirmDialog("¿Desea registrar?")) {
-                    if (ValCeroEspacio(txt_NombreProducto.getText(), txt_IDProducto.getText(), Integer.parseInt(txt_CantidaProducto.getText()), Double.parseDouble(txt_PrecioProducto.getText()))) {
+                if (ValCeroEspacio(txt_NombreProducto.getText(), txt_IDProducto.getText(), Integer.parseInt(txt_CantidaProducto.getText()), Double.parseDouble(txt_PrecioProducto.getText()))) {
+                    if (ConfirmDialog("¿Desea registrar?")) {
+
                         proco.create(new Producto(txt_IDProducto.getText().toUpperCase(),
                                 txt_NombreProducto.getText().toUpperCase(),
                                 Double.parseDouble(txt_PrecioProducto.getText()),
@@ -888,10 +893,15 @@ public class RegistrarProducto extends javax.swing.JFrame {
                         txt_IDProducto.setText("");
                         txt_CantidaProducto.setText("");
                         ListarTodo();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
-                    }
 
+                    } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
+                        txt_NombreProducto.setText("");
+                        txt_PrecioProducto.setText("");
+                        txt_IDProducto.setText("");
+                        txt_CantidaProducto.setText("");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "El ID del producto ya existe.", "Error", 0);
