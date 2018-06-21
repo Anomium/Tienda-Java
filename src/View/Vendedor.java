@@ -563,6 +563,8 @@ public class Vendedor extends javax.swing.JFrame {
 
                 HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
 
+            } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
+                btn_Cancelar.doClick();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Revise que los campos han sido llenados correctamente.", "Error", 0);
@@ -605,6 +607,18 @@ public class Vendedor extends javax.swing.JFrame {
                 btn_RegistrarVendedor1.setText("Registrar");
                 btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
                 listarTodo();
+            } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
+                index = null;
+
+                btn_Cancelar.setEnabled(true);
+                btn_Modificar.setEnabled(true);
+                btn_Eliminar.setEnabled(true);
+                btn_RegistrarVendedor1.setEnabled(true);
+
+                txt_NombreVendedor.setText("");
+                txt_IdVendedor.setText("");
+                txt_NumeroDocumento.setText("");
+                txt_TelefonoVendedor.setText("");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Puede que no exista mas item para eliminar.", "Error", 0);
@@ -628,28 +642,33 @@ public class Vendedor extends javax.swing.JFrame {
                             txt_TelefonoVendedor.setText("");
 
                             listarTodo();
+                        } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
+                            index = null;
+                            txt_NombreVendedor.setText("");
+                            txt_IdVendedor.setText("");
+                            txt_NumeroDocumento.setText("");
+                            txt_TelefonoVendedor.setText("");
                         }
 
                     } else if (btn_RegistrarVendedor1.getText().equalsIgnoreCase("Guardar")) {
-                        
 
-                            if (ConfirmDialog("¿Desea Guardar?")) {
-                                venco.Update((int) index, new Vendedorm(txt_NombreVendedor.getText(),
-                                        txt_NumeroDocumento.getText(),
-                                        txt_IdVendedor.getText(),
-                                        txt_TelefonoVendedor.getText()));
-                                btn_Eliminar.setEnabled(false);
-                                btn_Cancelar.setEnabled(false);
-                                btn_RegistrarVendedor1.setText("Registrar");
-                                btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
-                                listarTodo();
-                                txt_NombreVendedor.setText("");
-                                txt_IdVendedor.setText("");
-                                txt_NumeroDocumento.setText("");
-                                txt_TelefonoVendedor.setText("");
-                                index = null;
-                            }
-                        
+                        if (ConfirmDialog("¿Desea Guardar?")) {
+                            venco.Update((int) index, new Vendedorm(txt_NombreVendedor.getText(),
+                                    txt_NumeroDocumento.getText(),
+                                    txt_IdVendedor.getText(),
+                                    txt_TelefonoVendedor.getText()));
+                            btn_Eliminar.setEnabled(false);
+                            btn_Cancelar.setEnabled(false);
+                            btn_RegistrarVendedor1.setText("Registrar");
+                            btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
+                            listarTodo();
+                            txt_NombreVendedor.setText("");
+                            txt_IdVendedor.setText("");
+                            txt_NumeroDocumento.setText("");
+                            txt_TelefonoVendedor.setText("");
+                            index = null;
+                        }
+
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "El ID del vendedor ya existe.", "Error", 0);
@@ -755,6 +774,8 @@ public class Vendedor extends javax.swing.JFrame {
 
                     HabilitarTxtField(txt_NombreVendedor, txt_IdVendedor, txt_NumeroDocumento, txt_TelefonoVendedor, true);
 
+                } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
+                    btn_Cancelar.doClick();
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado vendedor.", "Aviso", 1);
@@ -781,6 +802,8 @@ public class Vendedor extends javax.swing.JFrame {
                     btn_RegistrarVendedor1.setText("Registrar");
                     btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
                     listarTodo();
+                } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
+                    btn_Cancelar.doClick();
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado un vendedor.", "Aviso", 1);
