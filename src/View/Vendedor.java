@@ -2,15 +2,16 @@ package View;
 
 import Controller.VendedorController;
 import Model.Vendedorm;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -18,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class Vendedor extends javax.swing.JFrame {
 
     private VendedorController venco = new VendedorController();
+    String Datos = "..\\Tienda-Java\\Vendedor.dat";
     private Object index = null;
 
     private int x, y;
@@ -26,7 +28,9 @@ public class Vendedor extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
+        LoadData();
         listarTodo();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -640,7 +644,7 @@ public class Vendedor extends javax.swing.JFrame {
                             txt_IdVendedor.setText("");
                             txt_NumeroDocumento.setText("");
                             txt_TelefonoVendedor.setText("");
-
+                            SaveData();
                             listarTodo();
                         } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
                             index = null;
@@ -901,6 +905,33 @@ public class Vendedor extends javax.swing.JFrame {
             }
         }
         return true;
+    }
+    
+    
+    public void LoadData() {
+        File fichero = new File(Datos);
+
+        if (fichero.exists()) {
+           // JOptionPane.showMessageDialog(null, "encontrado " + fichero.getAbsolutePath());
+            try {
+                FileInputStream archivo = new FileInputStream(Datos);
+                ObjectInputStream obj_archivo = new ObjectInputStream(archivo);
+                venco.setVendedor((ArrayList<Vendedorm>) obj_archivo.readObject());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e + "\nHa ocurrido un error con el archivo");
+            }
+        }
+
+    }
+
+    public void SaveData() {
+        try {
+            FileOutputStream archivo = new FileOutputStream(Datos);
+            ObjectOutputStream obj_archivo = new ObjectOutputStream(archivo);
+            obj_archivo.writeObject(venco.getVendedor());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e + "\nHa ocurrido un error con el archivo");
+        }
     }
 
 

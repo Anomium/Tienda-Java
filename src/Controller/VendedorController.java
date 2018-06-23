@@ -44,9 +44,15 @@ public class VendedorController {
     public void Delete(int index){
         vendedor.remove(index);
     }
-    
+
+    public static void setVendedor(ArrayList<Vendedorm> vendedor) {
+        VendedorController.vendedor = vendedor;
+    }
+
     public static ArrayList<Vendedorm> getVendedor() {
         return vendedor;
     }
+    
+    
     
 }

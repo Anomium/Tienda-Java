@@ -1,5 +1,6 @@
 package Model;
-public class Vendedorm {
+import java.io.Serializable;
+public class Vendedorm implements Serializable{
     private String nombre;
     private String NumDocumento;
     private String ID;
