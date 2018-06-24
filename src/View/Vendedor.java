@@ -611,6 +611,7 @@ public class Vendedor extends javax.swing.JFrame {
                 btn_RegistrarVendedor1.setText("Registrar");
                 btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
                 listarTodo();
+                SaveData();
             } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
                 index = null;
 
@@ -644,8 +645,9 @@ public class Vendedor extends javax.swing.JFrame {
                             txt_IdVendedor.setText("");
                             txt_NumeroDocumento.setText("");
                             txt_TelefonoVendedor.setText("");
-                            SaveData();
+
                             listarTodo();
+                            SaveData();
                         } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
                             index = null;
                             txt_NombreVendedor.setText("");
@@ -666,6 +668,7 @@ public class Vendedor extends javax.swing.JFrame {
                             btn_RegistrarVendedor1.setText("Registrar");
                             btn_RegistrarVendedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registar_1.png")));
                             listarTodo();
+                            SaveData();
                             txt_NombreVendedor.setText("");
                             txt_IdVendedor.setText("");
                             txt_NumeroDocumento.setText("");
@@ -906,13 +909,12 @@ public class Vendedor extends javax.swing.JFrame {
         }
         return true;
     }
-    
-    
+
     public void LoadData() {
         File fichero = new File(Datos);
 
         if (fichero.exists()) {
-           // JOptionPane.showMessageDialog(null, "encontrado " + fichero.getAbsolutePath());
+            // JOptionPane.showMessageDialog(null, "encontrado " + fichero.getAbsolutePath());
             try {
                 FileInputStream archivo = new FileInputStream(Datos);
                 ObjectInputStream obj_archivo = new ObjectInputStream(archivo);
@@ -929,6 +931,7 @@ public class Vendedor extends javax.swing.JFrame {
             FileOutputStream archivo = new FileOutputStream(Datos);
             ObjectOutputStream obj_archivo = new ObjectOutputStream(archivo);
             obj_archivo.writeObject(venco.getVendedor());
+            archivo.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e + "\nHa ocurrido un error con el archivo");
         }
