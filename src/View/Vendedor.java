@@ -914,7 +914,6 @@ public class Vendedor extends javax.swing.JFrame {
         File fichero = new File(Datos);
 
         if (fichero.exists()) {
-            // JOptionPane.showMessageDialog(null, "encontrado " + fichero.getAbsolutePath());
             try {
                 FileInputStream archivo = new FileInputStream(Datos);
                 ObjectInputStream obj_archivo = new ObjectInputStream(archivo);

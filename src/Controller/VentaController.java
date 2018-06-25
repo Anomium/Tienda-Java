@@ -2,12 +2,9 @@ package Controller;
 
 import Model.Producto;
 import Model.VentaM;
-import Controller.VendedorController;
-import com.sun.swing.internal.plaf.basic.resources.basic;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JTextPane;
-import sun.swing.BakedArrayList;
 
 public class VentaController {
 
@@ -269,4 +266,10 @@ public class VentaController {
         return Backup;
     }
 
+    public static void setBackup(ArrayList<VentaM> Backup) {
+        VentaController.Backup = Backup;
+    }
+    
+    
+    
 }

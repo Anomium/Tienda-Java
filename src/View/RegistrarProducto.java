@@ -4,7 +4,13 @@ import javax.swing.ImageIcon;
 
 import Controller.ProductoController;
 import Model.Producto;
+import Model.Vendedorm;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -16,13 +22,14 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
     private ProductoController proco = new ProductoController();
     private Object index = null;
-
+    String Datos = "..\\Tienda-Java\\Producto.dat";
     private int x, y;
 
     public RegistrarProducto() {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
+        LoadData();
         ListarTodo();
     }
 
@@ -791,7 +798,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
                 txt_CantidadModificar.setText("");
                 proco.Backup();
                 ListarTodo();
-            } else if(JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1){
+            } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
                 btn_CancelarModificar.doClick();
             }
         } catch (Exception e) {
@@ -892,8 +899,9 @@ public class RegistrarProducto extends javax.swing.JFrame {
                         txt_PrecioProducto.setText("");
                         txt_IDProducto.setText("");
                         txt_CantidaProducto.setText("");
+                        
                         ListarTodo();
-
+                        SaveData();
                     } else if (JOptionPane.CANCEL_OPTION == 2 || JOptionPane.NO_OPTION == 1) {
                         txt_NombreProducto.setText("");
                         txt_PrecioProducto.setText("");
@@ -1141,6 +1149,32 @@ public class RegistrarProducto extends javax.swing.JFrame {
             }
         }
         return true;
+    }
+
+    public void LoadData() {
+        File fichero = new File(Datos);
+
+        if (fichero.exists()) {
+            try {
+                FileInputStream archivo = new FileInputStream(Datos);
+                ObjectInputStream obj_archivo = new ObjectInputStream(archivo);
+                proco.setProducto((ArrayList<Producto>) obj_archivo.readObject());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e + "\nHa ocurrido un error con el archivo");
+            }
+        }
+
+    }
+
+    public void SaveData() {
+        try {
+            FileOutputStream archivo = new FileOutputStream(Datos);
+            ObjectOutputStream obj_archivo = new ObjectOutputStream(archivo);
+            obj_archivo.writeObject(proco.getProducto());
+            archivo.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e + "\nHa ocurrido un error con el archivo");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

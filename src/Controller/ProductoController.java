@@ -3,7 +3,6 @@ package Controller;
 import java.util.ArrayList;
 import Model.Producto;
 import Model.VentaM;
-import sun.swing.BakedArrayList;
 
 public class ProductoController {
 
@@ -71,12 +70,22 @@ public class ProductoController {
         producto.remove(index);
     }
 
+    public static void setProducto(ArrayList<Producto> producto) {
+        ProductoController.producto = producto;
+    }
+      
     public static ArrayList<Producto> getProducto() {
         return producto;
     }
 
-    public static ArrayList<Producto> getBackup() {
+    public static ArrayList<Producto> getBackupA() {
         return BackupA;
     }
+
+    public static void setBackupA(ArrayList<Producto> BackupA) {
+        ProductoController.BackupA = BackupA;
+    }
+
+    
 
 }

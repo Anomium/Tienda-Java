@@ -1,7 +1,8 @@
 package Model;
 import Controller.VentaController;
+import java.io.Serializable;
 
-public class VentaM extends Producto implements Comparable<VentaM> {
+public class VentaM extends Producto implements Comparable<VentaM>, Serializable {
     
     private VentaController venco = new VentaController();
     private String Vendedor;
