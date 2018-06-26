@@ -2,11 +2,12 @@ package Controller;
 
 import Model.Producto;
 import Model.VentaM;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JTextPane;
 
-public class VentaController {
+public class VentaController implements Serializable{
 
     private static ArrayList<VentaM> venta = new ArrayList<VentaM>();
     private static ArrayList<VentaM> Registro = new ArrayList<VentaM>();

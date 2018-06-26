@@ -3,8 +3,9 @@ package Controller;
 import java.util.ArrayList;
 import Model.Producto;
 import Model.VentaM;
+import java.io.Serializable;
 
-public class ProductoController {
+public class ProductoController implements Serializable{
 
     private static ArrayList<Producto> producto = new ArrayList<Producto>();
     private static ArrayList<Producto> BackupA = new ArrayList<Producto>();

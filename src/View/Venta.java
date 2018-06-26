@@ -42,7 +42,7 @@ public class Venta extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("../Img/logod.png")).getImage());
         Subtotal(tp_TotalPagarVenta);
         ListarCombobox(cmbx_VendedorVenta, vendeco.getVendedor());
-        lo
+        LoadData();
         ListarTodo();
 
     }
@@ -1019,8 +1019,9 @@ public class Venta extends javax.swing.JFrame {
         txt_Cantidad.setText(null);
         txt_nombre.setText(null);
         txt_CodigoComprador.setText(null);
-        SaveData();
+
         ListarTodo();
+        SaveData();
         Subtotal(tp_TotalPagarVenta);
         btn_ComprarVenta.setEnabled(false);
         venco.Ordenamiento();
@@ -1211,7 +1212,7 @@ public class Venta extends javax.swing.JFrame {
 
     }
 
-    /*public void LoadData() {
+    public void LoadData() {
         File fichero = new File(Datos);
 
         if (fichero.exists()) {
@@ -1235,7 +1236,7 @@ public class Venta extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e + "\nHa ocurrido un error con el archivo");
         }
-    }*/
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AgregarVenta;

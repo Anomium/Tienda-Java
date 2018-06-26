@@ -2,8 +2,9 @@ package Controller;
 
 import java.util.ArrayList;
 import Model.Vendedorm;
+import java.io.Serializable;
 
-public class VendedorController {
+public class VendedorController implements Serializable{
     
     private static ArrayList<Vendedorm> vendedor = new ArrayList<Vendedorm>();
     
