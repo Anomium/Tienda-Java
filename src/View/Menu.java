@@ -12,6 +12,9 @@ import javax.swing.Timer;
 
 public class Menu extends javax.swing.JFrame {
 
+    private RegistrarProducto regprovista = new RegistrarProducto();
+    private Vendedor vendedorvista = new Vendedor();
+    private Venta ventavista = new Venta();
     private int x, y;
 
     public Menu() {
@@ -27,6 +30,7 @@ public class Menu extends javax.swing.JFrame {
         // hora
         Timer tiempo = new Timer(100, new Menu.horas());
         tiempo.start();
+        LoadDataAll();
     }
 
     class horas implements ActionListener {
@@ -244,6 +248,15 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_jButton1MouseClicked
+
+    public void LoadDataAll() {
+        try {
+            regprovista.LoadData();
+            vendedorvista.LoadData();
+            ventavista.LoadData();
+        } catch (Exception e) {
+        }
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
