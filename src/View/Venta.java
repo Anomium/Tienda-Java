@@ -31,6 +31,9 @@ public class Venta extends javax.swing.JFrame {
     private ProductoController proco = new ProductoController();
     private VentaController venco = new VentaController();
     private VendedorController vendeco = new VendedorController();
+    private RegistrarProducto regprovista = new RegistrarProducto();
+    private Vendedor vendedorvista = new Vendedor();
+    
     String Datos = "..\\Tienda-Java\\Venta.dat";
     private Object Index = null;
     private Object IndexCmbx = null;
@@ -1021,7 +1024,7 @@ public class Venta extends javax.swing.JFrame {
         txt_CodigoComprador.setText(null);
 
         ListarTodo();
-        SaveData();
+        SaveDataAll();
         Subtotal(tp_TotalPagarVenta);
         btn_ComprarVenta.setEnabled(false);
         venco.Ordenamiento();
@@ -1235,6 +1238,15 @@ public class Venta extends javax.swing.JFrame {
             archivo.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e + "\nHa ocurrido un error con el archivo");
+        }
+    }
+
+    public void SaveDataAll() {
+        try {
+            regprovista.SaveData();
+            vendedorvista.SaveData();
+            SaveData();
+        } catch (Exception e) {
         }
     }
 
